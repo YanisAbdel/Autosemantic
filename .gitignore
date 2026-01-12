@@ -1,0 +1,74 @@
+# =========================
+# Python
+# =========================
+
+# Byte-compiled / optimized files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments
+venv/
+env/
+.venv/
+ENV/
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+
+# PyCharm / VS Code
+.idea/
+.vscode/
+
+# mypy / type checking
+.mypy_cache/
+.pyre/
+.pytype/
+
+# Logs
+*.log
+
+# Environment variables
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# =========================
+# Optional (remove if needed)
+# =========================
+
+# SQLite databases
+*.sqlite3
+
+# Model / data files (ML / DL)
+*.h5
+*.pt
+*.pth
+*.onnx
+*.ckpt
+
+# Large datasets
+data/
+datasets/
