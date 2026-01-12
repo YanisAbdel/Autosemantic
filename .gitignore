@@ -72,3 +72,5 @@ Thumbs.db
 # Large datasets
 data/
 datasets/
+
+*.csv
