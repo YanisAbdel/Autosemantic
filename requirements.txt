@@ -1,0 +1,10 @@
+pandas
+numpy
+rdflib
+pyshacl
+transformers
+torch
+sentencepiece
+scipy
+morph-kgc
+streamlit
