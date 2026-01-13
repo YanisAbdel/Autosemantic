@@ -5,200 +5,174 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @base <http://www.univ-projet.fr/ontologies/autosemantica> .
 
 <http://www.univ-projet.fr/ontologies/autosemantica> rdf:type owl:Ontology ;
-    rdfs:comment "Ontology for the AutoSemantic project"@en .
+    rdfs:comment "Ontologie pour le projet AutoSemantic : Véhicules et Avis Clients"@fr .
 
-:Vehicle rdf:type owl:Class .
+#################################################################
+#    Classes
+#################################################################
+
+:Vehicle rdf:type owl:Class ;
+    rdfs:label "Véhicule"@fr .
 
 :Car rdf:type owl:Class ;
-    rdfs:subClassOf :Vehicle .
-
-:Motorcycle rdf:type owl:Class ;
     rdfs:subClassOf :Vehicle ;
-    owl:disjointWith :Car .
+    rdfs:label "Voiture"@fr ;
+    rdfs:comment "Représente une entrée du fichier vehicles.csv"@fr .
 
-:Manufacturer rdf:type owl:Class .
-:AutomotiveGroup rdf:type owl:Class .
-:Engine rdf:type owl:Class .
-:Trim rdf:type owl:Class .
-:CustomerReview rdf:type owl:Class .
-:User rdf:type owl:Class .
+:Manufacturer rdf:type owl:Class ;
+    rdfs:label "Constructeur"@fr ;
+    rdfs:comment "Ex: Ford, Dodge, Ferrari..."@fr .
 
-:belongsToGroup rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
-    rdfs:domain :Manufacturer ;
-    rdfs:range :AutomotiveGroup .
+:CustomerReview rdf:type owl:Class ;
+    rdfs:label "Avis Client"@fr ;
+    rdfs:comment "Représente une ligne du fichier reviews_final.csv"@fr .
 
-:isCompetitorOf rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
-    rdfs:domain :Car ;
-    rdfs:range :Car .
+:User rdf:type owl:Class ;
+    rdfs:subClassOf foaf:Person ;
+    rdfs:label "Utilisateur"@fr .
 
+#################################################################
+#    Object Properties
+#################################################################
+
+### Liens Voiture -> Constructeur
 :manufacturedBy rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range :Manufacturer .
-
-:hasEngine rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range :Engine .
-
-:hasWritten rdf:type owl:ObjectProperty ;
-    rdfs:domain :User ;
-    rdfs:range :CustomerReview .
-
-:concernsVehicle rdf:type owl:ObjectProperty ;
-    rdfs:domain :CustomerReview ;
-    rdfs:range :Vehicle .
-
-:hasBodyType rdf:type owl:ObjectProperty ;
     rdfs:domain :Car ;
-    rdfs:range skos:Concept .
+    rdfs:range :Manufacturer ;
+    rdfs:label "Construit par"@fr .
 
-:hasTransmissionType rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range skos:Concept .
+### Liens Avis -> Voiture
+:isReviewOf rdf:type owl:ObjectProperty ;
+    rdfs:domain :CustomerReview ;
+    rdfs:range :Car ;
+    rdfs:label "Concerne le véhicule"@fr .
 
-:hasDriveType rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range skos:Concept .
+### Liens Avis -> Utilisateur
+:writtenBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :CustomerReview ;
+    rdfs:range :User ;
+    rdfs:label "Écrit par"@fr .
+
+### Liens vers les Thésaurus SKOS
+:hasTransmission rdf:type owl:ObjectProperty ;
+    rdfs:domain :Car ;
+    rdfs:range skos:Concept ;
+    rdfs:label "Type de transmission"@fr .
+
+:hasDriveTrain rdf:type owl:ObjectProperty ;
+    rdfs:domain :Car ;
+    rdfs:range skos:Concept ;
+    rdfs:label "Transmission (Roues motrices)"@fr .
+
+:hasVehicleClass rdf:type owl:ObjectProperty ;
+    rdfs:domain :Car ;
+    rdfs:range skos:Concept ;
+    rdfs:label "Catégorie de véhicule"@fr .
 
 :hasFuelType rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range skos:Concept .
+    rdfs:domain :Car ;
+    rdfs:range skos:Concept ;
+    rdfs:label "Type de carburant"@fr .
 
-:releaseYear rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:integer .
+#################################################################
+#    Datatype Properties
+#################################################################
 
-:modelYear rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:integer .
+### Propriétés pour :Car
+:modelName rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
+    rdfs:range xsd:string ;
+    rdfs:label "Nom du modèle"@fr .
 
-:phase rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:integer .
-
-:averagePrice rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:float .
-
-:co2Emission rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:integer .
-
-:weight rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
+:year rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
     rdfs:range xsd:integer ;
-    rdfs:comment "Weight in kg of the vehicle."@en .
+    rdfs:label "Année de production"@fr .
 
-:range rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:integer .
+:numberOfCylinders rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
+    rdfs:range xsd:integer ;
+    rdfs:label "Nombre de cylindres"@fr .
 
-:userRating rdf:type owl:DatatypeProperty ;
+:engineDisplacement rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
+    rdfs:range xsd:float ;
+    rdfs:label "Cylindrée (L)"@fr .
+
+:cityMPG rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
+    rdfs:range xsd:float ;
+    rdfs:label "Conso Ville (MPG)"@fr .
+
+:highwayMPG rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
+    rdfs:range xsd:float ;
+    rdfs:label "Conso Autoroute (MPG)"@fr .
+
+:combinedMPG rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
+    rdfs:range xsd:float ;
+    rdfs:label "Conso Mixte (MPG)"@fr .
+
+:co2Emissions rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
+    rdfs:range xsd:float ;
+    rdfs:label "Émissions CO2 (g/mile)"@fr .
+
+### Propriétés pour :CustomerReview (issues de reviews_final.csv)
+:reviewBody rdf:type owl:DatatypeProperty ;
     rdfs:domain :CustomerReview ;
-    rdfs:range xsd:integer .
+    rdfs:range xsd:string ;
+    rdfs:label "Contenu de l'avis"@fr .
 
-:power rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Engine ;
-    rdfs:range xsd:integer .
+:reviewTitle rdf:type owl:DatatypeProperty ;
+    rdfs:domain :CustomerReview ;
+    rdfs:range xsd:string ;
+    rdfs:label "Titre de l'avis"@fr .
 
-:torque rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Engine ;
-    rdfs:range xsd:integer .
+:reviewRating rdf:type owl:DatatypeProperty ;
+    rdfs:domain :CustomerReview ;
+    rdfs:range xsd:float ;
+    rdfs:label "Note (sur 5)"@fr .
 
-:seatCount rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:integer .
+:reviewDate rdf:type owl:DatatypeProperty ;
+    rdfs:domain :CustomerReview ;
+    rdfs:range xsd:date ;
+    rdfs:label "Date de l'avis"@fr .
 
-:doorCount rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Car ;
-    rdfs:range xsd:integer .
+### Propriétés pour :User et :Manufacturer
+:name rdf:type owl:DatatypeProperty ;
+    rdfs:domain [ owl:unionOf (:User :Manufacturer) ] ;
+    rdfs:range xsd:string ;
+    rdfs:label "Nom"@fr .
 
-:trunkVolume rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Car ;
-    rdfs:range xsd:integer .
+#################################################################
+#    Système SKOS
+#################################################################
 
-:aspirationType rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Engine ;
-    rdfs:range xsd:string .
-
-:PollutingCar rdf:type owl:Class ;
-    owl:equivalentClass [
-        rdf:type owl:Class ;
-        owl:intersectionOf (
-            :Car
-            [
-                rdf:type owl:Restriction ;
-                owl:onProperty :co2Emission ;
-                owl:someValuesFrom [
-                    rdf:type rdfs:Datatype ;
-                    owl:onDatatype xsd:integer ;
-                    owl:withRestrictions ( [ xsd:minExclusive 140 ] )
-                ]
-            ]
-        )
-    ] .
-
-:FuelType rdf:type skos:ConceptScheme .
-
-:Diesel rdf:type skos:Concept ;
-    skos:inScheme :FuelType ;
-    skos:prefLabel "Diesel"@en .
-
-:Gasoline rdf:type skos:Concept ;
-    skos:inScheme :FuelType ;
-    skos:prefLabel "Gasoline"@en .
-
-:Hybrid rdf:type skos:Concept ;
-    skos:inScheme :FuelType ;
-    skos:prefLabel "Hybrid"@en .
-
-:PHEV rdf:type skos:Concept ;
-    skos:broader :Hybrid ;
-    skos:inScheme :FuelType ;
-    skos:prefLabel "Plug-in Hybrid"@en .
-
-:BodyType rdf:type skos:ConceptScheme .
-
-:SUV rdf:type skos:Concept ;
-    skos:inScheme :BodyType ;
-    skos:prefLabel "SUV"@en .
-
-:Coupe rdf:type skos:Concept ;
-    skos:inScheme :BodyType ;
-    skos:prefLabel "Coupe"@en .
-
-:Sedan rdf:type skos:Concept ;
-    skos:inScheme :BodyType ;
-    skos:prefLabel "Sedan"@en .
-
-:TransmissionType rdf:type skos:ConceptScheme .
-
-:Manual rdf:type skos:Concept ;
-    skos:inScheme :TransmissionType ;
-    skos:prefLabel "Manual Transmission"@en ;
-    skos:altLabel "Manual Gearbox"@en .
-
-:Sequential rdf:type skos:Concept ;
-    skos:inScheme :TransmissionType ;
-    skos:prefLabel "Sequential"@en .
+:TransmissionType rdf:type skos:ConceptScheme ;
+    skos:prefLabel "Type de Transmission"@fr .
 
 :Automatic rdf:type skos:Concept ;
     skos:inScheme :TransmissionType ;
-    skos:prefLabel "Automatic"@en .
+    skos:prefLabel "Automatique"@fr ;
+    skos:altLabel "Automatic"@en .
 
-:DriveType rdf:type skos:ConceptScheme .
+:Manual rdf:type skos:Concept ;
+    skos:inScheme :TransmissionType ;
+    skos:prefLabel "Manuelle"@fr ;
+    skos:altLabel "Manual"@en .
 
-:FrontWheelDrive rdf:type skos:Concept ;
-    skos:inScheme :DriveType ;
-    skos:prefLabel "Front-wheel Drive"@en .
+:CVT rdf:type skos:Concept ;
+    skos:inScheme :TransmissionType ;
+    skos:prefLabel "CVT"@fr .
 
-:RearWheelDrive rdf:type skos:Concept ;
-    skos:inScheme :DriveType ;
-    skos:prefLabel "Rear-wheel Drive"@en .
+:FuelTypeScheme rdf:type skos:ConceptScheme ;
+    skos:prefLabel "Type de Carburant"@fr .
 
-:AllWheelDrive rdf:type skos:Concept ;
-    skos:inScheme :DriveType ;
-    skos:prefLabel "4-wheel Drive"@en ;
-    skos:altLabel "4WD"@en, "AWD"@en .
+:VehicleClassScheme rdf:type skos:ConceptScheme ;
+    skos:prefLabel "Catégorie de Véhicule"@fr .
