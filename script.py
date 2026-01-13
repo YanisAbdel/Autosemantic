@@ -6,7 +6,7 @@ vehicles = "data/vehicles.csv"
 vehicles_path = Path(vehicles)
 csv_clean_file = str(vehicles_path.parent / f"{vehicles_path.stem}_clean{vehicles_path.suffix}")
 
-reviews = "data/consolidated_reviews.csv"
+reviews = "data/consolidated_reviews_FINAL.csv"
 reviews_path = Path(reviews)
 csv_clean_reviews = str(reviews_path.parent / f"{reviews_path.stem}_clean{reviews_path.suffix}")
 
@@ -61,7 +61,7 @@ if __name__ == "__main__":
     "trans_dscr",
     "cylinders",
     "fuelType",
-    "co2"
+    "co2",
     ]
     clean_data(vehicles, expected_cols_vehicles)
 
@@ -71,6 +71,7 @@ if __name__ == "__main__":
     expected_cols_reviews = [
     "Review",
     "Rating",
+    "Brand"
     ]
     clean_data(reviews, expected_cols_reviews)
 

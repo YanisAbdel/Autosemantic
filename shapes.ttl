@@ -4,121 +4,121 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
-:VoitureShape
+:CarShape
     a sh:NodeShape ;
-    sh:targetClass :Voiture ;
+    sh:targetClass :Car ;
     sh:property [
-        sh:path :fabriquePar ;
+        sh:path :manufacturedBy ;
         sh:minCount 1 ;
-        sh:class :Constructeur ;
-        sh:message "Chaque voiture doit être reliée à un constructeur." ;
+        sh:class :Manufacturer ;
+        sh:message "Each car must be linked to a manufacturer." ;
     ] ;
     sh:property [
-        sh:path :prixMoyen ;
+        sh:path :averagePrice ;
         sh:datatype xsd:float ;
         sh:minInclusive 0 ;
-        sh:message "Le prix moyen ne peut pas être négatif." ;
+        sh:message "The average price cannot be negative." ;
     ] ;
     sh:property [
-        sh:path :emissionCO2 ;
+        sh:path :co2Emission ;
         sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
-        sh:message "Les émissions de CO2 doivent être positives." ;
+        sh:message "CO2 emissions must be positive." ;
     ] ;
     sh:property [
-        sh:path :nbPortes ;
+        sh:path :doorCount ;
         sh:datatype xsd:integer ;
         sh:minInclusive 2 ;
         sh:maxInclusive 5 ;
-        sh:message "Le nombre de portes doit être compris entre 2 et 5." ;
+        sh:message "The number of doors must be between 2 and 5." ;
     ] ;
     sh:property [
-        sh:path :aTypeCarrosserie ;
+        sh:path :hasBodyType ;
         sh:class skos:Concept ;
-        sh:message "Le type de carrosserie doit être un concept SKOS." ;
+        sh:message "The body type must be a SKOS concept." ;
     ] ;
     sh:property [
-        sh:path :volumeCoffre ;
+        sh:path :trunkVolume ;
         sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
-        sh:message "Le volume du coffre doit être positif." ;
+        sh:message "The trunk volume must be positive." ;
     ] .
 
-:VehiculeShape
+:VehicleShape
     a sh:NodeShape ;
-    sh:targetClass :Vehicule ;
+    sh:targetClass :Vehicle ;
     sh:property [
-        sh:path :poids ;
+        sh:path :weight ;
         sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
-        sh:message "Le poids doit être positif." ;
+        sh:message "The weight must be positive." ;
     ] ;
     sh:property [
-        sh:path :autonomie ;
+        sh:path :range ;
         sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
-        sh:message "L'autonomie doit être positive." ;
+        sh:message "The range must be positive." ;
     ] ;
     sh:property [
-        sh:path :nbPlaces ;
+        sh:path :seatCount ;
         sh:datatype xsd:integer ;
         sh:minInclusive 1 ;
-        sh:message "Un véhicule doit avoir au moins une place." ;
+        sh:message "A vehicle must have at least one seat." ;
     ] ;
     sh:property [
-        sh:path :anneeSortie ;
+        sh:path :releaseYear ;
         sh:datatype xsd:integer ;
         sh:minInclusive 1886 ;
-        sh:message "L'année de sortie doit être supérieure à 1886." ;
+        sh:message "The year of release must be greater than 1886." ;
     ] ;
     sh:property [
         sh:path :phase ;
         sh:datatype xsd:integer ;
         sh:minInclusive 1 ;
-        sh:message "La phase doit être un entier supérieur ou égal à 1." ;
+        sh:message "The phase must be an integer greater than or equal to 1." ;
     ] ;
     sh:property [
-        sh:path :aTypeCarburant ;
+        sh:path :hasFuelType ;
         sh:class skos:Concept ;
     ] ;
     sh:property [
-        sh:path :aTypeTransmission ;
+        sh:path :hasTransmissionType ;
         sh:class skos:Concept ;
     ] ;
     sh:property [
-        sh:path :aTypeEntrainement ;
+        sh:path :hasDriveType ;
         sh:class skos:Concept ;
     ] .
 
-:MoteurShape
+:EngineShape
     a sh:NodeShape ;
-    sh:targetClass :Moteur ;
+    sh:targetClass :Engine ;
     sh:property [
-        sh:path :puissance ;
+        sh:path :power ;
         sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
-        sh:message "La puissance doit être positive." ;
+        sh:message "The power must be positive." ;
     ] ;
     sh:property [
-        sh:path :couple ;
+        sh:path :torque ;
         sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
-        sh:message "Le couple doit être positif." ;
+        sh:message "The torque must be positive." ;
     ] .
 
-:AvisClientShape
+:CustomerReviewShape
     a sh:NodeShape ;
-    sh:targetClass :AvisClient ;
+    sh:targetClass :CustomerReview ;
     sh:property [
-        sh:path :noteUtilisateur ;
+        sh:path :userRating ;
         sh:datatype xsd:integer ;
         sh:minInclusive 1 ;
         sh:maxInclusive 5 ;
-        sh:message "La note utilisateur doit être comprise entre 1 et 5." ;
+        sh:message "The user rating must be between 1 and 5." ;
     ] ;
     sh:property [
-        sh:path :concerneVehicule ;
+        sh:path :concernsVehicle ;
         sh:minCount 1 ;
-        sh:class :Vehicule ;
-        sh:message "Un avis doit concerner un véhicule." ;
+        sh:class :Vehicle ;
+        sh:message "A review must concern a vehicle." ;
     ] .

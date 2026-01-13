@@ -8,129 +8,129 @@
 @base <http://www.univ-projet.fr/ontologies/autosemantica> .
 
 <http://www.univ-projet.fr/ontologies/autosemantica> rdf:type owl:Ontology ;
-    rdfs:comment "Ontologie pour le projet AutoSemantic"@fr .
+    rdfs:comment "Ontology for the AutoSemantic project"@en .
 
-:Vehicule rdf:type owl:Class .
+:Vehicle rdf:type owl:Class .
 
-:Voiture rdf:type owl:Class ;
-    rdfs:subClassOf :Vehicule .
+:Car rdf:type owl:Class ;
+    rdfs:subClassOf :Vehicle .
 
-:Moto rdf:type owl:Class ;
-    rdfs:subClassOf :Vehicule ;
-    owl:disjointWith :Voiture .
+:Motorcycle rdf:type owl:Class ;
+    rdfs:subClassOf :Vehicle ;
+    owl:disjointWith :Car .
 
-:Constructeur rdf:type owl:Class .
-:GroupeAutomobile rdf:type owl:Class .
-:Moteur rdf:type owl:Class .
-:Finition rdf:type owl:Class .
-:AvisClient rdf:type owl:Class .
-:Utilisateur rdf:type owl:Class .
+:Manufacturer rdf:type owl:Class .
+:AutomotiveGroup rdf:type owl:Class .
+:Engine rdf:type owl:Class .
+:Trim rdf:type owl:Class .
+:CustomerReview rdf:type owl:Class .
+:User rdf:type owl:Class .
 
-:appartientAuGroupe rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
-    rdfs:domain :Constructeur ;
-    rdfs:range :GroupeAutomobile .
+:belongsToGroup rdf:type owl:ObjectProperty, owl:TransitiveProperty ;
+    rdfs:domain :Manufacturer ;
+    rdfs:range :AutomotiveGroup .
 
-:estConcurrentDe rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
-    rdfs:domain :Voiture ;
-    rdfs:range :Voiture .
+:isCompetitorOf rdf:type owl:ObjectProperty, owl:SymmetricProperty ;
+    rdfs:domain :Car ;
+    rdfs:range :Car .
 
-:fabriquePar rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicule ;
-    rdfs:range :Constructeur .
+:manufacturedBy rdf:type owl:ObjectProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range :Manufacturer .
 
-:aPourMoteur rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicule ;
-    rdfs:range :Moteur .
+:hasEngine rdf:type owl:ObjectProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range :Engine .
 
-:aRedige rdf:type owl:ObjectProperty ;
-    rdfs:domain :Utilisateur ;
-    rdfs:range :AvisClient .
+:hasWritten rdf:type owl:ObjectProperty ;
+    rdfs:domain :User ;
+    rdfs:range :CustomerReview .
 
-:concerneVehicule rdf:type owl:ObjectProperty ;
-    rdfs:domain :AvisClient ;
-    rdfs:range :Vehicule .
+:concernsVehicle rdf:type owl:ObjectProperty ;
+    rdfs:domain :CustomerReview ;
+    rdfs:range :Vehicle .
 
-:aTypeCarrosserie rdf:type owl:ObjectProperty ;
-    rdfs:domain :Voiture ;
+:hasBodyType rdf:type owl:ObjectProperty ;
+    rdfs:domain :Car ;
     rdfs:range skos:Concept .
 
-:aTypeTransmission rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicule ;
+:hasTransmissionType rdf:type owl:ObjectProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range skos:Concept .
 
-:aTypeEntrainement rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicule ;
+:hasDriveType rdf:type owl:ObjectProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range skos:Concept .
 
-:aTypeCarburant rdf:type owl:ObjectProperty ;
-    rdfs:domain :Vehicule ;
+:hasFuelType rdf:type owl:ObjectProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range skos:Concept .
 
-:anneeSortie rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+:releaseYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:integer .
 
-:anneeModele rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+:modelYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:integer .
 
 :phase rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:integer .
 
-:prixMoyen rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+:averagePrice rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:float .
 
-:emissionCO2 rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+:co2Emission rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:integer .
 
-:poids rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+:weight rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:integer ;
-    rdfs:comment "Poids en kg du véhicule."@fr .
+    rdfs:comment "Weight in kg of the vehicle."@en .
 
-:autonomie rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+:range rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:integer .
 
-:noteUtilisateur rdf:type owl:DatatypeProperty ;
-    rdfs:domain :AvisClient ;
+:userRating rdf:type owl:DatatypeProperty ;
+    rdfs:domain :CustomerReview ;
     rdfs:range xsd:integer .
 
-:puissance rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Moteur ;
+:power rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Engine ;
     rdfs:range xsd:integer .
 
-:couple rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Moteur ;
+:torque rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Engine ;
     rdfs:range xsd:integer .
 
-:nbPlaces rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicule ;
+:seatCount rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
     rdfs:range xsd:integer .
 
-:nbPortes rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Voiture ;
+:doorCount rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
     rdfs:range xsd:integer .
 
-:volumeCoffre rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Voiture ;
+:trunkVolume rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Car ;
     rdfs:range xsd:integer .
 
-:typeAspiration rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Moteur ;
+:aspirationType rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Engine ;
     rdfs:range xsd:string .
 
-:VoiturePolluante rdf:type owl:Class ;
+:PollutingCar rdf:type owl:Class ;
     owl:equivalentClass [
         rdf:type owl:Class ;
         owl:intersectionOf (
-            :Voiture
+            :Car
             [
                 rdf:type owl:Restriction ;
-                owl:onProperty :emissionCO2 ;
+                owl:onProperty :co2Emission ;
                 owl:someValuesFrom [
                     rdf:type rdfs:Datatype ;
                     owl:onDatatype xsd:integer ;
@@ -140,65 +140,65 @@
         )
     ] .
 
-:TypeCarburant rdf:type skos:ConceptScheme .
+:FuelType rdf:type skos:ConceptScheme .
 
 :Diesel rdf:type skos:Concept ;
-    skos:inScheme :TypeCarburant ;
-    skos:prefLabel "Diesel"@fr .
+    skos:inScheme :FuelType ;
+    skos:prefLabel "Diesel"@en .
 
-:Essence rdf:type skos:Concept ;
-    skos:inScheme :TypeCarburant ;
-    skos:prefLabel "Essence"@fr .
+:Gasoline rdf:type skos:Concept ;
+    skos:inScheme :FuelType ;
+    skos:prefLabel "Gasoline"@en .
 
-:Hybride rdf:type skos:Concept ;
-    skos:inScheme :TypeCarburant ;
-    skos:prefLabel "Hybride"@fr .
+:Hybrid rdf:type skos:Concept ;
+    skos:inScheme :FuelType ;
+    skos:prefLabel "Hybrid"@en .
 
 :PHEV rdf:type skos:Concept ;
-    skos:broader :Hybride ;
-    skos:inScheme :TypeCarburant ;
-    skos:prefLabel "Hybride Rechargeable"@fr .
+    skos:broader :Hybrid ;
+    skos:inScheme :FuelType ;
+    skos:prefLabel "Plug-in Hybrid"@en .
 
-:TypeCarrosserie rdf:type skos:ConceptScheme .
+:BodyType rdf:type skos:ConceptScheme .
 
 :SUV rdf:type skos:Concept ;
-    skos:inScheme :TypeCarrosserie ;
-    skos:prefLabel "SUV"@fr .
+    skos:inScheme :BodyType ;
+    skos:prefLabel "SUV"@en .
 
 :Coupe rdf:type skos:Concept ;
-    skos:inScheme :TypeCarrosserie ;
-    skos:prefLabel "Coupé"@fr .
+    skos:inScheme :BodyType ;
+    skos:prefLabel "Coupe"@en .
 
-:Berline rdf:type skos:Concept ;
-    skos:inScheme :TypeCarrosserie ;
-    skos:prefLabel "Berline"@fr .
+:Sedan rdf:type skos:Concept ;
+    skos:inScheme :BodyType ;
+    skos:prefLabel "Sedan"@en .
 
-:TypeTransmission rdf:type skos:ConceptScheme .
+:TransmissionType rdf:type skos:ConceptScheme .
 
-:Manuelle rdf:type skos:Concept ;
-    skos:inScheme :TypeTransmission ;
-    skos:prefLabel "Boîte Manuelle"@fr ;
-    skos:altLabel "Boîte Mécanique"@fr .
+:Manual rdf:type skos:Concept ;
+    skos:inScheme :TransmissionType ;
+    skos:prefLabel "Manual Transmission"@en ;
+    skos:altLabel "Manual Gearbox"@en .
 
-:Sequentielle rdf:type skos:Concept ;
-    skos:inScheme :TypeTransmission ;
-    skos:prefLabel "Séquentielle"@fr .
+:Sequential rdf:type skos:Concept ;
+    skos:inScheme :TransmissionType ;
+    skos:prefLabel "Sequential"@en .
 
-:Automatique rdf:type skos:Concept ;
-    skos:inScheme :TypeTransmission ;
-    skos:prefLabel "Automatique"@fr .
+:Automatic rdf:type skos:Concept ;
+    skos:inScheme :TransmissionType ;
+    skos:prefLabel "Automatic"@en .
 
-:TypeEntrainement rdf:type skos:ConceptScheme .
+:DriveType rdf:type skos:ConceptScheme .
 
-:Traction rdf:type skos:Concept ;
-    skos:inScheme :TypeEntrainement ;
-    skos:prefLabel "Traction"@fr .
+:FrontWheelDrive rdf:type skos:Concept ;
+    skos:inScheme :DriveType ;
+    skos:prefLabel "Front-wheel Drive"@en .
 
-:Propulsion rdf:type skos:Concept ;
-    skos:inScheme :TypeEntrainement ;
-    skos:prefLabel "Propulsion"@fr .
+:RearWheelDrive rdf:type skos:Concept ;
+    skos:inScheme :DriveType ;
+    skos:prefLabel "Rear-wheel Drive"@en .
 
-:QuatreRouesMotrices rdf:type skos:Concept ;
-    skos:inScheme :TypeEntrainement ;
-    skos:prefLabel "4 roues motrices"@fr ;
-    skos:altLabel "4WD"@fr, "AWD"@fr .
+:AllWheelDrive rdf:type skos:Concept ;
+    skos:inScheme :DriveType ;
+    skos:prefLabel "4-wheel Drive"@en ;
+    skos:altLabel "4WD"@en, "AWD"@en .
