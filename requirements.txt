@@ -8,3 +8,12 @@ sentencepiece
 scipy
 morph-kgc
 streamlit
+
+requests
+beautifulsoup4
+lxml
+spacy
+transformers
+torch
+rdflib
+python-dotenv

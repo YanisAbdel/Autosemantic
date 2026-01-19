@@ -1,0 +1,11 @@
+@prefix auto: <http://www.univ-projet.fr/ontologies/autosemantic#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+auto:Model_S a auto:Car ;
+    rdfs:label "Model S"@en ;
+    auto:extractedFrom <https://www.iseecars.com/cars-for-sale#sort=Date&sortOrder=desc&pf_tab=&Radius=all&_t=a&offset=0&maxResults=20&lfc_t0=MTc2ODgxODg4MDQwNw%3D%3D&autoZip=False> .
+
+auto:Tesla a auto:Manufacturer ;
+    rdfs:label "Tesla"@en ;
+    auto:extractedFrom <https://www.iseecars.com/cars-for-sale#sort=Date&sortOrder=desc&pf_tab=&Radius=all&_t=a&offset=0&maxResults=20&lfc_t0=MTc2ODgxODg4MDQwNw%3D%3D&autoZip=False> .
+
