@@ -15,7 +15,7 @@
     a rr:TriplesMap ;
 
     rml:logicalSource [
-        rml:source "data/vehicles_clean.csv" ;
+        rml:source "/data/dataForOntology/vehicles_clean.csv" ;
         rml:referenceFormulation ql:CSV
     ] ;
 
@@ -103,7 +103,7 @@
     a rr:TriplesMap ;
 
     rml:logicalSource [
-        rml:source "data/reviews_final_clean.csv" ;
+        rml:source "/data/dataForOntology/reviews_final_clean.csv" ;
         rml:referenceFormulation ql:CSV
     ] ;
 
@@ -128,169 +128,24 @@
             rml:reference "Rating" ; 
             rr:datatype xsd:decimal 
         ]
-    ] .
-
-#################################################################
-#    Mapping des Concepts SKOS pour Fabricants
-#################################################################
-
-<#ManufacturerConceptsMap>
-    a rr:TriplesMap ;
-
-    rml:logicalSource [
-        rml:source "data/vehicles_clean.csv" ;
-        rml:referenceFormulation ql:CSV
     ] ;
 
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{make}" ;
-        rr:class skos:Concept
-    ] ;
-
-    # inScheme
+    # Relation avec le véhicule (isReviewOf)
     rr:predicateObjectMap [
-        rr:predicate skos:inScheme ;
-        rr:objectMap [ 
-            rr:constant <http://www.univ-projet.fr/ontologies/autosemantic#ManufacturerScheme> 
-        ]
-    ] ;
-
-    # prefLabel
-    rr:predicateObjectMap [
-        rr:predicate skos:prefLabel ;
-        rr:objectMap [ 
-            rml:reference "make" 
-        ]
-    ] .
-
-#################################################################
-#    Mapping des Concepts SKOS pour Transmission
-#################################################################
-
-<#TransmissionConceptsMap>
-    a rr:TriplesMap ;
-
-    rml:logicalSource [
-        rml:source "data/vehicles_clean.csv" ;
-        rml:referenceFormulation ql:CSV
-    ] ;
-
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{trany}" ;
-        rr:class skos:Concept
-    ] ;
-
-    # inScheme
-    rr:predicateObjectMap [
-        rr:predicate skos:inScheme ;
-        rr:objectMap [ 
-            rr:constant <http://www.univ-projet.fr/ontologies/autosemantic#TransmissionScheme> 
-        ]
-    ] ;
-
-    # prefLabel
-    rr:predicateObjectMap [
-        rr:predicate skos:prefLabel ;
-        rr:objectMap [ 
-            rml:reference "trany" 
-        ]
-    ] .
-
-#################################################################
-#    Mapping des Concepts SKOS pour Type de Motricité
-#################################################################
-
-<#DriveTypeConceptsMap>
-    a rr:TriplesMap ;
-
-    rml:logicalSource [
-        rml:source "data/vehicles_clean.csv" ;
-        rml:referenceFormulation ql:CSV
-    ] ;
-
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{drive}" ;
-        rr:class skos:Concept
-    ] ;
-
-    # inScheme
-    rr:predicateObjectMap [
-        rr:predicate skos:inScheme ;
-        rr:objectMap [ 
-            rr:constant <http://www.univ-projet.fr/ontologies/autosemantic#DriveTypeScheme> 
-        ]
-    ] ;
-
-    # prefLabel
-    rr:predicateObjectMap [
-        rr:predicate skos:prefLabel ;
-        rr:objectMap [ 
-            rml:reference "drive" 
-        ]
-    ] .
-
-#################################################################
-#    Mapping des Concepts SKOS pour Type de Carburant
-#################################################################
-
-<#FuelTypeConceptsMap>
-    a rr:TriplesMap ;
-
-    rml:logicalSource [
-        rml:source "data/vehicles_clean.csv" ;
-        rml:referenceFormulation ql:CSV
-    ] ;
-
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{fuelType}" ;
-        rr:class skos:Concept
-    ] ;
-
-    # inScheme
-    rr:predicateObjectMap [
-        rr:predicate skos:inScheme ;
-        rr:objectMap [ 
-            rr:constant <http://www.univ-projet.fr/ontologies/autosemantic#FuelTypeScheme> 
-        ]
-    ] ;
-
-    # prefLabel
-    rr:predicateObjectMap [
-        rr:predicate skos:prefLabel ;
-        rr:objectMap [ 
-            rml:reference "fuelType" 
-        ]
-    ] .
-
-#################################################################
-#    Mapping des Concepts SKOS pour Classe de Véhicule
-#################################################################
-
-<#VehicleClassConceptsMap>
-    a rr:TriplesMap ;
-
-    rml:logicalSource [
-        rml:source "data/vehicles_clean.csv" ;
-        rml:referenceFormulation ql:CSV
-    ] ;
-
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{VClass}" ;
-        rr:class skos:Concept
-    ] ;
-
-    # inScheme
-    rr:predicateObjectMap [
-        rr:predicate skos:inScheme ;
-        rr:objectMap [ 
-            rr:constant <http://www.univ-projet.fr/ontologies/autosemantic#VehicleClassScheme> 
-        ]
-    ] ;
-
-    # prefLabel
-    rr:predicateObjectMap [
-        rr:predicate skos:prefLabel ;
-        rr:objectMap [ 
-            rml:reference "VClass" 
+        rr:predicate :isReviewOf ;
+        rr:objectMap [
+            rr:parentTriplesMap <#VehiclesMap> ;
+            rr:joinCondition [
+                rr:child "Brand" ;
+                rr:parent "make"
+            ] ;
+            rr:joinCondition [
+                rr:child "Review_Year" ;
+                rr:parent "year"
+            ] ;
+            rr:joinCondition [
+                rr:child "Review_Model_Base" ;
+                rr:parent "model"
+            ]
         ]
     ] .

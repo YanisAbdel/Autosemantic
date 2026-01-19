@@ -1,0 +1,40 @@
+# Requête SPARQL pour vérifier les jointures
+
+PREFIX : <http://www.univ-projet.fr/ontologies/autosemantic#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+# Compter le nombre de reviews liées à des véhicules
+SELECT (COUNT(?review) as ?nbReviews)
+WHERE {
+  ?review a :CustomerReview ;
+          :isReviewOf ?vehicle .
+}
+
+# Voir des exemples avec les détails du véhicule
+SELECT ?review ?rating ?vehicleLabel
+WHERE {
+  ?review a :CustomerReview ;
+          :reviewRating ?rating ;
+          :isReviewOf ?vehicle .
+  
+  ?vehicle rdfs:label ?vehicleLabel .
+}
+LIMIT 10
+
+# Trouver les reviews sans jointure (orphelines)
+SELECT (COUNT(?review) as ?nbOrphans)
+WHERE {
+  ?review a :CustomerReview .
+  FILTER NOT EXISTS { ?review :isReviewOf ?vehicle }
+}
+
+# Statistiques par fabricant
+SELECT ?manufacturer (COUNT(?review) as ?nbReviews)
+WHERE {
+  ?review a :CustomerReview ;
+          :isReviewOf ?vehicle .
+  
+  ?vehicle :hasManufacturer ?manufacturer .
+}
+GROUP BY ?manufacturer
+ORDER BY DESC(?nbReviews)

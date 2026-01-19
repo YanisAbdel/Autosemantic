@@ -3,11 +3,11 @@ from pathlib import Path
 import re
 
 # ---------- Prétraitement du CSV ----------
-vehicles = "data/vehicles.csv"
+vehicles = "dataForOntology/vehicles.csv"
 vehicles_path = Path(vehicles)
 csv_clean_file = str(vehicles_path.parent / f"{vehicles_path.stem}_clean{vehicles_path.suffix}")
 
-reviews = "data/reviews_final.csv"
+reviews = "dataForOntology/reviews_final.csv"
 reviews_path = Path(reviews)
 csv_clean_reviews = str(reviews_path.parent / f"{reviews_path.stem}_clean{reviews_path.suffix}")
 
@@ -118,6 +118,38 @@ def clean_manufacturer_name(name):
     cleaned = re.sub(r'[^a-zA-Z0-9]', '', name)
     return cleaned
 
+def extract_base_model(review_model):
+    """
+    Extrait le nom de base du modèle depuis Review_Model
+    Ex: 'E-Class Sedan E320 4MATIC AWD 4dr Sedan' -> 'E-Class'
+        'F-150 Regular Cab 2dr...' -> 'F-150'
+        'Camry Sedan LE 4dr Sedan' -> 'Camry'
+    """
+    if pd.isna(review_model):
+        return None
+    
+    # Enlever les mots communs de description
+    stop_words = ['Sedan', 'Coupe', 'Convertible', 'Wagon', 'Hatchback', 
+                  'SUV', 'Truck', 'Van', 'AWD', '4WD', 'FWD', 'RWD',
+                  'Regular', 'Extended', 'Crew', 'Cab', 'Short', 'Long',
+                  '2dr', '4dr', 'Door', 'Passenger', 'Cargo']
+    
+    # Prendre les premiers mots (généralement le nom du modèle)
+    words = review_model.split()
+    base_words = []
+    
+    for word in words[:3]:  # Limiter aux 3 premiers mots max
+        # Arrêter si on trouve un mot de description
+        if any(stop in word for stop in stop_words):
+            break
+        base_words.append(word)
+    
+    if not base_words:
+        # Si rien trouvé, prendre le premier mot
+        return words[0] if words else review_model
+    
+    return ' '.join(base_words)
+
 
 
 def clean_data(csv_path: str, expected_cols: list = None) -> pd.DataFrame:
@@ -149,7 +181,7 @@ def clean_data(csv_path: str, expected_cols: list = None) -> pd.DataFrame:
         df['VClass'] = df['VClass'].map(VEHICLE_CLASS_MAPPING)
         missing_vclass = df['VClass'].isna().sum()
         if missing_vclass > 0:
-            print(f" {missing_vclass} valeurs de 'VClass' non mappées")
+            print(f"  {missing_vclass} valeurs de 'VClass' non mappées")
         
         # Transmission
         original_trany = df['trany'].copy()
@@ -168,6 +200,15 @@ def clean_data(csv_path: str, expected_cols: list = None) -> pd.DataFrame:
         # Supprimer les lignes avec des valeurs nulles après mapping
         df = df.dropna()
         print(f" Mappings appliqués avec succès")
+    
+    # Traiter les reviews : extraire le nom de base du modèle
+    if 'Review_Model' in df.columns:
+        print("Extraction du nom de base du modèle...")
+        df['Review_Model_Base'] = df['Review_Model'].apply(extract_base_model)
+        
+        # Nettoyer aussi le Brand pour correspondre aux fabricants
+        if 'Brand' in df.columns:
+            df['Brand'] = df['Brand'].apply(clean_manufacturer_name)
 
         
     # Réduire à un échantillon aléatoire de 10 % si TEST_MODE est activé
