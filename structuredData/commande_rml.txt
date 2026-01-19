@@ -1,0 +1,2 @@
+cd ..
+docker run --rm -v ${PWD}:/data rmlio/rmlmapper-java:latest --mappingfile /data/structuredData/mapping.ttl --outputfile /data/structuredData/output.ttl --serialization turtle
