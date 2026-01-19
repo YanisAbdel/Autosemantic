@@ -55,7 +55,7 @@
         rr:predicate :numberOfCylinders ;
         rr:objectMap [ 
             rml:reference "cylinders" ; 
-            rr:datatype xsd:integer 
+            rr:datatype xsd:float 
         ]
     ] ;
 

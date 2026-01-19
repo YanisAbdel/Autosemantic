@@ -1,0 +1,68 @@
+@prefix auto: <http://www.univ-projet.fr/ontologies/autosemantic#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix schema: <https://schema.org/> .
+
+auto:Car owl:equivalentClass dbo:Automobile,
+        schema:Car .
+
+auto:CityCar owl:equivalentClass dbo:Automobile,
+        schema:Car .
+
+auto:CustomerReview owl:equivalentClass schema:Review .
+
+auto:GasGuzzler owl:equivalentClass dbo:Automobile .
+
+auto:HighPerformanceCar owl:equivalentClass dbo:Automobile,
+        schema:Car .
+
+auto:LuxuryManufacturer owl:equivalentClass dbo:Company,
+        schema:Organization .
+
+auto:LuxuryVehicle owl:equivalentClass dbo:Automobile,
+        schema:Vehicle .
+
+auto:Manufacturer owl:equivalentClass dbo:Company,
+        schema:Brand,
+        schema:Organization .
+
+auto:OffRoadVehicle owl:equivalentClass dbo:Automobile,
+        schema:Vehicle .
+
+auto:RoadTripReady owl:equivalentClass dbo:Automobile .
+
+auto:Vehicle owl:equivalentClass dbo:MeanOfTransportation,
+        schema:Vehicle .
+
+auto:engineDisplacement owl:equivalentProperty dbo:displacement,
+        schema:engineDisplacement .
+
+auto:hasDriveType owl:equivalentProperty schema:driveWheelConfiguration .
+
+auto:hasFuelType owl:equivalentProperty schema:fuelType .
+
+auto:hasManufacturer owl:equivalentProperty dbo:manufacturer,
+        schema:manufacturer .
+
+auto:hasReview owl:equivalentProperty schema:review .
+
+auto:hasTransmissionType owl:equivalentProperty schema:vehicleTransmission .
+
+auto:isReviewOf owl:equivalentProperty schema:itemReviewed .
+
+auto:manufactures owl:equivalentProperty schema:manufacturer .
+
+auto:mpgCity owl:equivalentProperty schema:fuelConsumption .
+
+auto:mpgHighway owl:equivalentProperty schema:fuelConsumption .
+
+auto:numberOfCylinders owl:equivalentProperty dbo:numberOfCylinders .
+
+auto:numberOfGears owl:equivalentProperty schema:numberOfForwardGears .
+
+auto:reviewContent owl:equivalentProperty schema:reviewBody .
+
+auto:reviewDate owl:equivalentProperty schema:datePublished .
+
+auto:reviewRating owl:equivalentProperty schema:ratingValue .
+
