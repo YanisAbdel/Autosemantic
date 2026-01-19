@@ -2,10 +2,11 @@
 @prefix rml: <http://semweb.mmlab.be/ns/rml#> .
 @prefix ql: <http://semweb.mmlab.be/ns/ql#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix : <http://www.univ-projet.fr/ontologies/autosemantica#> .
 @base <http://www.univ-projet.fr/ontologies/autosemantica> .
 
-# Mapping for vehicles
+# Mapping for vehicles - uses expected_cols_vehicles
 <#VehiclesCSVMap>
     a rr:TriplesMap ;
 
@@ -28,31 +29,23 @@
         ]
     ] ;
 
-    # Model (model)
+    # Model
     rr:predicateObjectMap [
         rr:predicate rdfs:label ;
         rr:objectMap [ rml:reference "model" ]
     ] ;
 
-    # Year (year)
+    # Year
     rr:predicateObjectMap [
         rr:predicate :modelYear ;
         rr:objectMap [ rml:reference "year" ; rr:datatype xsd:integer ]
     ] ;
 
-    # Fuel type (fuelType1)
+    # Body type (VClass)
     rr:predicateObjectMap [
-        rr:predicate :hasFuelType ;
+        rr:predicate :hasBodyType ;
         rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantica/fuel/{fuelType1}" ;
-        ]
-    ] ;
-
-    # Transmission (trany)
-    rr:predicateObjectMap [
-        rr:predicate :hasTransmissionType ;
-        rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantica/transmission/{trany}" ;
+            rr:template "http://www.univ-projet.fr/ontologies/autosemantica/body/{VClass}" ;
         ]
     ] ;
 
@@ -64,21 +57,47 @@
         ]
     ] ;
 
-    # Body type (VClass)
+    # Transmission description (trans_dscr)
     rr:predicateObjectMap [
-        rr:predicate :hasBodyType ;
+        rr:predicate :transmissionDescription ;
+        rr:objectMap [ rml:reference "trans_dscr" ]
+    ] ;
+
+    # Transmission type (trany)
+    rr:predicateObjectMap [
+        rr:predicate :hasTransmissionType ;
         rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantica/body/{VClass}" ;
+            rr:template "http://www.univ-projet.fr/ontologies/autosemantica/transmission/{trany}" ;
         ]
     ] ;
 
-    # CO2 emissions (co2TailpipeGpm)
+    # Number of cylinders (cylinders)
     rr:predicateObjectMap [
-        rr:predicate :co2Emission ;
-        rr:objectMap [ rml:reference "co2TailpipeGpm" ; rr:datatype xsd:float ]
+        rr:predicate :cylinderCount ;
+        rr:objectMap [ rml:reference "cylinders" ; rr:datatype xsd:integer ]
     ] ;
 
-    # Number of cylinders (cylinders)
+    # Fuel type (fuelType)
+    rr:predicateObjectMap [
+        rr:predicate :hasFuelType ;
+        rr:objectMap [ 
+            rr:template "http://www.univ-projet.fr/ontologies/autosemantica/fuel/{fuelType}" ;
+        ]
+    ] ;
+
+    # CO2 emissions (co2)
+    rr:predicateObjectMap [
+        rr:predicate :co2Emission ;
+        rr:objectMap [ rml:reference "co2" ; rr:datatype xsd:float ]
+    ] ;
+
+    # Displacement (displ)
+    rr:predicateObjectMap [
+        rr:predicate :engineDisplacement ;
+        rr:objectMap [ rml:reference "displ" ; rr:datatype xsd:float ]
+    ] ;
+
+    # Has engine
     rr:predicateObjectMap [
         rr:predicate :hasEngine ;
         rr:objectMap [ 
@@ -86,37 +105,13 @@
         ]
     ] ;
 
-    # City consumption (city08)
+    # Base model
     rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#cityConsumption> ;
-        rr:objectMap [ rml:reference "city08" ; rr:datatype xsd:integer ]
-    ] ;
-
-    # Highway consumption (highway08)
-    rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#highwayConsumption> ;
-        rr:objectMap [ rml:reference "highway08" ; rr:datatype xsd:integer ]
-    ] ;
-
-    # Combined consumption (comb08)
-    rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#combinedConsumption> ;
-        rr:objectMap [ rml:reference "comb08" ; rr:datatype xsd:integer ]
-    ] ;
-
-    # Range (range)
-    rr:predicateObjectMap [
-        rr:predicate :range ;
-        rr:objectMap [ rml:reference "range" ; rr:datatype xsd:integer ]
-    ] ;
-
-    # Fuel cost (fuelCost08)
-    rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#fuelCost> ;
-        rr:objectMap [ rml:reference "fuelCost08" ; rr:datatype xsd:integer ]
+        rr:predicate :baseModel ;
+        rr:objectMap [ rml:reference "baseModel" ]
     ] .
 
-# Mapping for engines
+# Mapping for engines - uses vehicles data
 <#MotorsMap>
     a rr:TriplesMap ;
 
@@ -131,22 +126,16 @@
         rr:class :Engine 
     ] ;
 
-    # Number of cylinders (cylinders)
+    # Number of cylinders
     rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#cylinderCount> ;
-        rr:objectMap [ rml:reference "cylinders" ; rr:datatype xsd:integer ]
+        rr:predicate :cylinderCount ;
+        rr:objectMap [ rml:reference "cylinders" ; rr:datatype xsd:float ]
     ] ;
 
-    # Displacement (displ)
+    # Displacement
     rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#displacement> ;
+        rr:predicate :displacement ;
         rr:objectMap [ rml:reference "displ" ; rr:datatype xsd:float ]
-    ] ;
-
-    # Engine description (eng_dscr)
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [ rml:reference "eng_dscr" ]
     ] .
 
 # Mapping for manufacturers
@@ -170,82 +159,79 @@
         rr:objectMap [ rml:reference "make" ]
     ] .
 
-# Mapping for customer reviews (consolidated_reviews.csv)
+# Mapping for customer reviews - uses expected_cols_reviews
 <#ReviewsCSVMap>
     a rr:TriplesMap ;
 
     rml:logicalSource [
-        rml:source "data/consolidated_reviews_FINAL_clean.csv" ;
+        rml:source "data/reviews_final_clean.csv" ;
         rml:referenceFormulation ql:CSV;
         rml:iterator "$"
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantica/review/{Unnamed: 0}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantica/review/{Brand}_{Review_Year}_{Rating}" ;
         rr:class :CustomerReview 
     ] ;
 
-    # Review date (Review_Date)
+    # Review content
     rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#reviewDate> ;
-        rr:objectMap [ rml:reference "Review_Date" ]
-    ] ;
-
-    # Review title (Review_Title)
-    rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#reviewTitle> ;
-        rr:objectMap [ rml:reference "Review_Title" ]
-    ] ;
-
-    # Review content (Review)
-    rr:predicateObjectMap [
-        rr:predicate <http://www.univ-projet.fr/ontologies/autosemantica#reviewContent> ;
+        rr:predicate :reviewContent ;
         rr:objectMap [ rml:reference "Review" ]
     ] ;
 
-    # Rating (Rating)
+    # Rating
     rr:predicateObjectMap [
         rr:predicate :userRating ;
         rr:objectMap [ rml:reference "Rating" ; rr:datatype xsd:float ]
     ] ;
 
-    # Concerned vehicle (Vehicle_Title)
+    # Brand
     rr:predicateObjectMap [
-        rr:predicate :concernsVehicle ;
-        rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantica/vehicle/{Vehicle_Title}" ;
-        ]
+        rr:predicate :reviewBrand ;
+        rr:objectMap [ rml:reference "Brand" ]
     ] ;
 
-    # Review author (Author_Name)
+    # Review year
     rr:predicateObjectMap [
-        rr:predicate :hasWritten ;
-        rr:objectMap [ 
-            rr:parentTriplesMap <#UsersMap> ;
+        rr:predicate :reviewYear ;
+        rr:objectMap [ rml:reference "Review_Year" ; rr:datatype xsd:integer ]
+    ] ;
+
+    # Review transmission type
+    rr:predicateObjectMap [
+        rr:predicate :reviewTransmissionType ;
+        rr:objectMap [ rml:reference "Review_Trans_Type" ]
+    ] ;
+
+    # Review engine displacement
+    rr:predicateObjectMap [
+        rr:predicate :reviewEngineDisplacement ;
+        rr:objectMap [ rml:reference "Review_Engine_Disp" ; rr:datatype xsd:float ]
+    ] ;
+
+    # Review model
+    rr:predicateObjectMap [
+        rr:predicate :reviewModel ;
+        rr:objectMap [ rml:reference "Review_Model" ]
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate :concernsVehicle ;
+        rr:objectMap [
+            rr:parentTriplesMap <#VehiclesCSVMap> ;
             rr:joinCondition [
-                rr:child "Author_Name" ;
-                rr:parent "Author_Name" ;
+                rr:child "Brand" ;
+                rr:parent "make" 
+            ] ;
+            rr:joinCondition [
+                rr:child "Review_Year" ;
+                rr:parent "year" 
+            ] ;
+            rr:joinCondition [
+                rr:child "Review_Model" ;
+                rr:parent "model" 
             ]
         ]
     ] .
 
-# Mapping for users
-<#UsersMap>
-    a rr:TriplesMap ;
-
-    rml:logicalSource [
-        rml:source "data/consolidated_reviews_FINAL_clean.csv" ;
-        rml:referenceFormulation ql:CSV;
-        rml:iterator "$"
-    ] ;
-
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantica/user/{Author_Name}" ;
-        rr:class :User 
-    ] ;
-
-    # User name
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [ rml:reference "Author_Name" ]
-    ] .

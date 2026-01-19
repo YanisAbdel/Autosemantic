@@ -6,7 +6,7 @@ vehicles = "data/vehicles.csv"
 vehicles_path = Path(vehicles)
 csv_clean_file = str(vehicles_path.parent / f"{vehicles_path.stem}_clean{vehicles_path.suffix}")
 
-reviews = "data/consolidated_reviews_FINAL.csv"
+reviews = "data/reviews_final.csv"
 reviews_path = Path(reviews)
 csv_clean_reviews = str(reviews_path.parent / f"{reviews_path.stem}_clean{reviews_path.suffix}")
 
@@ -30,7 +30,8 @@ def clean_data(csv_path: str, expected_cols: list = None) -> pd.DataFrame:
         # Ne garder que les colonnes attendues
         df = df[expected_cols]
     
-    df = df.fillna("not indicated")
+    #df = df.fillna("not indicated")
+    df = df.dropna()
 
         
     # Réduire à un échantillon aléatoire de 10 % si TEST_MODE est activé
@@ -62,6 +63,8 @@ if __name__ == "__main__":
     "cylinders",
     "fuelType",
     "co2",
+    "trany",
+    "displ",
     ]
     clean_data(vehicles, expected_cols_vehicles)
 
@@ -71,7 +74,11 @@ if __name__ == "__main__":
     expected_cols_reviews = [
     "Review",
     "Rating",
-    "Brand"
+    "Brand",
+    "Review_Year",
+    "Review_Trans_Type",
+    "Review_Engine_Disp",
+    "Review_Model",
     ]
     clean_data(reviews, expected_cols_reviews)
 
