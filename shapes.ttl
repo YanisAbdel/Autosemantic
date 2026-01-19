@@ -1,124 +1,143 @@
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix : <http://www.univ-projet.fr/ontologies/autosemantica#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix : <http://www.univ-projet.fr/ontologies/autosemantic#> .
 
-:CarShape
-    a sh:NodeShape ;
-    sh:targetClass :Car ;
-    sh:property [
-        sh:path :manufacturedBy ;
-        sh:minCount 1 ;
-        sh:class :Manufacturer ;
-        sh:message "Each car must be linked to a manufacturer." ;
-    ] ;
-    sh:property [
-        sh:path :averagePrice ;
-        sh:datatype xsd:float ;
-        sh:minInclusive 0 ;
-        sh:message "The average price cannot be negative." ;
-    ] ;
-    sh:property [
-        sh:path :co2Emission ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 0 ;
-        sh:message "CO2 emissions must be positive." ;
-    ] ;
-    sh:property [
-        sh:path :doorCount ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 2 ;
-        sh:maxInclusive 5 ;
-        sh:message "The number of doors must be between 2 and 5." ;
-    ] ;
-    sh:property [
-        sh:path :hasBodyType ;
-        sh:class skos:Concept ;
-        sh:message "The body type must be a SKOS concept." ;
-    ] ;
-    sh:property [
-        sh:path :trunkVolume ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 0 ;
-        sh:message "The trunk volume must be positive." ;
-    ] .
+#################################################################
+#    Shapes : Véhicules
+#################################################################
 
 :VehicleShape
     a sh:NodeShape ;
     sh:targetClass :Vehicle ;
+    
     sh:property [
-        sh:path :weight ;
+        sh:path :numberOfCylinders ;
         sh:datatype xsd:integer ;
         sh:minInclusive 0 ;
-        sh:message "The weight must be positive." ;
+        sh:message "Le nombre de cylindres doit être un entier positif."@fr ;
     ] ;
     sh:property [
-        sh:path :range ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 0 ;
-        sh:message "The range must be positive." ;
-    ] ;
-    sh:property [
-        sh:path :seatCount ;
+        sh:path :numberOfGears ;
         sh:datatype xsd:integer ;
         sh:minInclusive 1 ;
-        sh:message "A vehicle must have at least one seat." ;
+        sh:message "Le nombre de rapports doit être au moins 1."@fr ;
     ] ;
     sh:property [
-        sh:path :releaseYear ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 1886 ;
-        sh:message "The year of release must be greater than 1886." ;
+        sh:path :engineDisplacement ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0.0 ;
+        sh:message "La cylindrée doit être un nombre positif."@fr ;
     ] ;
     sh:property [
-        sh:path :phase ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 1 ;
-        sh:message "The phase must be an integer greater than or equal to 1." ;
+        sh:path :mpgCity ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0.0 ;
+        sh:message "La consommation ville (MPG) doit être positive."@fr ;
     ] ;
     sh:property [
-        sh:path :hasFuelType ;
+        sh:path :mpgHighway ;
+        sh:datatype xsd:float ;
+        sh:minInclusive 0.0 ;
+        sh:message "La consommation autoroute (MPG) doit être positive."@fr ;
+    ] ;
+
+    sh:property [
+        sh:path :mpgCity ;
+        sh:lessThanOrEquals :mpgHighway ;
+        sh:severity sh:Warning ;
+        sh:message "Attention : La consommation ville est supérieure à l'autoroute (inhabituel hors hybrides)."@fr ;
+    ] ;
+
+    sh:or (
+        [
+            sh:path :hasFuelType ;
+            sh:not [ sh:hasValue :Electricity ] ;
+        ]
+        [
+            sh:path :hasFuelType ;
+            sh:hasValue :Electricity ;
+            sh:property [
+                sh:path :numberOfCylinders ;
+                sh:maxInclusive 0 ;
+                sh:message "Un véhicule électrique ne doit pas avoir de cylindres."@fr ;
+            ] ;
+            sh:property [
+                sh:path :engineDisplacement ;
+                sh:maxInclusive 0.0 ;
+                sh:message "Un véhicule électrique ne doit pas avoir de cylindrée."@fr ;
+            ] ;
+        ]
+    ) ;
+
+    sh:property [
+        sh:path :hasManufacturer ;
+        sh:minCount 1 ;
         sh:class skos:Concept ;
+        sh:nodeKind sh:IRI ;
+        sh:message "Tout véhicule doit avoir un fabricant."@fr ;
     ] ;
     sh:property [
         sh:path :hasTransmissionType ;
+        sh:minCount 1 ;
         sh:class skos:Concept ;
+        sh:in ( :Automatic :Manual :AutomatedManual :CVT :DualClutch ) ;
+        sh:message "Type de transmission invalide ou manquant."@fr ;
     ] ;
     sh:property [
         sh:path :hasDriveType ;
+        sh:minCount 1 ;
         sh:class skos:Concept ;
-    ] .
-
-:EngineShape
-    a sh:NodeShape ;
-    sh:targetClass :Engine ;
-    sh:property [
-        sh:path :power ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 0 ;
-        sh:message "The power must be positive." ;
+        sh:message "Type de motricité manquant."@fr ;
     ] ;
     sh:property [
-        sh:path :torque ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 0 ;
-        sh:message "The torque must be positive." ;
+        sh:path :hasFuelType ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:message "Type de carburant manquant."@fr ;
+    ] ;
+    sh:property [
+        sh:path :hasVehicleClass ;
+        sh:minCount 1 ;
+        sh:class skos:Concept ;
+        sh:message "Classe de véhicule manquante."@fr ;
     ] .
+
+#################################################################
+#    Shape : Avis Clients
+#################################################################
 
 :CustomerReviewShape
     a sh:NodeShape ;
     sh:targetClass :CustomerReview ;
+
     sh:property [
-        sh:path :userRating ;
-        sh:datatype xsd:integer ;
-        sh:minInclusive 1 ;
-        sh:maxInclusive 5 ;
-        sh:message "The user rating must be between 1 and 5." ;
+        sh:path :reviewContent ;
+        sh:minCount 1 ;
+        sh:datatype xsd:string ;
+        sh:minLength 3 ;
+        sh:message "Le contenu de l'avis ne peut pas être vide."@fr ;
     ] ;
     sh:property [
-        sh:path :concernsVehicle ;
+        sh:path :reviewRating ;
+        sh:minCount 1 ;
+        sh:datatype xsd:decimal ;
+        sh:minInclusive 0.0 ;
+        sh:maxInclusive 5.0 ; # Supposant une notation standard sur 5
+        sh:message "La note doit être comprise entre 0.0 et 5.0."@fr ;
+    ] ;
+    sh:property [
+        sh:path :reviewDate ;
+        sh:datatype xsd:date ;
+        sh:message "Format de date invalide (attendu: YYYY-MM-DD)."@fr ;
+    ] ;
+
+    sh:property [
+        sh:path :isReviewOf ;
         sh:minCount 1 ;
         sh:class :Vehicle ;
-        sh:message "A review must concern a vehicle." ;
+        sh:severity sh:Warning ;
+        sh:message "Avis orphelin : Le véhicule associé n'existe pas dans la base."@fr ;
     ] .
