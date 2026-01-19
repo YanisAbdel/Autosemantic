@@ -38,6 +38,134 @@ class OllamaKGBuilder:
             print("Ollama ne fonctionne pas correctement")
             raise
     
+    def get_manufacturers(self) -> list:
+        """Collecter toutes les marques depuis UltimateSpecs"""
+        print("\nCollecte des marques...")
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            }
+            response = requests.get("https://www.ultimatespecs.com/car-specs", headers=headers, timeout=15)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            manufacturers = []
+            # Trouver tous les liens vers les marques
+            for link in soup.find_all('a', href=True):
+                href = link['href']
+                if '/car-specs/' in href and '-models' in href:
+                    manufacturer_name = link.get_text().strip()
+                    manufacturer_url = f"https://www.ultimatespecs.com{href}" if href.startswith('/') else href
+                    manufacturers.append({
+                        'name': manufacturer_name,
+                        'url': manufacturer_url
+                    })
+            
+            # Déduplication
+            seen = set()
+            unique_manufacturers = []
+            for m in manufacturers:
+                if m['url'] not in seen:
+                    seen.add(m['url'])
+                    unique_manufacturers.append(m)
+            
+            print(f"  {len(unique_manufacturers)} marques trouvées")
+            return unique_manufacturers
+            
+        except Exception as e:
+            print(f"  Erreur collecte marques: {e}")
+            return []
+    
+    def get_models_from_manufacturer(self, manufacturer_url: str) -> list:
+        """Collecter tous les modèles d'une marque"""
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            }
+            response = requests.get(manufacturer_url, headers=headers, timeout=15)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            models = []
+            for link in soup.find_all('a', href=True):
+                href = link['href']
+                # Format: /car-specs/Marque/Modele
+                if href.count('/') >= 3 and '/car-specs/' in href and '.html' not in href:
+                    model_url = f"https://www.ultimatespecs.com{href}" if href.startswith('/') else href
+                    models.append(model_url)
+            
+            # Déduplication
+            return list(set(models))
+            
+        except Exception as e:
+            print(f"  Erreur collecte modèles: {e}")
+            return []
+    
+    def get_specs_from_model(self, model_url: str) -> list:
+        """Collecter toutes les versions/specs d'un modèle"""
+        try:
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36',
+            }
+            response = requests.get(model_url, headers=headers, timeout=15)
+            response.raise_for_status()
+            soup = BeautifulSoup(response.content, 'html.parser')
+            
+            spec_urls = []
+            for link in soup.find_all('a', href=True):
+                href = link['href']
+                # Format: /car-specs/Marque/123456/Marque-Modele-Details.html
+                if '.html' in href and '/car-specs/' in href:
+                    spec_url = f"https://www.ultimatespecs.com{href}" if href.startswith('/') else href
+                    spec_urls.append(spec_url)
+            
+            return list(set(spec_urls))
+            
+        except Exception as e:
+            return []
+    
+    def collect_all_urls(self, max_manufacturers=None, max_models_per_manufacturer=None):
+        """Collecter toutes les URLs de spécifications depuis UltimateSpecs"""
+        print("\n" + "="*60)
+        print("COLLECTE AUTOMATIQUE DES URLS")
+        print("="*60)
+        
+        all_spec_urls = []
+        
+        # Étape 1: Collecter les marques
+        manufacturers = self.get_manufacturers()
+        if max_manufacturers:
+            manufacturers = manufacturers[:max_manufacturers]
+            print(f"  (Limitation à {max_manufacturers} marques pour test)")
+        
+        # Étape 2: Pour chaque marque, collecter les modèles
+        for i, manufacturer in enumerate(manufacturers):
+            print(f"\n[{i+1}/{len(manufacturers)}] {manufacturer['name']}")
+            
+            models = self.get_models_from_manufacturer(manufacturer['url'])
+            if max_models_per_manufacturer:
+                models = models[:max_models_per_manufacturer]
+            
+            print(f"  -> {len(models)} modèles trouvés")
+            
+            # Étape 3: Pour chaque modèle, collecter les specs
+            for j, model_url in enumerate(models):
+                spec_urls = self.get_specs_from_model(model_url)
+                all_spec_urls.extend(spec_urls)
+                
+                if (j + 1) % 5 == 0:
+                    print(f"    {j+1}/{len(models)} modèles traités...")
+                
+                time.sleep(0.5)  # Pause pour ne pas surcharger le serveur
+            
+            time.sleep(1)  # Pause entre marques
+        
+        # Déduplication finale
+        all_spec_urls = list(set(all_spec_urls))
+        
+        print(f"\nTOTAL: {len(all_spec_urls)} URLs de spécifications collectées")
+        return all_spec_urls
+    
     def query_ollama(self, prompt: str) -> str:
         payload = {
             "model": self.model,
@@ -60,25 +188,70 @@ class OllamaKGBuilder:
             return "{}"
     
     def scrape_article(self, url: str) -> dict:
-        """Scraper un article web"""
+        """Scraper un article web (optimisé pour ultimatespecs.com)"""
         try:
-            response = requests.get(url, headers={
-                'User-Agent': 'Mozilla/5.0 (Educational Project)'
-            }, timeout=10)
+            headers = {
+                'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
+                'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8',
+                'Accept-Language': 'en-US,en;q=0.9',
+                'Accept-Encoding': 'gzip, deflate, br',
+                'Connection': 'keep-alive',
+                'Upgrade-Insecure-Requests': '1'
+            }
+            
+            response = requests.get(url, headers=headers, timeout=15)
+            response.raise_for_status()
             soup = BeautifulSoup(response.content, 'html.parser')
             
-            # Extraire texte principal
+            # Extraire titre
+            title = ''
+            if soup.find('title'):
+                title = soup.find('title').text
+            elif soup.find('h1'):
+                title = soup.find('h1').get_text().strip()
+            
+            # Pour ultimatespecs.com: extraire specs techniques
+            text_parts = []
+            
+            # Paragraphes
             paragraphs = soup.find_all('p')
-            text = ' '.join([p.get_text().strip() for p in paragraphs])
+            text_parts.extend([p.get_text().strip() for p in paragraphs if p.get_text().strip()])
+            
+            # Tables de spécifications (communes sur ultimatespecs)
+            tables = soup.find_all('table')
+            for table in tables:
+                rows = table.find_all('tr')
+                for row in rows:
+                    cells = row.find_all(['td', 'th'])
+                    if cells:
+                        row_text = ' '.join([cell.get_text().strip() for cell in cells])
+                        text_parts.append(row_text)
+            
+            # Listes
+            lists = soup.find_all(['ul', 'ol'])
+            for lst in lists:
+                items = lst.find_all('li')
+                text_parts.extend([item.get_text().strip() for item in items if item.get_text().strip()])
+            
+            # Headers (h2, h3) pour les sections
+            section_headers = soup.find_all(['h2', 'h3', 'h4'])
+            text_parts.extend([h.get_text().strip() for h in section_headers if h.get_text().strip()])
+            
+            text = ' '.join(text_parts)
             
             # Limiter la taille pour éviter overflow
-            text = text[:8000]
+            text = text[:10000]  # Augmenté pour specs détaillées
+            
+            print(f"  Scraping: {len(text)} caractères extraits")
             
             return {
                 'url': url,
-                'title': soup.find('title').text if soup.find('title') else '',
+                'title': title,
                 'text': text
             }
+        except requests.exceptions.HTTPError as e:
+            print(f"Erreur HTTP {e.response.status_code}: {e}")
+            return None
         except Exception as e:
             print(f"Erreur scraping: {e}")
             return None
@@ -86,39 +259,47 @@ class OllamaKGBuilder:
     def extract_with_ollama(self, text: str) -> dict:
         """Extraire entités et relations avec Ollama"""
         
-        prompt = f"""You are an expert in automotive knowledge extraction. Analyze the following text and extract structured information.
+        prompt = f"""You are an expert in automotive technical specifications extraction. Extract structured data from car specifications.
 
 TEXT:
 {text}
 
 TASK:
-1. Identify all automotive entities:
-   - Manufacturers (car brands)
-   - Car models
-   - Engine types
-   - Fuel types (gasoline, diesel, electric, hybrid)
-   - Transmission types (automatic, manual)
-   - Technical specifications
+Extract automotive entities and their relationships. Focus on:
 
-2. Identify relationships between entities:
-   - Who manufactures what
-   - What characteristics vehicles have
-   - Comparisons between brands
+1. MANUFACTURER: Car brand (e.g., Acura, BMW, Tesla)
+2. CAR MODEL: Specific model name (e.g., ILX, 3 Series, Model S)
+3. FUEL TYPE: gasoline/petrol, diesel, electric, hybrid, plug-in hybrid
+4. TRANSMISSION: automatic, manual, CVT, dual-clutch, sequential
+5. DRIVE TYPE: FWD (front-wheel drive), RWD (rear-wheel drive), AWD (all-wheel drive), 4WD
+6. ENGINE: Engine code or type
+7. TECHNICAL DATA: cylinders, displacement, horsepower, torque
 
-3. Return ONLY a valid JSON with this EXACT structure:
+Relationships to identify:
+- manufactures: Manufacturer → Car Model
+- hasFuelType: Car Model → Fuel Type
+- hasTransmission: Car Model → Transmission Type
+- hasDriveType: Car Model → Drive Type
+- hasEngine: Car Model → Engine
+
+Return ONLY valid JSON with this structure:
 {{
   "entities": [
-    {{"text": "Tesla", "type": "Manufacturer"}},
-    {{"text": "Model S", "type": "CarModel"}},
-    {{"text": "Electric", "type": "FuelType"}}
+    {{"text": "Acura", "type": "Manufacturer"}},
+    {{"text": "ILX 2.4", "type": "CarModel"}},
+    {{"text": "Gasoline", "type": "FuelType"}},
+    {{"text": "Automatic", "type": "TransmissionType"}},
+    {{"text": "FWD", "type": "DriveType"}}
   ],
   "relations": [
-    {{"subject": "Tesla", "predicate": "manufactures", "object": "Model S"}},
-    {{"subject": "Model S", "predicate": "hasFuelType", "object": "Electric"}}
+    {{"subject": "Acura", "predicate": "manufactures", "object": "ILX 2.4"}},
+    {{"subject": "ILX 2.4", "predicate": "hasFuelType", "object": "Gasoline"}},
+    {{"subject": "ILX 2.4", "predicate": "hasTransmission", "object": "Automatic"}},
+    {{"subject": "ILX 2.4", "predicate": "hasDriveType", "object": "FWD"}}
   ]
 }}
 
-IMPORTANT: Return ONLY the JSON, no explanations or markdown formatting."""
+Return ONLY the JSON without markdown code blocks or explanations."""
         
         print("  Envoi à Ollama... (peut prendre 30-60s)")
         response_text = self.query_ollama(prompt)
@@ -160,6 +341,7 @@ IMPORTANT: Return ONLY the JSON, no explanations or markdown formatting."""
             'FuelType': AUTO.FuelType,
             'Transmission': AUTO.TransmissionType,
             'TransmissionType': AUTO.TransmissionType,
+            'DriveType': AUTO.DriveType,
             'Engine': AUTO.Engine,
             'EngineType': AUTO.Engine
         }
@@ -203,8 +385,15 @@ IMPORTANT: Return ONLY the JSON, no explanations or markdown formatting."""
                 ))
     
     def _normalize(self, text: str) -> str:
+        # Nettoyer les caractères spéciaux
         text = re.sub(r'[^\w\s-]', '', text)
         text = re.sub(r'\s+', '_', text)
+        
+        # Les URIs RDF ne peuvent pas commencer par un chiffre
+        # Préfixer avec un underscore si nécessaire
+        if text and text[0].isdigit():
+            text = '_' + text
+        
         return text
     
     def process_urls(self, urls: list):
@@ -231,8 +420,8 @@ IMPORTANT: Return ONLY the JSON, no explanations or markdown formatting."""
             num_entities = len(extraction.get('entities', []))
             num_relations = len(extraction.get('relations', []))
             
-            print(f"  ✓ Entités: {num_entities}")
-            print(f"  ✓ Relations: {num_relations}")
+            print(f"  Entités: {num_entities}")
+            print(f"  Relations: {num_relations}")
             
             total_entities += num_entities
             total_relations += num_relations
@@ -249,7 +438,7 @@ IMPORTANT: Return ONLY the JSON, no explanations or markdown formatting."""
     
     def save(self, output_path="kg_ollama_output.ttl"):
         self.graph.serialize(destination=output_path, format='turtle')
-        print(f"\n Graphe sauvegardé: {output_path}")
+        print(f"\nGraphe sauvegardé: {output_path}")
         print(f"  Total triplets: {len(self.graph)}")
         
 
@@ -257,26 +446,41 @@ IMPORTANT: Return ONLY the JSON, no explanations or markdown formatting."""
 # Exemple d'utilisation
 if __name__ == "__main__":
     
-    # URLs à analyser (commencez avec peu d'URLs pour tester)
-    urls = [
-        "https://en.wikipedia.org/wiki/Tesla,_Inc.",
-        "https://en.wikipedia.org/wiki/BMW",
-        "https://en.wikipedia.org/wiki/Toyota_Prius",
-        # Ajouter plus d'URLs selon vos besoins
-    ]
-    
     print("="*60)
     print("CONSTRUCTION DE GRAPHE DE CONNAISSANCES AVEC OLLAMA")
+    print("Collecte automatique depuis UltimateSpecs.com")
     print("="*60)
     print("\nPré-requis:")
     print("1. Ollama installé et en cours d'exécution")
-    print("2. Modèle téléchargé: ollama pull llama3.2")
+    print("2. Modèle téléchargé: ollama pull phi3")
     print()
+    
+    # Configuration
+    MODE = "test"  # "test" ou "full"
     
     try:
         # Construire le KG
-        # Modèles recommandés: llama3.2, mistral, phi3
         builder = OllamaKGBuilder(model="phi3")
+        
+        if MODE == "test":
+            print("\nMODE TEST: Collecte limitée")
+            # Test avec quelques marques seulement
+            urls = builder.collect_all_urls(
+                max_manufacturers=3,  # 3 marques
+                max_models_per_manufacturer=2  # 2 modèles par marque
+            )
+        else:
+            print("\nMODE COMPLET: Collecte de toutes les données")
+            print("   (Cela peut prendre plusieurs heures!)")
+            urls = builder.collect_all_urls()
+        
+        # Demander confirmation si beaucoup d'URLs
+        if len(urls) > 20:
+            print(f"\n{len(urls)} URLs à traiter.")
+            confirm = input("Continuer? (o/n): ")
+            if confirm.lower() != 'o':
+                print("Annulé.")
+                exit()
         
         # Traiter les URLs
         builder.process_urls(urls)
@@ -284,7 +488,17 @@ if __name__ == "__main__":
         # Sauvegarder
         builder.save("kg_from_web_ollama.ttl")
         
-        print("\n✓ TERMINÉ!")
+        print("\nTERMINE!")
         
+    except KeyboardInterrupt:
+        print("\n\nInterruption utilisateur")
+        print("Sauvegarde du graphe partiel...")
+        try:
+            builder.save("kg_from_web_ollama_partial.ttl")
+            print("Graphe partiel sauvegardé")
+        except:
+            pass
     except Exception as e:
-        print(f"\n ERREUR: {e}")
+        print(f"\nERREUR: {e}")
+        import traceback
+        traceback.print_exc()
