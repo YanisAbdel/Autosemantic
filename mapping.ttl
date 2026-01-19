@@ -1,151 +1,114 @@
-@prefix rr: <http://www.w3.org/ns/r2rml#> .
-@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
-@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix : <http://www.univ-projet.fr/ontologies/autosemantic#> .
-@base <http://www.univ-projet.fr/ontologies/autosemantic> .
+import streamlit as st
+from rdflib import Graph, Namespace
+import pandas as pd
+import urllib.parse
 
-#################################################################
-#    Mapping des Véhicules (vehicles_clean.csv)
-#################################################################
+st.set_page_config(page_title="AutoSemantica", page_icon="🚗", layout="wide")
+AUTO = Namespace("http://www.univ-projet.fr/ontologies/autosemantic#")
 
-<#VehiclesMap>
-    a rr:TriplesMap ;
+@st.cache_resource
+def load_graph():
+    g = Graph()
+    files = ["graph/autosemantic.ttl", "graph/output.ttl"]
+    print("\n--- CHARGEMENT ---")
+    for f in files:
+        try:
+            g.parse(f, format="turtle")
+            print(f"✅ {f} chargé.")
+        except Exception as e: st.error(f"Erreur {f}: {e}")
+    print(f"📊 Total: {len(g)} triplets")
+    return g
 
-    rml:logicalSource [
-        rml:source "/data/dataForOntology/vehicles_clean.csv" ;
-        rml:referenceFormulation ql:CSV
-    ] ;
+g = load_graph()
 
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/vehicle/{id}" ;
-        rr:class :Car
-    ] ;
+def clean_uri(uri):
+    if not uri: return "N/A"
+    return urllib.parse.unquote(str(uri).split('#')[-1].split('/')[-1]).replace('_', ' ')
 
-    # Label (modèle + année)
-    rr:predicateObjectMap [
-        rr:predicate rdfs:label ;
-        rr:objectMap [ 
-            rr:template "{year} {make} {model}" 
-        ]
-    ] ;
+# --- SIDEBAR ---
+st.sidebar.title("🔍 Filtres")
+res_manuf = g.query("PREFIX : <http://www.univ-projet.fr/ontologies/autosemantic#> SELECT DISTINCT ?m WHERE { ?car :hasManufacturer ?m } ORDER BY ?m")
+manuf_map = {clean_uri(row.m): str(row.m) for row in res_manuf}
+liste_manuf = sorted(list(manuf_map.keys()))
+liste_manuf.insert(0, "Tous")
+choix_manuf = st.sidebar.selectbox("Fabricant", liste_manuf)
 
-    # Fabricant (hasManufacturer) -> Concept SKOS
-    rr:predicateObjectMap [
-        rr:predicate :hasManufacturer ;
-        rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{make}" ;
-            rr:termType rr:IRI
-        ]
-    ] ;
+# --- RECHERCHE ---
+tab1, tab2 = st.tabs(["🚙 Recherche", "📊 Stats"])
 
-    # Nombre de cylindres (numberOfCylinders)
-    rr:predicateObjectMap [
-        rr:predicate :numberOfCylinders ;
-        rr:objectMap [ 
-            rml:reference "cylinders" ; 
-            rr:datatype xsd:integer 
-        ]
-    ] ;
+with tab1:
+    st.header("Véhicules")
+    
+    filter_clause = ""
+    if choix_manuf != "Tous":
+        filter_clause = f'FILTER(STR(?manufURI) = "{manuf_map[choix_manuf]}")'
 
-    # Cylindrée (engineDisplacement)
-    rr:predicateObjectMap [
-        rr:predicate :engineDisplacement ;
-        rr:objectMap [ 
-            rml:reference "displ" ; 
-            rr:datatype xsd:float 
-        ]
-    ] ;
+    # ON RECUPERE TOUT CE QU'ON PEUT (Y compris le modèle brut et l'année brute)
+    query_cars = f"""
+        PREFIX : <http://www.univ-projet.fr/ontologies/autosemantic#>
+        PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+        
+        SELECT ?carURI ?label ?rawModel ?manufURI ?cylinders ?displacement ?transURI ?fuelURI
+        WHERE {{
+            ?carURI a :Car .
+            
+            OPTIONAL {{ ?carURI rdfs:label ?label }}
+            OPTIONAL {{ ?carURI :modelName ?rawModel }}  # <--- NOUVEAU
+            
+            OPTIONAL {{ ?carURI :hasManufacturer ?manufURI }}
+            OPTIONAL {{ ?carURI :numberOfCylinders ?cylinders }}
+            OPTIONAL {{ ?carURI :engineDisplacement ?displacement }}
+            OPTIONAL {{ ?carURI :hasTransmissionType ?transURI }}
+            OPTIONAL {{ ?carURI :hasFuelType ?fuelURI }}
+            
+            {filter_clause}
+        }}
+        LIMIT 200
+    """
+    
+    if st.button("Lancer la recherche"):
+        results = g.query(query_cars)
+        data = []
+        for row in results:
+            # --- INTELLIGENCE DE NOMMAGE ---
+            # 1. On nettoie la marque (ex: "Mazda")
+            marque_clean = clean_uri(row.manufURI)
+            
+            # 2. Si on a le label officiel du graphe, on le prend
+            if row.label:
+                nom_final = str(row.label)
+            # 3. Sinon, on le CONSTRUIT NOUS-MÊME : "Marque Modèle"
+            elif row.rawModel:
+                # Si le modèle est "6", ça fera "Mazda 6"
+                nom_final = f"{marque_clean} {row.rawModel}"
+            # 4. Dernier recours : l'ID
+            else:
+                nom_final = f"Véhicule {str(row.carURI).split('/')[-1]}"
 
-    # Type de transmission (hasTransmissionType) -> Concept SKOS
-    rr:predicateObjectMap [
-        rr:predicate :hasTransmissionType ;
-        rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{trany}" ;
-            rr:termType rr:IRI
-        ]
-    ] ;
+            data.append({
+                "Modèle": nom_final,
+                "Fabricant": marque_clean,
+                "Cylindres": str(row.cylinders) if row.cylinders else "-",
+                "Cylindrée": str(row.displacement) if row.displacement else "-",
+                "Transmission": clean_uri(row.transURI),
+                "Carburant": clean_uri(row.fuelURI)
+            })
+        
+        if data:
+            st.dataframe(pd.DataFrame(data), width='stretch')
+        else:
+            st.warning("Aucun résultat.")
 
-    # Type de motricité (hasDriveType) -> Concept SKOS
-    rr:predicateObjectMap [
-        rr:predicate :hasDriveType ;
-        rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{drive}" ;
-            rr:termType rr:IRI
-        ]
-    ] ;
-
-    # Type de carburant (hasFuelType) -> Concept SKOS
-    rr:predicateObjectMap [
-        rr:predicate :hasFuelType ;
-        rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{fuelType}" ;
-            rr:termType rr:IRI
-        ]
-    ] ;
-
-    # Classe de véhicule (hasVehicleClass) -> Concept SKOS
-    rr:predicateObjectMap [
-        rr:predicate :hasVehicleClass ;
-        rr:objectMap [ 
-            rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{VClass}" ;
-            rr:termType rr:IRI
-        ]
-    ] .
-
-#################################################################
-#    Mapping des Avis Clients (reviews_final_clean.csv)
-#################################################################
-
-<#ReviewsMap>
-    a rr:TriplesMap ;
-
-    rml:logicalSource [
-        rml:source "/data/dataForOntology/reviews_final_clean.csv" ;
-        rml:referenceFormulation ql:CSV
-    ] ;
-
-    rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/review/{Brand}_{Review_Year}_{Rating}" ;
-        rr:class :CustomerReview
-    ] ;
-
-    # Contenu de l'avis (reviewContent)
-    rr:predicateObjectMap [
-        rr:predicate :reviewContent ;
-        rr:objectMap [ 
-            rml:reference "Review" ;
-            rr:datatype xsd:string
-        ]
-    ] ;
-
-    # Note de l'avis (reviewRating)
-    rr:predicateObjectMap [
-        rr:predicate :reviewRating ;
-        rr:objectMap [ 
-            rml:reference "Rating" ; 
-            rr:datatype xsd:decimal 
-        ]
-    ] ;
-
-    # Relation avec le véhicule (isReviewOf)
-    rr:predicateObjectMap [
-        rr:predicate :isReviewOf ;
-        rr:objectMap [
-            rr:parentTriplesMap <#VehiclesMap> ;
-            rr:joinCondition [
-                rr:child "Brand" ;
-                rr:parent "make"
-            ] ;
-            rr:joinCondition [
-                rr:child "Review_Year" ;
-                rr:parent "year"
-            ] ;
-            rr:joinCondition [
-                rr:child "Review_Model_Base" ;
-                rr:parent "model"
-            ]
-        ]
-    ] .
+with tab2:
+    st.subheader("Top Fabricants (par Avis)")
+    try:
+        q_stats = """
+            PREFIX : <http://www.univ-projet.fr/ontologies/autosemantic#>
+            SELECT ?mURI (COUNT(?rev) as ?nb) WHERE {
+                ?rev a :CustomerReview ; :isReviewOf ?v .
+                ?v :hasManufacturer ?mURI .
+            } GROUP BY ?mURI ORDER BY DESC(?nb) LIMIT 10
+        """
+        res = g.query(q_stats)
+        st.bar_chart(pd.DataFrame([{"Fab": clean_uri(r.mURI), "Avis": int(r.nb)} for r in res]).set_index("Fab"))
+    except: st.write("Pas de données.")
