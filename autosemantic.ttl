@@ -519,7 +519,7 @@
 
 :StandardSUV rdf:type skos:Concept ;
              skos:broader :SUVClass ;
-             skos:inScheme :VehicleClassScheme ;
+             skos:inScheme :VehicleClassScheme .
 # --- Scheme : Constructeurs ---
 :ManufacturerScheme rdf:type skos:ConceptScheme ;
                     skos:prefLabel "Constructeurs Automobiles"@fr .
