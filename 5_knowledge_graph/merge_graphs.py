@@ -9,17 +9,17 @@ logging.basicConfig(
 )
 
 # Get project root
-PROJECT_ROOT = Path(__file__).parent
+PROJECT_ROOT = Path(__file__).parent.parent
 
 # Define input files - DATA + ALIGNMENTS
 DATA_FILES = [
-    PROJECT_ROOT / "structuredData" / "output.ttl",       # CSV data
-    PROJECT_ROOT / "kg_from_web_ollama.ttl",              # Web data
-    PROJECT_ROOT / "alignments_instances.ttl",            # ALIGNMENTS
+    PROJECT_ROOT / "3_data_extraction" / "rml_mapping" / "output.ttl",       # CSV data
+    PROJECT_ROOT / "3_data_extraction" / "web_extraction" / "kg_from_web_ollama.ttl",  # Web data
+    PROJECT_ROOT / "4_alignment" / "alignments_instances.ttl",               # ALIGNMENTS
 ]
 
 # Output file (data only, ontology kept separate)
-OUTPUT_FILE = PROJECT_ROOT / "knowledge_graph.ttl"
+OUTPUT_FILE = Path(__file__).parent / "knowledge_graph.ttl"
 
 
 def merge_graphs(input_files, output_file):

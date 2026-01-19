@@ -1,0 +1,4224 @@
+@prefix : <http://www.univ-projet.fr/ontologies/autosemantic#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b11 a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b11,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b11 ;
+    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b12 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b11 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b21 a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b21 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b21 ;
+    owl:unionOf _:na8d51c4aaa574a06afe99c3c185330f9b25 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b4 a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b4,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b4 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b4 ;
+    owl:unionOf _:na8d51c4aaa574a06afe99c3c185330f9b7 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b50 a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b50 ;
+    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b51 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b50 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b59 a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b59,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b59 ;
+    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b60 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b59 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b70 a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b70,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b70 ;
+    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b71 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b70 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b9,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:complementOf _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b9 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b9 .
+
+:Car a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf :Car,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass :Car ;
+    owl:sameAs :Car .
+
+:CityCar a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b19,
+        _:na8d51c4aaa574a06afe99c3c185330f9b20,
+        _:na8d51c4aaa574a06afe99c3c185330f9b21,
+        :Car,
+        :CityCar,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b19,
+        :CityCar ;
+    owl:sameAs :CityCar .
+
+:CriticalReview a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b82,
+        _:na8d51c4aaa574a06afe99c3c185330f9b83,
+        :CriticalReview,
+        :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b82,
+        :CriticalReview ;
+    owl:sameAs :CriticalReview .
+
+:CustomerReview a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:comment "Avis utilisateur extrait de reviews_sample.csv"@fr ;
+    rdfs:subClassOf :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass :CustomerReview ;
+    owl:sameAs :CustomerReview .
+
+:GasGuzzler a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b31,
+        _:na8d51c4aaa574a06afe99c3c185330f9b32,
+        :Car,
+        :GasGuzzler,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b31,
+        :GasGuzzler ;
+    owl:sameAs :GasGuzzler .
+
+:HighPerformanceCar a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b3,
+        _:na8d51c4aaa574a06afe99c3c185330f9b4,
+        _:na8d51c4aaa574a06afe99c3c185330f9b9,
+        :Car,
+        :HighPerformanceCar,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b3,
+        :HighPerformanceCar ;
+    owl:sameAs :HighPerformanceCar .
+
+:LuxuryManufacturer a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass :LuxuryManufacturer ;
+    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b35 ;
+    owl:sameAs :LuxuryManufacturer .
+
+:LuxuryVehicle a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b44,
+        _:na8d51c4aaa574a06afe99c3c185330f9b45,
+        :LuxuryVehicle,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b44,
+        :LuxuryVehicle ;
+    owl:sameAs :LuxuryVehicle .
+
+:Manufacturer a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf :Manufacturer,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass :Manufacturer ;
+    owl:sameAs :Manufacturer .
+
+:OffRoadVehicle a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b48,
+        _:na8d51c4aaa574a06afe99c3c185330f9b49,
+        _:na8d51c4aaa574a06afe99c3c185330f9b58,
+        :OffRoadVehicle,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b48,
+        :OffRoadVehicle ;
+    owl:sameAs :OffRoadVehicle .
+
+:PositiveReview a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b78,
+        _:na8d51c4aaa574a06afe99c3c185330f9b79,
+        :CustomerReview,
+        :PositiveReview,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b78,
+        :PositiveReview ;
+    owl:sameAs :PositiveReview .
+
+:RoadTripReady a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b67,
+        _:na8d51c4aaa574a06afe99c3c185330f9b68,
+        _:na8d51c4aaa574a06afe99c3c185330f9b69,
+        :Car,
+        :RoadTripReady,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b67,
+        :RoadTripReady ;
+    owl:sameAs :RoadTripReady .
+
+:Vehicle a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass :Vehicle ;
+    owl:sameAs :Vehicle .
+
+owl:Nothing a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b11,
+        _:na8d51c4aaa574a06afe99c3c185330f9b19,
+        _:na8d51c4aaa574a06afe99c3c185330f9b20,
+        _:na8d51c4aaa574a06afe99c3c185330f9b21,
+        _:na8d51c4aaa574a06afe99c3c185330f9b3,
+        _:na8d51c4aaa574a06afe99c3c185330f9b31,
+        _:na8d51c4aaa574a06afe99c3c185330f9b32,
+        _:na8d51c4aaa574a06afe99c3c185330f9b4,
+        _:na8d51c4aaa574a06afe99c3c185330f9b44,
+        _:na8d51c4aaa574a06afe99c3c185330f9b45,
+        _:na8d51c4aaa574a06afe99c3c185330f9b48,
+        _:na8d51c4aaa574a06afe99c3c185330f9b49,
+        _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        _:na8d51c4aaa574a06afe99c3c185330f9b58,
+        _:na8d51c4aaa574a06afe99c3c185330f9b59,
+        _:na8d51c4aaa574a06afe99c3c185330f9b67,
+        _:na8d51c4aaa574a06afe99c3c185330f9b68,
+        _:na8d51c4aaa574a06afe99c3c185330f9b69,
+        _:na8d51c4aaa574a06afe99c3c185330f9b70,
+        _:na8d51c4aaa574a06afe99c3c185330f9b78,
+        _:na8d51c4aaa574a06afe99c3c185330f9b79,
+        _:na8d51c4aaa574a06afe99c3c185330f9b82,
+        _:na8d51c4aaa574a06afe99c3c185330f9b83,
+        _:na8d51c4aaa574a06afe99c3c185330f9b9,
+        :Car,
+        :CityCar,
+        :CriticalReview,
+        :CustomerReview,
+        :GasGuzzler,
+        :HighPerformanceCar,
+        :LuxuryManufacturer,
+        :LuxuryVehicle,
+        :Manufacturer,
+        :OffRoadVehicle,
+        :PositiveReview,
+        :RoadTripReady,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Nothing,
+        owl:Thing ;
+    owl:equivalentClass owl:Nothing ;
+    owl:sameAs owl:Nothing .
+
+owl:Thing a rdfs:Class,
+        rdfs:Resource,
+        owl:Class,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs owl:Thing .
+
+<http://www.univ-projet.fr/ontologies/autosemantic> a rdfs:Resource,
+        owl:Ontology,
+        owl:Thing ;
+    rdfs:comment "Ontologie enrichie pour le projet AutoSemantic."@fr ;
+    owl:sameAs <http://www.univ-projet.fr/ontologies/autosemantic> .
+
+:AMGeneral a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AMGeneral ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "AM General"@en .
+
+:ASCIncorporated a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :ASCIncorporated ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "ASC Incorporated"@en .
+
+:Acura a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Acura ;
+    skos:broader :HondaGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Acura"@en .
+
+:AlfaRomeo a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AlfaRomeo ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Alfa Romeo"@en .
+
+:AmericanMotorsCorporation a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AmericanMotorsCorporation ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "American Motors Corporation"@en .
+
+:Audi a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Audi ;
+    skos:broader :VolkswagenGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Audi"@en .
+
+:AuroraCarsLtd a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AuroraCarsLtd ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Aurora Cars Ltd"@en .
+
+:AutokraftLimited a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AutokraftLimited ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Autokraft Limited"@en .
+
+:AvantiMotorCorporation a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AvantiMotorCorporation ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Avanti Motor Corporation"@en .
+
+:AzureDynamics a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AzureDynamics ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Azure Dynamics"@en .
+
+:BMW a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :BMW ;
+    skos:broader :BMWGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "BMW"@en .
+
+:BMWAlpina a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :BMWAlpina ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "BMW Alpina"@en .
+
+:BYD a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :BYD ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "BYD"@en .
+
+:Bertone a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Bertone ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Bertone"@en .
+
+:BillDovellMotorCarCompany a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :BillDovellMotorCarCompany ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Bill Dovell Motor Car Company"@en .
+
+:BitterGmbhandCoKg a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :BitterGmbhandCoKg ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Bitter Gmbh and Co. Kg"@en .
+
+:BugattiRimac a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :BugattiRimac ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Bugatti Rimac"@en .
+
+:Buick a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Buick ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Buick"@en .
+
+:CCCEngineering a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CCCEngineering ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "CCC Engineering"@en .
+
+:CODAAutomotive a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CODAAutomotive ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "CODA Automotive"@en .
+
+:CVT a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CVT ;
+    skos:broader :Automatic ;
+    skos:inScheme :TransmissionScheme ;
+    skos:prefLabel "CVT (Continuously Variable Transmission)"@en .
+
+:CXAutomotive a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CXAutomotive ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "CX Automotive"@en .
+
+:Cadillac a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Cadillac ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Cadillac"@en .
+
+:Chevrolet a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Chevrolet ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Chevrolet"@en .
+
+:Chrysler a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Chrysler ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Chrysler"@en .
+
+:ConsulierIndustriesInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :ConsulierIndustriesInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Consulier Industries Inc"@en .
+
+:DabryanCoachBuildersInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :DabryanCoachBuildersInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Dabryan Coach Builders Inc"@en .
+
+:Dacia a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Dacia ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Dacia"@en .
+
+:Daewoo a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Daewoo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Daewoo"@en .
+
+:Daihatsu a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Daihatsu ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Daihatsu"@en .
+
+:Diesel a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Diesel ;
+    skos:broader :FossilFuel ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Diesel"@en,
+        "Diesel"@fr .
+
+:Dodge a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Dodge ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Dodge"@en .
+
+:DualClutch a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :DualClutch ;
+    skos:broader :AutomatedManual ;
+    skos:inScheme :TransmissionScheme ;
+    skos:prefLabel "Dual Clutch Transmission (DCT)"@en .
+
+:EPDuttonInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :EPDuttonInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "E. P. Dutton, Inc."@en .
+
+:Eagle a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Eagle ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Eagle"@en .
+
+:EnvironmentalRschandDevpCorp a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :EnvironmentalRschandDevpCorp ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Environmental Rsch and Devp Corp"@en .
+
+:EvansAutomobiles a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :EvansAutomobiles ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Evans Automobiles"@en .
+
+:ExcaliburAutos a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :ExcaliburAutos ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Excalibur Autos"@en .
+
+:FederalCoach a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :FederalCoach ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Federal Coach"@en .
+
+:Fiat a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Fiat ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Fiat"@en .
+
+:Fisker a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Fisker ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Fisker"@en .
+
+:Ford a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Ford ;
+    skos:broader :FordMotorCo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Ford"@en .
+
+:FrontWheelDrive a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :FrontWheelDrive ;
+    skos:broader :TwoWheelDrive ;
+    skos:inScheme :DriveTypeScheme ;
+    skos:prefLabel "Front-Wheel Drive"@en .
+
+:GMC a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :GMC ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "GMC"@en .
+
+:GasolineOrE85 a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :GasolineOrE85 ;
+    skos:broader :Gasoline ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Gasoline or E85"@en .
+
+:GasolineOrNaturalGas a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :GasolineOrNaturalGas ;
+    skos:broader :CNG,
+        :Gasoline ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Gasoline or Natural Gas"@en .
+
+:GasolineOrPropane a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :GasolineOrPropane ;
+    skos:broader :Gasoline,
+        :Propane ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Gasoline or Propane"@en .
+
+:Genesis a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Genesis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Genesis"@en .
+
+:Geo a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Geo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Geo"@en .
+
+:Goldacre a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Goldacre ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Goldacre"@en .
+
+:GrummanAlliedIndustries a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :GrummanAlliedIndustries ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Grumman Allied Industries"@en .
+
+:GrummanOlson a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :GrummanOlson ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Grumman Olson"@en .
+
+:Honda a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Honda ;
+    skos:broader :HondaGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Honda"@en .
+
+:Hummer a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Hummer ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Hummer"@en .
+
+:Hydrogen a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Hydrogen ;
+    skos:broader :CleanEnergy ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Hydrogen"@en .
+
+:Hyundai a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Hyundai ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Hyundai"@en .
+
+:INEOSAutomotive a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :INEOSAutomotive ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "INEOS Automotive"@en .
+
+:ImportForeignAutoSalesInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :ImportForeignAutoSalesInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Import Foreign Auto Sales Inc"@en .
+
+:ImportTradeServices a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :ImportTradeServices ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Import Trade Services"@en .
+
+:Infiniti a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Infiniti ;
+    skos:broader :NissanGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Infiniti"@en .
+
+:IsisImportsLtd a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :IsisImportsLtd ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Isis Imports Ltd"@en .
+
+:Isuzu a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Isuzu ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Isuzu"@en .
+
+:JBAMotorcarsInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :JBAMotorcarsInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "JBA Motorcars, Inc."@en .
+
+:JKMotors a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :JKMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "J.K. Motors"@en .
+
+:Jaguar a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Jaguar ;
+    skos:broader :TataMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Jaguar"@en .
+
+:Jeep a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Jeep ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Jeep"@en .
+
+:Kandi a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Kandi ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Kandi"@en .
+
+:Karma a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Karma ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Karma"@en .
+
+:KenyonCorporationOfAmerica a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :KenyonCorporationOfAmerica ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Kenyon Corporation Of America"@en .
+
+:Kia a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Kia ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Kia"@en .
+
+:Koenigsegg a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Koenigsegg ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Koenigsegg"@en .
+
+:LaforzaAutomobileInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :LaforzaAutomobileInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Laforza Automobile Inc"@en .
+
+:LambdaControlSystems a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :LambdaControlSystems ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Lambda Control Systems"@en .
+
+:LandRover a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :LandRover ;
+    skos:broader :TataMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Land Rover"@en .
+
+:Lexus a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Lexus ;
+    skos:broader :ToyotaGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Lexus"@en .
+
+:Lincoln a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Lincoln ;
+    skos:broader :FordMotorCo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Lincoln"@en .
+
+:LondonCoachCoInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :LondonCoachCoInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "London Coach Co Inc"@en .
+
+:LondonTaxi a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :LondonTaxi ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "London Taxi"@en .
+
+:Lordstown a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Lordstown ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Lordstown"@en .
+
+:Lotus a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Lotus ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Lotus"@en .
+
+:Lucid a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Lucid ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Lucid"@en .
+
+:MINI a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :MINI ;
+    skos:broader :BMWGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "MINI"@en .
+
+:Mahindra a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Mahindra ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mahindra"@en .
+
+:Manual a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Manual ;
+    skos:inScheme :TransmissionScheme ;
+    skos:prefLabel "Manual"@en,
+        "Manuelle"@fr .
+
+:Maybach a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Maybach ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Maybach"@en .
+
+:Mazda a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Mazda ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mazda"@en .
+
+:McevoyMotors a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :McevoyMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mcevoy Motors"@en .
+
+:MercedesBenz a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :MercedesBenz ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mercedes-Benz"@en .
+
+:Mercury a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Mercury ;
+    skos:broader :FordMotorCo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mercury"@en .
+
+:Merkur a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Merkur ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Merkur"@en .
+
+:Midgrade a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Midgrade ;
+    skos:broader :Gasoline ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Midgrade Gasoline"@en .
+
+:Mini a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Mini ;
+    skos:broader :BMWGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mini"@en .
+
+:Mitsubishi a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Mitsubishi ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mitsubishi"@en .
+
+:MobilityVenturesLLC a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :MobilityVenturesLLC ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Mobility Ventures LLC"@en .
+
+:Morgan a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Morgan ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Morgan"@en .
+
+:Nissan a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Nissan ;
+    skos:broader :NissanGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Nissan"@en .
+
+:Oldsmobile a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Oldsmobile ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Oldsmobile"@en .
+
+:PASInc a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PASInc ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "PAS, Inc"@en .
+
+:PASIncGMC a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PASIncGMC ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "PAS Inc - GMC"@en .
+
+:Pagani a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Pagani ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Pagani"@en .
+
+:Panos a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Panos ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Panos"@en .
+
+:PanozAutoDevelopment a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PanozAutoDevelopment ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Panoz Auto-Development"@en .
+
+:PantherCarCompanyLimited a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PantherCarCompanyLimited ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Panther Car Company Limited"@en .
+
+:Peugeot a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Peugeot ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Peugeot"@en .
+
+:Pininfarina a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Pininfarina ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Pininfarina"@en .
+
+:Plymouth a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Plymouth ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Plymouth"@en .
+
+:Polestar a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Polestar ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Polestar"@en .
+
+:Pontiac a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Pontiac ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Pontiac"@en .
+
+:PremiumAndElectricity a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PremiumAndElectricity ;
+    skos:broader :Electricity,
+        :Premium ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Premium and Electricity"@en .
+
+:PremiumGasOrElectricity a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PremiumGasOrElectricity ;
+    skos:broader :Electricity,
+        :Premium ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Premium Gas or Electricity"@en .
+
+:PremiumOrE85 a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PremiumOrE85 ;
+    skos:broader :Premium ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Premium or E85"@en .
+
+:QuantumTechnologies a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :QuantumTechnologies ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Quantum Technologies"@en .
+
+:Qvale a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Qvale ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Qvale"@en .
+
+:RUFAutomobile a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RUFAutomobile ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "RUF Automobile"@en .
+
+:Ram a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Ram ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Ram"@en .
+
+:RearWheelDrive a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RearWheelDrive ;
+    skos:broader :TwoWheelDrive ;
+    skos:inScheme :DriveTypeScheme ;
+    skos:prefLabel "Rear-Wheel Drive"@en .
+
+:RedShiftLtd a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RedShiftLtd ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Red Shift Ltd."@en .
+
+:RegularGasAndElectricity a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RegularGasAndElectricity ;
+    skos:broader :Electricity,
+        :Regular ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Regular Gas and Electricity"@en .
+
+:RegularGasOrElectricity a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RegularGasOrElectricity ;
+    skos:broader :Electricity,
+        :Regular ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Regular Gas or Electricity"@en .
+
+:Renault a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Renault ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Renault"@en .
+
+:Rivian a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Rivian ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Rivian"@en .
+
+:RoushPerformance a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RoushPerformance ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Roush Performance"@en .
+
+:RufAutomobileGmbh a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RufAutomobileGmbh ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Ruf Automobile Gmbh"@en .
+
+:SRT a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SRT ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "SRT"@en .
+
+:STI a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :STI ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "STI"@en .
+
+:Saab a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Saab ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Saab"@en .
+
+:Saleen a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Saleen ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Saleen"@en .
+
+:SaleenPerformance a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SaleenPerformance ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Saleen Performance"@en .
+
+:SandSCoachCompanyEpDutton a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SandSCoachCompanyEpDutton ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "S and S Coach Company  E.p. Dutton"@en .
+
+:Saturn a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Saturn ;
+    skos:broader :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Saturn"@en .
+
+:Scion a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Scion ;
+    skos:broader :ToyotaGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Scion"@en .
+
+:Shelby a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Shelby ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Shelby"@en .
+
+:SmallStationWagon a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SmallStationWagon ;
+    skos:broader :StationWagonClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Small Station Wagon"@en .
+
+:SpecialPurposeClass a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SpecialPurposeClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Special Purpose Vehicle"@en .
+
+:Spyker a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Spyker ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Spyker"@en .
+
+:Sterling a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Sterling ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Sterling"@en .
+
+:Subaru a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Subaru ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Subaru"@en .
+
+:SuperiorCoachesDivEpDutton a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SuperiorCoachesDivEpDutton ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Superior Coaches Div E.p. Dutton"@en .
+
+:Suzuki a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Suzuki ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Suzuki"@en .
+
+:TVREngineeringLtd a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :TVREngineeringLtd ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "TVR Engineering Ltd"@en .
+
+:TecstarLP a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :TecstarLP ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Tecstar, LP"@en .
+
+:Tesla a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Tesla ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Tesla"@en .
+
+:TexasCoachCompany a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :TexasCoachCompany ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Texas Coach Company"@en .
+
+:Toyota a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Toyota ;
+    skos:broader :ToyotaGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Toyota"@en .
+
+:TwoSeater a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :TwoSeater ;
+    skos:broader :CarClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Two Seater"@en .
+
+:VPG a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :VPG ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "VPG"@en .
+
+:Vector a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Vector ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Vector"@en .
+
+:Vinfast a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Vinfast ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Vinfast"@en .
+
+:VixenMotorCompany a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :VixenMotorCompany ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Vixen Motor Company"@en .
+
+:VolgaAssociatedAutomobile a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :VolgaAssociatedAutomobile ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Volga Associated Automobile"@en .
+
+:Volkswagen a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Volkswagen ;
+    skos:broader :VolkswagenGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Volkswagen"@en .
+
+:Volvo a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Volvo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Volvo"@en .
+
+:WallaceEnvironmental a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :WallaceEnvironmental ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Wallace Environmental"@en .
+
+:Yugo a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Yugo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Yugo"@en .
+
+:smart a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :smart ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "smart"@en .
+
+rdf:HTML a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs rdf:HTML .
+
+rdf:PlainLiteral a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs rdf:PlainLiteral .
+
+rdf:XMLLiteral a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs rdf:XMLLiteral .
+
+rdf:langString a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs rdf:langString .
+
+rdfs:isDefinedBy a rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    owl:sameAs rdfs:isDefinedBy .
+
+rdfs:seeAlso a rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    owl:sameAs rdfs:seeAlso .
+
+xsd:NCName a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:NCName .
+
+xsd:NMTOKEN a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:NMTOKEN .
+
+xsd:Name a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:Name .
+
+xsd:anyURI a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:anyURI .
+
+xsd:base64Binary a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:base64Binary .
+
+xsd:boolean a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:boolean .
+
+xsd:byte a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:byte .
+
+xsd:dateTime a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:dateTime .
+
+xsd:dateTimeStamp a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:dateTimeStamp .
+
+xsd:double a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:double .
+
+xsd:hexBinary a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:hexBinary .
+
+xsd:int a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:int .
+
+xsd:language a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:language .
+
+xsd:long a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:long .
+
+xsd:negativeInteger a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:negativeInteger .
+
+xsd:nonNegativeInteger a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:nonNegativeInteger .
+
+xsd:nonPositiveInteger a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:nonPositiveInteger .
+
+xsd:normalizedString a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:normalizedString .
+
+xsd:positiveInteger a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:positiveInteger .
+
+xsd:short a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:short .
+
+xsd:time a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:time .
+
+xsd:token a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:token .
+
+xsd:unsignedByte a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:unsignedByte .
+
+xsd:unsignedInt a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:unsignedInt .
+
+xsd:unsignedLong a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:unsignedLong .
+
+xsd:unsignedShort a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:unsignedShort .
+
+owl:backwardCompatibleWith a rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    owl:sameAs owl:backwardCompatibleWith .
+
+owl:deprecated a rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    owl:sameAs owl:deprecated .
+
+owl:incompatibleWith a rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    owl:sameAs owl:incompatibleWith .
+
+owl:priorVersion a rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    owl:sameAs owl:priorVersion .
+
+owl:versionInfo a rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    owl:sameAs owl:versionInfo .
+
+:AllWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AllWheelDrive ;
+    skos:inScheme :DriveTypeScheme ;
+    skos:prefLabel "All-Wheel Drive"@en .
+
+:AstonMartin a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AstonMartin ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Aston Martin"@en .
+
+:AutomatedManual a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :AutomatedManual ;
+    skos:broader :Automatic ;
+    skos:inScheme :TransmissionScheme ;
+    skos:prefLabel "Automated Manual"@en,
+        "Manuelle Robotisée"@fr .
+
+:Bentley a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Bentley ;
+    skos:broader :VolkswagenGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Bentley"@en .
+
+:Bugatti a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Bugatti ;
+    skos:broader :VolkswagenGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Bugatti"@en .
+
+:CNG a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CNG ;
+    skos:altLabel "Compressed Natural Gas"@en ;
+    skos:broader :FossilFuel ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "CNG"@en .
+
+:CargoVan a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CargoVan ;
+    skos:broader :VanClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Cargo Van"@en .
+
+:CompactCar a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CompactCar ;
+    skos:broader :CarClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Compact Car"@en .
+
+:Ferrari a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Ferrari ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Ferrari"@en .
+
+:FourWheelOrAllWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :FourWheelOrAllWheelDrive ;
+    skos:inScheme :DriveTypeScheme ;
+    skos:prefLabel "4-Wheel or All-Wheel Drive"@en .
+
+:Lamborghini a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Lamborghini ;
+    skos:broader :VolkswagenGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Lamborghini"@en .
+
+:LargeCar a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :LargeCar ;
+    skos:broader :CarClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Large Car"@en .
+
+:Maserati a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Maserati ;
+    skos:broader :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Maserati"@en .
+
+:McLarenAutomotive a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :McLarenAutomotive ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "McLaren Automotive"@en .
+
+:MidsizeCar a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :MidsizeCar ;
+    skos:broader :CarClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Midsize Car"@en .
+
+:MidsizeLargeStationWagon a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :MidsizeLargeStationWagon ;
+    skos:broader :StationWagonClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Midsize-Large Station Wagon"@en .
+
+:MidsizeStationWagon a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :MidsizeStationWagon ;
+    skos:broader :StationWagonClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Midsize Station Wagon"@en .
+
+:MinicompactCar a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :MinicompactCar ;
+    skos:broader :CarClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Minicompact Car"@en .
+
+:Minivan a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Minivan ;
+    skos:broader :VanClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Minivan"@en .
+
+:PartTimeFourWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PartTimeFourWheelDrive ;
+    skos:broader :FourWheelDrive ;
+    skos:inScheme :DriveTypeScheme ;
+    skos:prefLabel "Part-time 4-Wheel Drive"@en .
+
+:PassengerVan a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PassengerVan ;
+    skos:broader :VanClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Passenger Van"@en .
+
+:Porsche a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Porsche ;
+    skos:broader :VolkswagenGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Porsche"@en .
+
+:Propane a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Propane ;
+    skos:broader :FossilFuel ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Propane"@en .
+
+:RollsRoyce a :LuxuryManufacturer,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :RollsRoyce ;
+    skos:broader :BMWGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Rolls-Royce"@en .
+
+:SmallPickupTruck a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SmallPickupTruck ;
+    skos:broader :PickupTruck ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Small Pickup Truck"@en .
+
+:SmallSUV a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SmallSUV ;
+    skos:broader :SUVClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Small Sport Utility Vehicle"@en .
+
+:StandardPickupTruck a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :StandardPickupTruck ;
+    skos:broader :PickupTruck ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Standard Pickup Truck"@en .
+
+:StandardSUV a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :StandardSUV ;
+    skos:broader :SUVClass ;
+    skos:inScheme :VehicleClassScheme .
+
+:SubcompactCar a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SubcompactCar ;
+    skos:broader :CarClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Subcompact Car"@en .
+
+xsd:date a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:date .
+
+xsd:string a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:string .
+
+owl:Ontology a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs owl:Ontology .
+
+2.0 a rdfs:Literal,
+        rdfs:Resource,
+        xsd:decimal,
+        owl:Thing ;
+    owl:sameAs 2.0 .
+
+"4.0"^^xsd:float a rdfs:Literal,
+        rdfs:Resource,
+        xsd:float,
+        owl:Thing ;
+    owl:sameAs "4.0"^^xsd:float .
+
+4.0 a rdfs:Literal,
+        rdfs:Resource,
+        xsd:decimal,
+        owl:Thing ;
+    owl:sameAs 4.0 .
+
+6 a rdfs:Literal,
+        rdfs:Resource,
+        xsd:decimal,
+        xsd:integer,
+        owl:Thing ;
+    owl:sameAs 6 .
+
+"15.0"^^xsd:float a rdfs:Literal,
+        rdfs:Resource,
+        xsd:float,
+        owl:Thing ;
+    owl:sameAs "15.0"^^xsd:float .
+
+"25.0"^^xsd:float a rdfs:Literal,
+        rdfs:Resource,
+        xsd:float,
+        owl:Thing ;
+    owl:sameAs "25.0"^^xsd:float .
+
+"30.0"^^xsd:float a rdfs:Literal,
+        rdfs:Resource,
+        xsd:float,
+        owl:Thing ;
+    owl:sameAs "30.0"^^xsd:float .
+
+"2-Wheel Drive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "2-Wheel Drive"@en .
+
+"4-Wheel Drive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "4-Wheel Drive"@en .
+
+"4-Wheel or All-Wheel Drive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "4-Wheel or All-Wheel Drive"@en .
+
+"AM General"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "AM General"@en .
+
+"ASC Incorporated"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "ASC Incorporated"@en .
+
+"Acura"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Acura"@en .
+
+"Alfa Romeo"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Alfa Romeo"@en .
+
+"All-Wheel Drive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "All-Wheel Drive"@en .
+
+"American Motors Corporation"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "American Motors Corporation"@en .
+
+"Aston Martin"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Aston Martin"@en .
+
+"Audi"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Audi"@en .
+
+"Aurora Cars Ltd"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Aurora Cars Ltd"@en .
+
+"Autokraft Limited"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Autokraft Limited"@en .
+
+"Automated Manual"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Automated Manual"@en .
+
+"Automatic"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Automatic"@en .
+
+"Avanti Motor Corporation"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Avanti Motor Corporation"@en .
+
+"Azure Dynamics"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Azure Dynamics"@en .
+
+"BMW"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "BMW"@en .
+
+"BMW Alpina"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "BMW Alpina"@en .
+
+"BMWGroup"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "BMWGroup"@en .
+
+"BYD"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "BYD"@en .
+
+"Bentley"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Bentley"@en .
+
+"Bertone"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Bertone"@en .
+
+"Bill Dovell Motor Car Company"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Bill Dovell Motor Car Company"@en .
+
+"Bitter Gmbh and Co. Kg"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Bitter Gmbh and Co. Kg"@en .
+
+"Bugatti"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Bugatti"@en .
+
+"Bugatti Rimac"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Bugatti Rimac"@en .
+
+"Buick"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Buick"@en .
+
+"CCC Engineering"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "CCC Engineering"@en .
+
+"CNG"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "CNG"@en .
+
+"CODA Automotive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "CODA Automotive"@en .
+
+"CVT (Continuously Variable Transmission)"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "CVT (Continuously Variable Transmission)"@en .
+
+"CX Automotive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "CX Automotive"@en .
+
+"Cadillac"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Cadillac"@en .
+
+"Car"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Car"@en .
+
+"Cargo Van"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Cargo Van"@en .
+
+"Chevrolet"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Chevrolet"@en .
+
+"Chrysler"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Chrysler"@en .
+
+"Clean Energy"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Clean Energy"@en .
+
+"Compact Car"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Compact Car"@en .
+
+"Compressed Natural Gas"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Compressed Natural Gas"@en .
+
+"Consulier Industries Inc"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Consulier Industries Inc"@en .
+
+"Dabryan Coach Builders Inc"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Dabryan Coach Builders Inc"@en .
+
+"Dacia"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Dacia"@en .
+
+"Daewoo"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Daewoo"@en .
+
+"Daihatsu"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Daihatsu"@en .
+
+"Diesel"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Diesel"@en .
+
+"Dodge"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Dodge"@en .
+
+"Dual Clutch Transmission (DCT)"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Dual Clutch Transmission (DCT)"@en .
+
+"E. P. Dutton, Inc."@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "E. P. Dutton, Inc."@en .
+
+"Eagle"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Eagle"@en .
+
+"Electricity"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Electricity"@en .
+
+"Environmental Rsch and Devp Corp"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Environmental Rsch and Devp Corp"@en .
+
+"Evans Automobiles"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Evans Automobiles"@en .
+
+"Excalibur Autos"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Excalibur Autos"@en .
+
+"Federal Coach"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Federal Coach"@en .
+
+"Ferrari"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Ferrari"@en .
+
+"Fiat"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Fiat"@en .
+
+"Fisker"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Fisker"@en .
+
+"Ford"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Ford"@en .
+
+"FordMotorCo"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "FordMotorCo"@en .
+
+"Fossil Fuel"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Fossil Fuel"@en .
+
+"Front-Wheel Drive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Front-Wheel Drive"@en .
+
+"GMC"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "GMC"@en .
+
+"Gasoline"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Gasoline"@en .
+
+"Gasoline or E85"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Gasoline or E85"@en .
+
+"Gasoline or Natural Gas"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Gasoline or Natural Gas"@en .
+
+"Gasoline or Propane"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Gasoline or Propane"@en .
+
+"General Motors"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "General Motors"@en .
+
+"GeneralMotors"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "GeneralMotors"@en .
+
+"Genesis"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Genesis"@en .
+
+"Geo"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Geo"@en .
+
+"Goldacre"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Goldacre"@en .
+
+"Grumman Allied Industries"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Grumman Allied Industries"@en .
+
+"Grumman Olson"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Grumman Olson"@en .
+
+"Honda"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Honda"@en .
+
+"HondaGroup"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "HondaGroup"@en .
+
+"Hummer"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Hummer"@en .
+
+"Hydrogen"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Hydrogen"@en .
+
+"Hyundai"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Hyundai"@en .
+
+"INEOS Automotive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "INEOS Automotive"@en .
+
+"Import Foreign Auto Sales Inc"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Import Foreign Auto Sales Inc"@en .
+
+"Import Trade Services"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Import Trade Services"@en .
+
+"Infiniti"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Infiniti"@en .
+
+"Isis Imports Ltd"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Isis Imports Ltd"@en .
+
+"Isuzu"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Isuzu"@en .
+
+"J.K. Motors"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "J.K. Motors"@en .
+
+"JBA Motorcars, Inc."@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "JBA Motorcars, Inc."@en .
+
+"Jaguar"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Jaguar"@en .
+
+"Jeep"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Jeep"@en .
+
+"Kandi"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Kandi"@en .
+
+"Karma"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Karma"@en .
+
+"Kenyon Corporation Of America"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Kenyon Corporation Of America"@en .
+
+"Kia"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Kia"@en .
+
+"Koenigsegg"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Koenigsegg"@en .
+
+"Laforza Automobile Inc"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Laforza Automobile Inc"@en .
+
+"Lambda Control Systems"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lambda Control Systems"@en .
+
+"Lamborghini"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lamborghini"@en .
+
+"Land Rover"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Land Rover"@en .
+
+"Large Car"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Large Car"@en .
+
+"Lexus"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lexus"@en .
+
+"Lincoln"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lincoln"@en .
+
+"London Coach Co Inc"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "London Coach Co Inc"@en .
+
+"London Taxi"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "London Taxi"@en .
+
+"Lordstown"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lordstown"@en .
+
+"Lotus"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lotus"@en .
+
+"Lucid"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lucid"@en .
+
+"MINI"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "MINI"@en .
+
+"Mahindra"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mahindra"@en .
+
+"Manual"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Manual"@en .
+
+"Maserati"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Maserati"@en .
+
+"Maybach"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Maybach"@en .
+
+"Mazda"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mazda"@en .
+
+"McLaren Automotive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "McLaren Automotive"@en .
+
+"Mcevoy Motors"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mcevoy Motors"@en .
+
+"Mercedes-Benz"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mercedes-Benz"@en .
+
+"Mercury"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mercury"@en .
+
+"Merkur"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Merkur"@en .
+
+"Midgrade Gasoline"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Midgrade Gasoline"@en .
+
+"Midsize Car"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Midsize Car"@en .
+
+"Midsize Station Wagon"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Midsize Station Wagon"@en .
+
+"Midsize-Large Station Wagon"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Midsize-Large Station Wagon"@en .
+
+"Mini"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mini"@en .
+
+"Minicompact Car"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Minicompact Car"@en .
+
+"Minivan"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Minivan"@en .
+
+"Mitsubishi"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mitsubishi"@en .
+
+"Mobility Ventures LLC"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Mobility Ventures LLC"@en .
+
+"Morgan"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Morgan"@en .
+
+"Nissan"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Nissan"@en .
+
+"NissanGroup"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "NissanGroup"@en .
+
+"Oldsmobile"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Oldsmobile"@en .
+
+"PAS Inc - GMC"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "PAS Inc - GMC"@en .
+
+"PAS, Inc"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "PAS, Inc"@en .
+
+"Pagani"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Pagani"@en .
+
+"Panos"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Panos"@en .
+
+"Panoz Auto-Development"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Panoz Auto-Development"@en .
+
+"Panther Car Company Limited"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Panther Car Company Limited"@en .
+
+"Part-time 4-Wheel Drive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Part-time 4-Wheel Drive"@en .
+
+"Passenger Van"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Passenger Van"@en .
+
+"Peugeot"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Peugeot"@en .
+
+"Pickup Truck"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Pickup Truck"@en .
+
+"Pininfarina"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Pininfarina"@en .
+
+"Plymouth"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Plymouth"@en .
+
+"Polestar"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Polestar"@en .
+
+"Pontiac"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Pontiac"@en .
+
+"Porsche"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Porsche"@en .
+
+"Premium Gas or Electricity"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Premium Gas or Electricity"@en .
+
+"Premium Gasoline"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Premium Gasoline"@en .
+
+"Premium and Electricity"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Premium and Electricity"@en .
+
+"Premium or E85"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Premium or E85"@en .
+
+"Propane"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Propane"@en .
+
+"Quantum Technologies"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Quantum Technologies"@en .
+
+"Qvale"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Qvale"@en .
+
+"RUF Automobile"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "RUF Automobile"@en .
+
+"Ram"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Ram"@en .
+
+"Rear-Wheel Drive"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Rear-Wheel Drive"@en .
+
+"Red Shift Ltd."@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Red Shift Ltd."@en .
+
+"Regular Gas and Electricity"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Regular Gas and Electricity"@en .
+
+"Regular Gas or Electricity"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Regular Gas or Electricity"@en .
+
+"Regular Gasoline"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Regular Gasoline"@en .
+
+"Renault"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Renault"@en .
+
+"Rivian"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Rivian"@en .
+
+"Rolls-Royce"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Rolls-Royce"@en .
+
+"Roush Performance"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Roush Performance"@en .
+
+"Ruf Automobile Gmbh"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Ruf Automobile Gmbh"@en .
+
+"S and S Coach Company  E.p. Dutton"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "S and S Coach Company  E.p. Dutton"@en .
+
+"SRT"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "SRT"@en .
+
+"STI"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "STI"@en .
+
+"Saab"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Saab"@en .
+
+"Saleen"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Saleen"@en .
+
+"Saleen Performance"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Saleen Performance"@en .
+
+"Saturn"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Saturn"@en .
+
+"Scion"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Scion"@en .
+
+"Shelby"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Shelby"@en .
+
+"Small Pickup Truck"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Small Pickup Truck"@en .
+
+"Small Sport Utility Vehicle"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Small Sport Utility Vehicle"@en .
+
+"Small Station Wagon"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Small Station Wagon"@en .
+
+"Special Purpose Vehicle"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Special Purpose Vehicle"@en .
+
+"Sport Utility Vehicle"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Sport Utility Vehicle"@en .
+
+"Spyker"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Spyker"@en .
+
+"Standard Pickup Truck"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Standard Pickup Truck"@en .
+
+"Station Wagon"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Station Wagon"@en .
+
+"Stellantis"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Stellantis"@en .
+
+"Sterling"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Sterling"@en .
+
+"Subaru"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Subaru"@en .
+
+"Subcompact Car"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Subcompact Car"@en .
+
+"Superior Coaches Div E.p. Dutton"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Superior Coaches Div E.p. Dutton"@en .
+
+"Suzuki"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Suzuki"@en .
+
+"TVR Engineering Ltd"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "TVR Engineering Ltd"@en .
+
+"TataMotors"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "TataMotors"@en .
+
+"Tecstar, LP"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Tecstar, LP"@en .
+
+"Tesla"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Tesla"@en .
+
+"Texas Coach Company"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Texas Coach Company"@en .
+
+"Toyota"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Toyota"@en .
+
+"ToyotaGroup"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "ToyotaGroup"@en .
+
+"Truck"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Truck"@en .
+
+"Two Seater"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Two Seater"@en .
+
+"VPG"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "VPG"@en .
+
+"Van"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Van"@en .
+
+"Vector"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Vector"@en .
+
+"Vinfast"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Vinfast"@en .
+
+"Vixen Motor Company"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Vixen Motor Company"@en .
+
+"Volga Associated Automobile"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Volga Associated Automobile"@en .
+
+"Volkswagen"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Volkswagen"@en .
+
+"VolkswagenGroup"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "VolkswagenGroup"@en .
+
+"Volvo"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Volvo"@en .
+
+"Wallace Environmental"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Wallace Environmental"@en .
+
+"Yugo"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Yugo"@en .
+
+"smart"@en a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "smart"@en .
+
+"Automatique"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Automatique"@fr .
+
+"Avis utilisateur extrait de reviews_sample.csv"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Avis utilisateur extrait de reviews_sample.csv"@fr .
+
+"Break"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Break"@fr .
+
+"Camion"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Camion"@fr .
+
+"Carburant Fossile"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Carburant Fossile"@fr .
+
+"Classe de véhicule"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Classe de véhicule"@fr .
+
+"Constructeurs Automobiles"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Constructeurs Automobiles"@fr .
+
+"Cylindrée en litres"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Cylindrée en litres"@fr .
+
+"Diesel"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Diesel"@fr .
+
+"Electricité"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Electricité"@fr .
+
+"Energie Propre"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Energie Propre"@fr .
+
+"Essence"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Essence"@fr .
+
+"Fourgon / Van"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Fourgon / Van"@fr .
+
+"Lié au Concept Scheme DriveType (ex: 4WD, FWD)"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lié au Concept Scheme DriveType (ex: 4WD, FWD)"@fr .
+
+"Lié au Concept Scheme Transmission"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lié au Concept Scheme Transmission"@fr .
+
+"Lié au Concept Scheme VehicleClass"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Lié au Concept Scheme VehicleClass"@fr .
+
+"Manuelle"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Manuelle"@fr .
+
+"Manuelle Robotisée"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Manuelle Robotisée"@fr .
+
+"Nombre de rapports de la boîte de vitesses"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Nombre de rapports de la boîte de vitesses"@fr .
+
+"Ontologie enrichie pour le projet AutoSemantic."@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Ontologie enrichie pour le projet AutoSemantic."@fr .
+
+"SUV"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "SUV"@fr .
+
+"Type de Carburant"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Type de Carburant"@fr .
+
+"Type de Transmission"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Type de Transmission"@fr .
+
+"Voiture"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "Voiture"@fr .
+
+"a pour avis"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "a pour avis"@fr .
+
+"a pour fabricant"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "a pour fabricant"@fr .
+
+"est un avis sur"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "est un avis sur"@fr .
+
+"est un produit du groupe"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "est un produit du groupe"@fr .
+
+"fabrique"@fr a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs "fabrique"@fr .
+
+:Automatic a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Automatic ;
+    skos:inScheme :TransmissionScheme ;
+    skos:prefLabel "Automatic"@en,
+        "Automatique"@fr .
+
+:CleanEnergy a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CleanEnergy ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Clean Energy"@en,
+        "Energie Propre"@fr .
+
+:FourWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :FourWheelDrive ;
+    skos:inScheme :DriveTypeScheme ;
+    skos:prefLabel "4-Wheel Drive"@en .
+
+:HondaGroup a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :HondaGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "HondaGroup"@en .
+
+:NissanGroup a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :NissanGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "NissanGroup"@en .
+
+:Regular a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Regular ;
+    skos:broader :Gasoline ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Regular Gasoline"@en .
+
+:TataMotors a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :TataMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "TataMotors"@en .
+
+:TruckClass a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :TruckClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Truck"@en,
+        "Camion"@fr .
+
+:TwoWheelDrive a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :TwoWheelDrive ;
+    skos:inScheme :DriveTypeScheme ;
+    skos:prefLabel "2-Wheel Drive"@en .
+
+:hasFuelType a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:range skos:Concept ;
+    rdfs:subPropertyOf :hasFuelType ;
+    owl:equivalentProperty :hasFuelType ;
+    owl:sameAs :hasFuelType .
+
+:hasReview a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:label "a pour avis"@fr ;
+    rdfs:domain :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:subPropertyOf :hasReview ;
+    owl:equivalentProperty :hasReview ;
+    owl:inverseOf :isReviewOf ;
+    owl:sameAs :hasReview .
+
+:hasTransmissionType a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:comment "Lié au Concept Scheme Transmission"@fr ;
+    rdfs:range skos:Concept ;
+    rdfs:subPropertyOf :hasTransmissionType ;
+    owl:equivalentProperty :hasTransmissionType ;
+    owl:sameAs :hasTransmissionType .
+
+:isProductOfGroup a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:label "est un produit du groupe"@fr ;
+    rdfs:subPropertyOf :isProductOfGroup ;
+    owl:equivalentProperty :isProductOfGroup ;
+    owl:propertyChainAxiom _:na8d51c4aaa574a06afe99c3c185330f9b1 ;
+    owl:sameAs :isProductOfGroup .
+
+:manufactures a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:label "fabrique"@fr ;
+    rdfs:domain :Manufacturer,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:subPropertyOf :manufactures ;
+    owl:equivalentProperty :manufactures ;
+    owl:inverseOf :hasManufacturer ;
+    owl:sameAs :manufactures .
+
+:numberOfGears a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:comment "Nombre de rapports de la boîte de vitesses"@fr ;
+    rdfs:domain :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:integer ;
+    rdfs:subPropertyOf :numberOfGears ;
+    owl:equivalentProperty :numberOfGears ;
+    owl:sameAs :numberOfGears .
+
+:reviewContent a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:domain :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:string ;
+    rdfs:subPropertyOf :reviewContent ;
+    owl:equivalentProperty :reviewContent ;
+    owl:sameAs :reviewContent .
+
+:reviewDate a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:domain :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:date ;
+    rdfs:subPropertyOf :reviewDate ;
+    owl:equivalentProperty :reviewDate ;
+    owl:sameAs :reviewDate .
+
+rdf:first a rdf:Property ;
+    rdfs:subPropertyOf rdf:first ;
+    owl:equivalentProperty rdf:first ;
+    owl:sameAs rdf:first .
+
+rdf:rest a rdf:Property ;
+    rdfs:subPropertyOf rdf:rest ;
+    owl:equivalentProperty rdf:rest ;
+    owl:sameAs rdf:rest .
+
+rdf:type a rdf:Property ;
+    rdfs:subPropertyOf rdf:type ;
+    owl:equivalentProperty rdf:type ;
+    owl:sameAs rdf:type .
+
+rdfs:comment a rdf:Property,
+        rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    rdfs:subPropertyOf rdfs:comment ;
+    owl:equivalentProperty rdfs:comment ;
+    owl:sameAs rdfs:comment .
+
+rdfs:domain a rdf:Property ;
+    rdfs:subPropertyOf rdfs:domain ;
+    owl:equivalentProperty rdfs:domain ;
+    owl:sameAs rdfs:domain .
+
+rdfs:label a rdf:Property,
+        rdfs:Resource,
+        owl:AnnotationProperty,
+        owl:Thing ;
+    rdfs:subPropertyOf rdfs:label ;
+    owl:equivalentProperty rdfs:label ;
+    owl:sameAs rdfs:label .
+
+rdfs:range a rdf:Property ;
+    rdfs:subPropertyOf rdfs:range ;
+    owl:equivalentProperty rdfs:range ;
+    owl:sameAs rdfs:range .
+
+rdfs:subClassOf a rdf:Property ;
+    rdfs:subPropertyOf rdfs:subClassOf ;
+    owl:equivalentProperty rdfs:subClassOf ;
+    owl:sameAs rdfs:subClassOf .
+
+rdfs:subPropertyOf a rdf:Property ;
+    rdfs:subPropertyOf rdfs:subPropertyOf ;
+    owl:equivalentProperty rdfs:subPropertyOf ;
+    owl:sameAs rdfs:subPropertyOf .
+
+owl:complementOf a rdf:Property ;
+    rdfs:subPropertyOf owl:complementOf ;
+    owl:equivalentProperty owl:complementOf ;
+    owl:sameAs owl:complementOf .
+
+owl:disjointWith a rdf:Property ;
+    rdfs:subPropertyOf owl:disjointWith ;
+    owl:equivalentProperty owl:disjointWith ;
+    owl:sameAs owl:disjointWith .
+
+owl:equivalentClass a rdf:Property ;
+    rdfs:subPropertyOf owl:equivalentClass ;
+    owl:equivalentProperty owl:equivalentClass ;
+    owl:sameAs owl:equivalentClass .
+
+owl:equivalentProperty a rdf:Property ;
+    rdfs:subPropertyOf owl:equivalentProperty ;
+    owl:equivalentProperty owl:equivalentProperty ;
+    owl:sameAs owl:equivalentProperty .
+
+owl:hasValue a rdf:Property ;
+    rdfs:subPropertyOf owl:hasValue ;
+    owl:equivalentProperty owl:hasValue ;
+    owl:sameAs owl:hasValue .
+
+owl:intersectionOf a rdf:Property ;
+    rdfs:subPropertyOf owl:intersectionOf ;
+    owl:equivalentProperty owl:intersectionOf ;
+    owl:sameAs owl:intersectionOf .
+
+owl:inverseOf a rdf:Property ;
+    rdfs:subPropertyOf owl:inverseOf ;
+    owl:equivalentProperty owl:inverseOf ;
+    owl:sameAs owl:inverseOf .
+
+owl:maxExclusive a rdf:Property ;
+    rdfs:subPropertyOf owl:maxExclusive ;
+    owl:equivalentProperty owl:maxExclusive ;
+    owl:sameAs owl:maxExclusive .
+
+owl:maxInclusive a rdf:Property ;
+    rdfs:subPropertyOf owl:maxInclusive ;
+    owl:equivalentProperty owl:maxInclusive ;
+    owl:sameAs owl:maxInclusive .
+
+owl:minExclusive a rdf:Property ;
+    rdfs:subPropertyOf owl:minExclusive ;
+    owl:equivalentProperty owl:minExclusive ;
+    owl:sameAs owl:minExclusive .
+
+owl:minInclusive a rdf:Property ;
+    rdfs:subPropertyOf owl:minInclusive ;
+    owl:equivalentProperty owl:minInclusive ;
+    owl:sameAs owl:minInclusive .
+
+owl:onProperty a rdf:Property ;
+    rdfs:subPropertyOf owl:onProperty ;
+    owl:equivalentProperty owl:onProperty ;
+    owl:sameAs owl:onProperty .
+
+owl:oneOf a rdf:Property ;
+    rdfs:subPropertyOf owl:oneOf ;
+    owl:equivalentProperty owl:oneOf ;
+    owl:sameAs owl:oneOf .
+
+owl:propertyChainAxiom a rdf:Property ;
+    rdfs:subPropertyOf owl:propertyChainAxiom ;
+    owl:equivalentProperty owl:propertyChainAxiom ;
+    owl:sameAs owl:propertyChainAxiom .
+
+owl:sameAs a rdf:Property ;
+    rdfs:subPropertyOf owl:sameAs ;
+    owl:equivalentProperty owl:sameAs ;
+    owl:sameAs owl:sameAs .
+
+owl:someValuesFrom a rdf:Property ;
+    rdfs:subPropertyOf owl:someValuesFrom ;
+    owl:equivalentProperty owl:someValuesFrom ;
+    owl:sameAs owl:someValuesFrom .
+
+owl:unionOf a rdf:Property ;
+    rdfs:subPropertyOf owl:unionOf ;
+    owl:equivalentProperty owl:unionOf ;
+    owl:sameAs owl:unionOf .
+
+skos:altLabel a rdf:Property ;
+    rdfs:subPropertyOf skos:altLabel ;
+    owl:equivalentProperty skos:altLabel ;
+    owl:sameAs skos:altLabel .
+
+skos:inScheme a rdf:Property ;
+    rdfs:subPropertyOf skos:inScheme ;
+    owl:equivalentProperty skos:inScheme ;
+    owl:sameAs skos:inScheme .
+
+skos:prefLabel a rdf:Property ;
+    rdfs:subPropertyOf skos:prefLabel ;
+    owl:equivalentProperty skos:prefLabel ;
+    owl:sameAs skos:prefLabel .
+
+:FordMotorCo a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :FordMotorCo ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "FordMotorCo"@en .
+
+:PickupTruck a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :PickupTruck ;
+    skos:broader :TruckClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Pickup Truck"@en .
+
+:Premium a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Premium ;
+    skos:broader :Gasoline ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Premium Gasoline"@en .
+
+:SUVClass a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :SUVClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Sport Utility Vehicle"@en,
+        "SUV"@fr .
+
+:StationWagonClass a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :StationWagonClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Station Wagon"@en,
+        "Break"@fr .
+
+:ToyotaGroup a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :ToyotaGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "ToyotaGroup"@en .
+
+:engineDisplacement a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:comment "Cylindrée en litres"@fr ;
+    rdfs:domain :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:float ;
+    rdfs:subPropertyOf :engineDisplacement ;
+    owl:equivalentProperty :engineDisplacement ;
+    owl:sameAs :engineDisplacement .
+
+:hasDriveType a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:comment "Lié au Concept Scheme DriveType (ex: 4WD, FWD)"@fr ;
+    rdfs:range skos:Concept ;
+    rdfs:subPropertyOf :hasDriveType ;
+    owl:equivalentProperty :hasDriveType ;
+    owl:sameAs :hasDriveType .
+
+:isReviewOf a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:label "est un avis sur"@fr ;
+    rdfs:domain :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:subPropertyOf :isReviewOf ;
+    owl:equivalentProperty :isReviewOf ;
+    owl:sameAs :isReviewOf .
+
+:mpgHighway a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:domain :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:float ;
+    rdfs:subPropertyOf :mpgHighway ;
+    owl:equivalentProperty :mpgHighway ;
+    owl:sameAs :mpgHighway .
+
+:numberOfCylinders a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:domain :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:integer ;
+    rdfs:subPropertyOf :numberOfCylinders ;
+    owl:equivalentProperty :numberOfCylinders ;
+    owl:sameAs :numberOfCylinders .
+
+xsd:integer a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:integer .
+
+skos:broader a rdf:Property,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:subPropertyOf skos:broader ;
+    owl:equivalentProperty skos:broader ;
+    owl:sameAs skos:broader .
+
+:BMWGroup a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :BMWGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "BMWGroup"@en .
+
+:Electricity a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Electricity ;
+    skos:broader :CleanEnergy ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Electricity"@en,
+        "Electricité"@fr .
+
+:FossilFuel a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :FossilFuel ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Fossil Fuel"@en,
+        "Carburant Fossile"@fr .
+
+:VanClass a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+        rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :VanClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Van"@en,
+        "Fourgon / Van"@fr .
+
+:mpgCity a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:domain :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:float ;
+    rdfs:subPropertyOf :mpgCity ;
+    owl:equivalentProperty :mpgCity ;
+    owl:sameAs :mpgCity .
+
+:reviewRating a rdfs:Resource,
+        owl:DatatypeProperty,
+        owl:Thing ;
+    rdfs:domain :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range rdfs:Literal,
+        xsd:decimal ;
+    rdfs:subPropertyOf :reviewRating ;
+    owl:equivalentProperty :reviewRating ;
+    owl:sameAs :reviewRating .
+
+xsd:decimal a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:disjointWith xsd:float ;
+    owl:sameAs xsd:decimal .
+
+:TransmissionScheme a rdfs:Resource,
+        owl:Thing,
+        skos:ConceptScheme ;
+    owl:sameAs :TransmissionScheme ;
+    skos:prefLabel "Type de Transmission"@fr .
+
+:hasManufacturer a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:label "a pour fabricant"@fr ;
+    rdfs:domain :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    rdfs:range skos:Concept ;
+    rdfs:subPropertyOf :hasManufacturer ;
+    owl:equivalentProperty :hasManufacturer ;
+    owl:sameAs :hasManufacturer .
+
+skos:ConceptScheme a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs skos:ConceptScheme .
+
+:CarClass a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :CarClass ;
+    skos:inScheme :VehicleClassScheme ;
+    skos:prefLabel "Car"@en,
+        "Voiture"@fr .
+
+:Gasoline a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Gasoline ;
+    skos:broader :FossilFuel ;
+    skos:inScheme :FuelTypeScheme ;
+    skos:prefLabel "Gasoline"@en,
+        "Essence"@fr .
+
+:VolkswagenGroup a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :VolkswagenGroup ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "VolkswagenGroup"@en .
+
+:DriveTypeScheme a rdfs:Resource,
+        owl:Thing,
+        skos:ConceptScheme ;
+    owl:sameAs :DriveTypeScheme .
+
+:GeneralMotors a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :GeneralMotors ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "General Motors"@en,
+        "GeneralMotors"@en .
+
+:hasVehicleClass a rdfs:Resource,
+        owl:ObjectProperty,
+        owl:Thing ;
+    rdfs:comment "Lié au Concept Scheme VehicleClass"@fr ;
+    rdfs:range skos:Concept ;
+    rdfs:subPropertyOf :hasVehicleClass ;
+    owl:equivalentProperty :hasVehicleClass ;
+    owl:sameAs :hasVehicleClass .
+
+xsd:float a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:sameAs xsd:float .
+
+owl:DatatypeProperty a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs owl:DatatypeProperty .
+
+:Stellantis a rdfs:Resource,
+        owl:Thing,
+        skos:Concept ;
+    owl:sameAs :Stellantis ;
+    skos:inScheme :ManufacturerScheme ;
+    skos:prefLabel "Stellantis"@en .
+
+owl:AnnotationProperty a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs owl:AnnotationProperty .
+
+owl:ObjectProperty a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs owl:ObjectProperty .
+
+owl:Restriction a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs owl:Restriction .
+
+() a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs () .
+
+:FuelTypeScheme a rdfs:Resource,
+        owl:Thing,
+        skos:ConceptScheme ;
+    owl:sameAs :FuelTypeScheme ;
+    skos:prefLabel "Type de Carburant"@fr .
+
+:VehicleClassScheme a rdfs:Resource,
+        owl:Thing,
+        skos:ConceptScheme ;
+    owl:sameAs :VehicleClassScheme ;
+    skos:prefLabel "Classe de véhicule"@fr .
+
+rdfs:Class a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Class,
+        owl:Class ;
+    owl:equivalentClass rdfs:Class,
+        owl:Class ;
+    owl:sameAs rdfs:Class .
+
+owl:Class a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Class,
+        owl:Class ;
+    owl:equivalentClass rdfs:Class,
+        owl:Class ;
+    owl:sameAs owl:Class .
+
+rdf:Property owl:sameAs rdf:Property .
+
+rdfs:Datatype a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Datatype,
+        owl:DataRange ;
+    owl:equivalentClass rdfs:Datatype,
+        owl:DataRange ;
+    owl:sameAs rdfs:Datatype .
+
+owl:DataRange a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Datatype,
+        owl:DataRange ;
+    owl:equivalentClass rdfs:Datatype,
+        owl:DataRange ;
+    owl:sameAs owl:DataRange .
+
+rdfs:Literal a rdfs:Datatype,
+        rdfs:Resource,
+        owl:DataRange,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Literal ;
+    owl:equivalentClass rdfs:Literal ;
+    owl:sameAs rdfs:Literal .
+
+:ManufacturerScheme a rdfs:Resource,
+        owl:Thing,
+        skos:ConceptScheme ;
+    owl:sameAs :ManufacturerScheme ;
+    skos:prefLabel "Constructeurs Automobiles"@fr .
+
+skos:Concept a rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs skos:Concept .
+
+rdfs:Resource a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass rdfs:Resource,
+        owl:Thing ;
+    owl:sameAs rdfs:Resource .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b1 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :hasManufacturer ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b2 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b1 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b12 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :VanClass ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b13 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b12 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b13 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Minivan ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b14 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b13 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b14 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :PassengerVan ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b15 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b14 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b15 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :CargoVan ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b15 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b16 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Car ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b17 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b16 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b17 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b4 ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b18 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b17 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b18 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b9 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b18 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b2 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first skos:broader ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b2 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b25 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b22 ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b26 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b25 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b26 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b23 ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b27 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b26 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b27 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b24 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b27 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b28 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Car ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b29 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b28 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b29 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b20 ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b30 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b29 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b30 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b21 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b30 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b33 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Car ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b34 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b33 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b34 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b32 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b34 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b35 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Ferrari ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b36 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b35 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b36 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Bentley ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b37 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b36 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b37 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :RollsRoyce ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b38 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b37 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b38 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Lamborghini ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b39 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b38 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b39 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Maserati ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b40 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b39 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b40 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :AstonMartin ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b41 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b40 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b41 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Bugatti ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b42 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b41 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b42 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :McLarenAutomotive ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b43 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b42 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b43 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Porsche ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b43 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b46 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Vehicle ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b47 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b46 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b47 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b47 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b5 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b4,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:minInclusive "4.0"^^xsd:float ;
+    owl:onProperty :engineDisplacement ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b5 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b51 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :TruckClass ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b52 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b51 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b52 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :PickupTruck ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b53 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b52 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b53 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :SmallPickupTruck ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b54 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b53 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b54 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :StandardPickupTruck ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b55 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b54 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b55 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :SUVClass ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b56 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b55 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b56 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :SmallSUV ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b57 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b56 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b57 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :StandardSUV ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b57 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b6 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b4,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:minInclusive 6 ;
+    owl:onProperty :numberOfCylinders ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b6 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b60 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :FourWheelDrive ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b61 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b60 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b61 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :PartTimeFourWheelDrive ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b62 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b61 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b62 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :AllWheelDrive ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b63 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b62 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b63 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :FourWheelOrAllWheelDrive ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b63 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b64 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Vehicle ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b65 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b64 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b65 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b66 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b65 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b66 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b66 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b7 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b5 ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b8 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b7 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b71 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :MidsizeCar ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b72 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b71 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b72 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :LargeCar ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b73 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b72 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b73 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :MidsizeStationWagon ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b74 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b73 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b74 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :MidsizeLargeStationWagon ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b74 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b75 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :Car ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b76 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b75 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b76 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b68 ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b77 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b76 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b77 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b77 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b8 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b6 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b8 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b80 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :CustomerReview ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b81 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b80 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b81 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b79 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b81 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b84 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first :CustomerReview ;
+    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b85 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b84 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b85 a rdfs:Resource,
+        owl:Thing ;
+    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b83 ;
+    rdf:rest () ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b85 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b10 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
+    owl:onProperty :hasVehicleClass ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
+    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b11 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b22 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
+        _:na8d51c4aaa574a06afe99c3c185330f9b22,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b22 ;
+    owl:hasValue :CompactCar ;
+    owl:onProperty :hasVehicleClass ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b22 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b23 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
+        _:na8d51c4aaa574a06afe99c3c185330f9b23,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b23 ;
+    owl:hasValue :SubcompactCar ;
+    owl:onProperty :hasVehicleClass ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b23 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b24 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
+        _:na8d51c4aaa574a06afe99c3c185330f9b24,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b24 ;
+    owl:hasValue :MinicompactCar ;
+    owl:onProperty :hasVehicleClass ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b24 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b20 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    owl:minInclusive "25.0"^^xsd:float ;
+    owl:onProperty :mpgCity ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b20 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b32 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    owl:maxExclusive "15.0"^^xsd:float ;
+    owl:onProperty :mpgCity ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b32 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b68 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    owl:minExclusive "30.0"^^xsd:float ;
+    owl:onProperty :mpgHighway ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b68 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b79 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    owl:minInclusive 4.0 ;
+    owl:onProperty :reviewRating ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b79 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b83 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    owl:maxInclusive 2.0 ;
+    owl:onProperty :reviewRating ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b83 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b19 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b19,
+        _:na8d51c4aaa574a06afe99c3c185330f9b20,
+        _:na8d51c4aaa574a06afe99c3c185330f9b21,
+        :Car,
+        :CityCar,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b19,
+        :CityCar ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b28 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b19 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b3 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b3,
+        _:na8d51c4aaa574a06afe99c3c185330f9b4,
+        _:na8d51c4aaa574a06afe99c3c185330f9b9,
+        :Car,
+        :HighPerformanceCar,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b3,
+        :HighPerformanceCar ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b16 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b3 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b31 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b31,
+        _:na8d51c4aaa574a06afe99c3c185330f9b32,
+        :Car,
+        :GasGuzzler,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b31,
+        :GasGuzzler ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b33 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b31 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b44 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b44,
+        _:na8d51c4aaa574a06afe99c3c185330f9b45,
+        :LuxuryVehicle,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b44,
+        :LuxuryVehicle ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b46 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b44 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b48 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b48,
+        _:na8d51c4aaa574a06afe99c3c185330f9b49,
+        _:na8d51c4aaa574a06afe99c3c185330f9b58,
+        :OffRoadVehicle,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b48,
+        :OffRoadVehicle ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b64 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b48 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b67 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b67,
+        _:na8d51c4aaa574a06afe99c3c185330f9b68,
+        _:na8d51c4aaa574a06afe99c3c185330f9b69,
+        :Car,
+        :RoadTripReady,
+        :Vehicle,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b67,
+        :RoadTripReady ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b75 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b67 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b78 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b78,
+        _:na8d51c4aaa574a06afe99c3c185330f9b79,
+        :CustomerReview,
+        :PositiveReview,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b78,
+        :PositiveReview ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b80 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b78 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b82 a rdfs:Resource,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b82,
+        _:na8d51c4aaa574a06afe99c3c185330f9b83,
+        :CriticalReview,
+        :CustomerReview,
+        rdfs:Resource,
+        owl:Thing ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b82,
+        :CriticalReview ;
+    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b84 ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b82 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b45 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
+    owl:onProperty :hasManufacturer ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
+    owl:someValuesFrom :LuxuryManufacturer .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b49 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
+    owl:onProperty :hasVehicleClass ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
+    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b50 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b58 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
+    owl:onProperty :hasDriveType ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
+    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b59 .
+
+_:na8d51c4aaa574a06afe99c3c185330f9b69 a rdfs:Resource,
+        owl:Restriction,
+        owl:Thing ;
+    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
+    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
+    owl:onProperty :hasVehicleClass ;
+    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
+    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b70 .
+

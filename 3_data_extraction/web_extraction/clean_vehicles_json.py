@@ -333,6 +333,16 @@ def clean_vehicle(vehicle):
 def clean_json_data(input_file='vehicles_scraped.json', output_file='vehicles_scraped_clean.json'):
     """Nettoie le fichier JSON des véhicules scrapés"""
     
+    # Résoudre les chemins relatifs vers 2_data_sources/unstructured/
+    project_root = Path(__file__).parent.parent.parent
+    data_dir = project_root / "2_data_sources" / "unstructured"
+    
+    # Si chemins relatifs, les résoudre vers data_dir
+    if not Path(input_file).is_absolute():
+        input_file = data_dir / input_file
+    if not Path(output_file).is_absolute():
+        output_file = data_dir / output_file
+    
     print("="*60)
     print("NETTOYAGE DES DONNÉES SCRAPPÉES")
     print("="*60)

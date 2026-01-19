@@ -385,6 +385,13 @@ Return ONLY the JSON, no explanations."""
     
     def save_json(self, vehicles_data: list, output_path="vehicles_scraped.json"):
         """Sauvegarder les données en JSON"""
+        if not Path(output_path).is_absolute():
+            project_root = Path(__file__).parent.parent.parent
+            output_path = project_root / "2_data_sources" / "unstructured" / output_path
+        
+        output_path = Path(output_path)
+        output_path.parent.mkdir(parents=True, exist_ok=True)
+        
         with open(output_path, 'w', encoding='utf-8') as f:
             json.dump(vehicles_data, f, indent=2, ensure_ascii=False)
         print(f"\nDonnées JSON sauvegardées: {output_path}")

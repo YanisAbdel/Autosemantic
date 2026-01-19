@@ -3,11 +3,12 @@ from pathlib import Path
 import re
 
 # ---------- Prétraitement du CSV ----------
-vehicles = "dataForOntology/vehicles.csv"
+script_dir = Path(__file__).parent
+vehicles = script_dir / "vehicles.csv"
 vehicles_path = Path(vehicles)
 csv_clean_file = str(vehicles_path.parent / f"{vehicles_path.stem}_clean{vehicles_path.suffix}")
 
-reviews = "dataForOntology/reviews_final.csv"
+reviews = script_dir / "reviews_final.csv"
 reviews_path = Path(reviews)
 csv_clean_reviews = str(reviews_path.parent / f"{reviews_path.stem}_clean{reviews_path.suffix}")
 
@@ -186,7 +187,7 @@ def clean_data(csv_path: str, expected_cols: list = None) -> pd.DataFrame:
         # Transmission
         original_trany = df['trany'].copy()
         df['trany'] = df['trany'].map(TRANSMISSION_MAPPING)
-        df['trany'].fillna(original_trany, inplace=True)
+        df['trany'] = df['trany'].fillna(original_trany)
         
         # Fuel type
         df['fuelType'] = df['fuelType'].map(FUEL_TYPE_MAPPING)

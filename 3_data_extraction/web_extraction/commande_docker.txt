@@ -1,0 +1,1 @@
+docker run --rm -v ${PWD}:/data rmlio/rmlmapper-java:latest --mappingfile /data/3_data_extraction/web_extraction/mapping_json.ttl --outputfile /data/3_data_extraction/web_extraction/kg_from_web_ollama.ttl --serialization turtle

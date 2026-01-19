@@ -1,0 +1,41 @@
+@prefix auto: <http://www.univ-projet.fr/ontologies/autosemantic#> .
+@prefix dbo: <http://dbpedia.org/ontology/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema1: <http://schema.org/> .
+@prefix wdt: <http://www.wikidata.org/prop/direct/> .
+
+auto:Car owl:equivalentClass dbo:Automobile,
+        schema1:Car .
+
+auto:CustomerReview owl:equivalentClass dbo:Review,
+        schema1:Review .
+
+auto:Manufacturer rdfs:subClassOf dbo:Company,
+        dbo:Organisation ;
+    owl:equivalentClass schema1:Organization .
+
+auto:Vehicle owl:equivalentClass dbo:Automobile,
+        schema1:Vehicle .
+
+auto:engineDisplacement owl:equivalentProperty wdt:P2855 .
+
+auto:fuelConsumptionCity rdfs:subPropertyOf dbo:fuelCapacity ;
+    owl:equivalentProperty schema1:fuelConsumption .
+
+auto:hasManufacturer owl:equivalentProperty dbo:manufacturer,
+        schema1:manufacturer,
+        wdt:P176 .
+
+auto:modelYear owl:equivalentProperty dbo:modelYear,
+        schema1:modelDate,
+        wdt:P577 .
+
+auto:numberOfCylinders owl:equivalentProperty wdt:P1162 .
+
+auto:reviewContent owl:equivalentProperty schema1:reviewBody .
+
+auto:reviewDate owl:equivalentProperty schema1:datePublished .
+
+auto:reviewRating owl:equivalentProperty schema1:ratingValue .
+

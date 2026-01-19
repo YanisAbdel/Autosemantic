@@ -1,0 +1,1 @@
+docker run --rm -v ${PWD}:/data rmlio/rmlmapper-java:latest --mappingfile /data/3_data_extraction/rml_mapping/mapping.ttl --outputfile /data/3_data_extraction/rml_mapping/output.ttl --serialization turtle

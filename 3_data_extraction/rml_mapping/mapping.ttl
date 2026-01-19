@@ -15,7 +15,7 @@
     a rr:TriplesMap ;
 
     rml:logicalSource [
-        rml:source "/data/dataForOntology/vehicles_clean.csv" ;
+        rml:source "/data/2_data_sources/structured/vehicles_clean.csv" ;
         rml:referenceFormulation ql:CSV
     ] ;
 
@@ -112,7 +112,7 @@
     a rr:TriplesMap ;
 
     rml:logicalSource [
-        rml:source "/data/dataForOntology/reviews_final_clean.csv" ;
+        rml:source "/data/2_data_sources/structured/reviews_final_clean.csv" ;
         rml:referenceFormulation ql:CSV
     ] ;
 

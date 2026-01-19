@@ -13,7 +13,7 @@
 
 <#VehicleMapping>
     rml:logicalSource [
-        rml:source "vehicles_scraped_clean.json" ;
+        rml:source "/data/2_data_sources/unstructured/vehicles_scraped_clean.json" ;
         rml:referenceFormulation ql:JSONPath ;
         rml:iterator "$.[*]"
     ] ;
@@ -162,7 +162,7 @@
 
 <#ManufacturerMapping>
     rml:logicalSource [
-        rml:source "vehicles_scraped_clean.json" ;
+        rml:source "/data/2_data_sources/unstructured/vehicles_scraped_clean.json" ;
         rml:referenceFormulation ql:JSONPath ;
         rml:iterator "$.[*]"
     ] ;
@@ -188,7 +188,7 @@
 
 <#FuelTypeMapping>
     rml:logicalSource [
-        rml:source "vehicles_scraped_clean.json" ;
+        rml:source "/data/2_data_sources/unstructured/vehicles_scraped_clean.json" ;
         rml:referenceFormulation ql:JSONPath ;
         rml:iterator "$.[*]"
     ] ;
@@ -214,7 +214,7 @@
 
 <#TransmissionMapping>
     rml:logicalSource [
-        rml:source "vehicles_scraped_clean.json" ;
+        rml:source "/data/2_data_sources/unstructured/vehicles_scraped_clean.json" ;
         rml:referenceFormulation ql:JSONPath ;
         rml:iterator "$.[*]"
     ] ;
@@ -240,7 +240,7 @@
 
 <#DriveTypeMapping>
     rml:logicalSource [
-        rml:source "vehicles_scraped_clean.json" ;
+        rml:source "/data/2_data_sources/unstructured/vehicles_scraped_clean.json" ;
         rml:referenceFormulation ql:JSONPath ;
         rml:iterator "$.[*]"
     ] ;
@@ -266,7 +266,7 @@
 
 <#VehicleClassMapping>
     rml:logicalSource [
-        rml:source "vehicles_scraped_clean.json" ;
+        rml:source "/data/2_data_sources/unstructured/vehicles_scraped_clean.json" ;
         rml:referenceFormulation ql:JSONPath ;
         rml:iterator "$.[*]"
     ] ;

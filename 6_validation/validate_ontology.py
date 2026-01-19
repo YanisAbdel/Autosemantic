@@ -6,12 +6,12 @@ import owlrl
 
 logging.basicConfig(level=logging.INFO, format="[%(levelname)s] %(message)s")
 
-PROJECT_ROOT = Path(__file__).parent
+PROJECT_ROOT = Path(__file__).parent.parent
 
 # Files
-ONTOLOGY_FILE = PROJECT_ROOT / "autosemantic.ttl"
-SHAPES_FILE = PROJECT_ROOT / "shapes.ttl"
-DATA_FILE = PROJECT_ROOT / "knowledge_graph.ttl"
+ONTOLOGY_FILE = PROJECT_ROOT / "1_ontology" / "autosemantic.ttl"
+SHAPES_FILE = PROJECT_ROOT / "1_ontology" / "shapes.ttl"
+DATA_FILE = PROJECT_ROOT / "5_knowledge_graph" / "knowledge_graph.ttl"
 
 
 def validate_syntax(file_path):
@@ -122,7 +122,7 @@ def main():
         
         # Save inferred ontology
         if reasoning_ok:
-            output_file = PROJECT_ROOT / "autosemantic_inferred.ttl"
+            output_file = PROJECT_ROOT / "5_knowledge_graph" / "autosemantic_inferred.ttl"
             onto_graph.serialize(destination=str(output_file), format="turtle")
             logging.info(f"✓ Inferred ontology saved to: {output_file.name}")
     
