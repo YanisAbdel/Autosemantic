@@ -1,0 +1,286 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rml: <http://semweb.mmlab.be/ns/rml#> .
+@prefix ql: <http://semweb.mmlab.be/ns/ql#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix auto: <http://www.univ-projet.fr/ontologies/autosemantic/> .
+@base <http://www.univ-projet.fr/ontologies/autosemantic/mappings/> .
+
+# ============================================================================
+# Mapping Principal : Véhicules
+# ============================================================================
+
+<#VehicleMapping>
+    rml:logicalSource [
+        rml:source "vehicles_scraped_clean.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.[*]"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/vehicle/{id}" ;
+        rr:class auto:Car
+    ] ;
+
+    # Model Name
+    rr:predicateObjectMap [
+        rr:predicate auto:modelName ;
+        rr:objectMap [
+            rml:reference "modelName" ;
+            rr:datatype xsd:string
+        ]
+    ] ;
+
+    # Year
+    rr:predicateObjectMap [
+        rr:predicate auto:year ;
+        rr:objectMap [
+            rml:reference "year" ;
+            rr:datatype xsd:integer
+        ]
+    ] ;
+
+    # Engine Displacement
+    rr:predicateObjectMap [
+        rr:predicate auto:engineDisplacement ;
+        rr:objectMap [
+            rml:reference "engineDisplacement" ;
+            rr:datatype xsd:float
+        ]
+    ] ;
+
+    # Number of Cylinders
+    rr:predicateObjectMap [
+        rr:predicate auto:numberOfCylinders ;
+        rr:objectMap [
+            rml:reference "numberOfCylinders" ;
+            rr:datatype xsd:float
+        ]
+    ] ;
+
+    # Horsepower
+    rr:predicateObjectMap [
+        rr:predicate auto:horsepower ;
+        rr:objectMap [
+            rml:reference "horsepower" ;
+            rr:datatype xsd:integer
+        ]
+    ] ;
+
+    # MPG City
+    rr:predicateObjectMap [
+        rr:predicate auto:mpgCity ;
+        rr:objectMap [
+            rml:reference "mpgCity" ;
+            rr:datatype xsd:float
+        ]
+    ] ;
+
+    # MPG Highway
+    rr:predicateObjectMap [
+        rr:predicate auto:mpgHighway ;
+        rr:objectMap [
+            rml:reference "mpgHighway" ;
+            rr:datatype xsd:float
+        ]
+    ] ;
+
+    # Source URL
+    rr:predicateObjectMap [
+        rr:predicate auto:sourceUrl ;
+        rr:objectMap [
+            rml:reference "sourceUrl" ;
+            rr:termType rr:IRI
+        ]
+    ] ;
+
+    # Relation vers Manufacturer
+    rr:predicateObjectMap [
+        rr:predicate auto:hasManufacturer ;
+        rr:objectMap [
+            rr:parentTriplesMap <#ManufacturerMapping> ;
+            rr:joinCondition [
+                rr:child "id" ;
+                rr:parent "id"
+            ]
+        ]
+    ] ;
+
+    # Relation vers FuelType
+    rr:predicateObjectMap [
+        rr:predicate auto:hasFuelType ;
+        rr:objectMap [
+            rr:parentTriplesMap <#FuelTypeMapping> ;
+            rr:joinCondition [
+                rr:child "id" ;
+                rr:parent "id"
+            ]
+        ]
+    ] ;
+
+    # Relation vers TransmissionType
+    rr:predicateObjectMap [
+        rr:predicate auto:hasTransmissionType ;
+        rr:objectMap [
+            rr:parentTriplesMap <#TransmissionMapping> ;
+            rr:joinCondition [
+                rr:child "id" ;
+                rr:parent "id"
+            ]
+        ]
+    ] ;
+
+    # Relation vers DriveType
+    rr:predicateObjectMap [
+        rr:predicate auto:hasDriveType ;
+        rr:objectMap [
+            rr:parentTriplesMap <#DriveTypeMapping> ;
+            rr:joinCondition [
+                rr:child "id" ;
+                rr:parent "id"
+            ]
+        ]
+    ] ;
+
+    # Relation vers VehicleClass
+    rr:predicateObjectMap [
+        rr:predicate auto:hasVehicleClass ;
+        rr:objectMap [
+            rr:parentTriplesMap <#VehicleClassMapping> ;
+            rr:joinCondition [
+                rr:child "id" ;
+                rr:parent "id"
+            ]
+        ]
+    ] .
+
+
+# ============================================================================
+# Mapping : Manufacturers
+# ============================================================================
+
+<#ManufacturerMapping>
+    rml:logicalSource [
+        rml:source "vehicles_scraped_clean.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.[*]"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{manufacturer}" ;
+        rr:class auto:Manufacturer ;
+        rr:termType rr:IRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "manufacturer" ;
+            rr:language "en"
+        ]
+    ] .
+
+
+# ============================================================================
+# Mapping : FuelType
+# ============================================================================
+
+<#FuelTypeMapping>
+    rml:logicalSource [
+        rml:source "vehicles_scraped_clean.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.[*]"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{fuelType}" ;
+        rr:class auto:FuelType ;
+        rr:termType rr:IRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "fuelType" ;
+            rr:language "en"
+        ]
+    ] .
+
+
+# ============================================================================
+# Mapping : TransmissionType
+# ============================================================================
+
+<#TransmissionMapping>
+    rml:logicalSource [
+        rml:source "vehicles_scraped_clean.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.[*]"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{transmission}" ;
+        rr:class auto:TransmissionType ;
+        rr:termType rr:IRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "transmission" ;
+            rr:language "en"
+        ]
+    ] .
+
+
+# ============================================================================
+# Mapping : DriveType
+# ============================================================================
+
+<#DriveTypeMapping>
+    rml:logicalSource [
+        rml:source "vehicles_scraped_clean.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.[*]"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{driveType}" ;
+        rr:class auto:DriveType ;
+        rr:termType rr:IRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "driveType" ;
+            rr:language "en"
+        ]
+    ] .
+
+
+# ============================================================================
+# Mapping : VehicleClass
+# ============================================================================
+
+<#VehicleClassMapping>
+    rml:logicalSource [
+        rml:source "vehicles_scraped_clean.json" ;
+        rml:referenceFormulation ql:JSONPath ;
+        rml:iterator "$.[*]"
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{vehicleClass}" ;
+        rr:class auto:VehicleClass ;
+        rr:termType rr:IRI
+    ] ;
+
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [
+            rml:reference "vehicleClass" ;
+            rr:language "en"
+        ]
+    ] .

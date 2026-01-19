@@ -1,0 +1,22 @@
+PIPELINE COMPLET: Scraping -> JSON -> Nettoyage -> RML -> RDF
+============================================================
+
+Étape 1: Scraper les données
+cd ..
+python graph/kg_ollama.py
+cd graph
+
+Étape 2: Nettoyer les données
+python clean_vehicles_json.py
+
+Étape 3: Appliquer le mapping RML avec Docker
+# PowerShell:
+docker run --rm -v ${PWD}:/data rmlio/rmlmapper-java:latest --mappingfile /data/mapping_json.ttl --outputfile /data/kg_from_web_ollama.ttl --serialization turtle
+
+# Ou CMD (remplacer %cd% par chemin absolu):
+docker run --rm -v C:\Users\mathy\Documents\SI5\Autosemantic\graph:/data rmlio/rmlmapper-java:latest --mappingfile /data/mapping_json.ttl --outputfile /data/kg_from_web_ollama.ttl --serialization turtle
+
+Fichiers générés:
+- vehicles_scraped.json (données brutes)
+- vehicles_scraped_clean.json (données nettoyées)
+- kg_from_web_ollama.ttl (graphe RDF final)
