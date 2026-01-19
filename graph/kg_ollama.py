@@ -257,148 +257,97 @@ class OllamaKGBuilder:
             return None
     
     def extract_with_ollama(self, text: str) -> dict:
-        """Extraire entités et relations avec Ollama"""
+        """Extraire spécifications techniques avec Ollama"""
         
-        prompt = f"""You are an expert in automotive technical specifications extraction. Extract structured data from car specifications.
+        prompt = f"""Extract vehicle technical specifications from the text. Return ONLY valid JSON.
 
 TEXT:
 {text}
 
-TASK:
-Extract automotive entities and their relationships. Focus on:
+Extract these fields (use null if not found):
+- manufacturer: Brand name (e.g., "Mercedes-Benz", "Toyota")
+- modelName: Model name (e.g., "Sprinter 2019", "Camry")
+- year: Model year (integer)
+- fuelType: One of [Regular, Premium, Diesel, Electric, Hybrid, E85]
+- transmission: Type (e.g., "Automatic (S6)", "Manual", "CVT")
+- driveType: One of [FrontWheelDrive, RearWheelDrive, AllWheelDrive, FourWheelDrive]
+- vehicleClass: Type (e.g., "SUV", "Sedan", "Truck", "Van")
+- engineDisplacement: Displacement in liters (float, e.g., 2.0, 3.5)
+- numberOfCylinders: Number of cylinders (integer, e.g., 4, 6, 8)
+- horsepower: Power in HP (integer)
+- mpgCity: City fuel economy (float)
+- mpgHighway: Highway fuel economy (float)
 
-1. MANUFACTURER: Car brand (e.g., Acura, BMW, Tesla)
-2. CAR MODEL: Specific model name (e.g., ILX, 3 Series, Model S)
-3. FUEL TYPE: gasoline/petrol, diesel, electric, hybrid, plug-in hybrid
-4. TRANSMISSION: automatic, manual, CVT, dual-clutch, sequential
-5. DRIVE TYPE: FWD (front-wheel drive), RWD (rear-wheel drive), AWD (all-wheel drive), 4WD
-6. ENGINE: Engine code or type
-7. TECHNICAL DATA: cylinders, displacement, horsepower, torque
-
-Relationships to identify:
-- manufactures: Manufacturer → Car Model
-- hasFuelType: Car Model → Fuel Type
-- hasTransmission: Car Model → Transmission Type
-- hasDriveType: Car Model → Drive Type
-- hasEngine: Car Model → Engine
-
-Return ONLY valid JSON with this structure:
+Return ONLY this JSON structure:
 {{
-  "entities": [
-    {{"text": "Acura", "type": "Manufacturer"}},
-    {{"text": "ILX 2.4", "type": "CarModel"}},
-    {{"text": "Gasoline", "type": "FuelType"}},
-    {{"text": "Automatic", "type": "TransmissionType"}},
-    {{"text": "FWD", "type": "DriveType"}}
-  ],
-  "relations": [
-    {{"subject": "Acura", "predicate": "manufactures", "object": "ILX 2.4"}},
-    {{"subject": "ILX 2.4", "predicate": "hasFuelType", "object": "Gasoline"}},
-    {{"subject": "ILX 2.4", "predicate": "hasTransmission", "object": "Automatic"}},
-    {{"subject": "ILX 2.4", "predicate": "hasDriveType", "object": "FWD"}}
-  ]
+  "manufacturer": "Mercedes-Benz",
+  "modelName": "Sprinter 2019 L2H2 RWD",
+  "year": 2019,
+  "fuelType": "Diesel",
+  "transmission": "Automatic (9G-TRONIC)",
+  "driveType": "RearWheelDrive",
+  "vehicleClass": "Van",
+  "engineDisplacement": 2.1,
+  "numberOfCylinders": 4,
+  "horsepower": 143,
+  "mpgCity": 18.0,
+  "mpgHighway": 24.0
 }}
 
-Return ONLY the JSON without markdown code blocks or explanations."""
+Return ONLY the JSON, no explanations."""
         
         print("  Envoi à Ollama... (peut prendre 30-60s)")
         response_text = self.query_ollama(prompt)
         
         try:
-            # Nettoyer la réponse si besoin
+            # Nettoyer la réponse
             response_text = response_text.strip()
-            # Extraire JSON si encapsulé dans du markdown
             if '```json' in response_text:
                 response_text = response_text.split('```json')[1].split('```')[0]
             elif '```' in response_text:
                 response_text = response_text.split('```')[1].split('```')[0]
             
             result = json.loads(response_text)
-            
-            # Valider la structure
-            if 'entities' not in result:
-                result['entities'] = []
-            if 'relations' not in result:
-                result['relations'] = []
-                
             return result
             
         except json.JSONDecodeError as e:
             print(f"Erreur parsing JSON: {e}")
             print(f"  Réponse brute: {response_text[:200]}...")
-            return {"entities": [], "relations": []}
+            return None
         except Exception as e:
             print(f"Erreur extraction: {e}")
-            return {"entities": [], "relations": []}
+            return None
     
-    def add_to_graph(self, extraction: dict, source_url: str):
-        """Ajouter au graphe RDF"""
+    def add_to_json_data(self, extraction: dict, source_url: str, vehicle_id: int):
+        """Ajouter au dataset JSON"""
+        if not extraction:
+            return None
         
-        # Mapping types → classes ontologie
-        type_mapping = {
-            'Manufacturer': AUTO.Manufacturer,
-            'CarModel': AUTO.Car,
-            'FuelType': AUTO.FuelType,
-            'Transmission': AUTO.TransmissionType,
-            'TransmissionType': AUTO.TransmissionType,
-            'DriveType': AUTO.DriveType,
-            'Engine': AUTO.Engine,
-            'EngineType': AUTO.Engine
+        vehicle_data = {
+            "id": vehicle_id,
+            "sourceUrl": source_url,
+            "manufacturer": extraction.get("manufacturer"),
+            "modelName": extraction.get("modelName"),
+            "year": extraction.get("year"),
+            "fuelType": extraction.get("fuelType"),
+            "transmission": extraction.get("transmission"),
+            "driveType": extraction.get("driveType"),
+            "vehicleClass": extraction.get("vehicleClass"),
+            "engineDisplacement": extraction.get("engineDisplacement"),
+            "numberOfCylinders": extraction.get("numberOfCylinders"),
+            "horsepower": extraction.get("horsepower"),
+            "mpgCity": extraction.get("mpgCity"),
+            "mpgHighway": extraction.get("mpgHighway")
         }
         
-        # Stocker les URIs des entités
-        entity_uris = {}
+        # Nettoyer les valeurs None
+        vehicle_data = {k: v for k, v in vehicle_data.items() if v is not None}
         
-        # Ajouter entités
-        for entity in extraction.get('entities', []):
-            text = entity.get('text', '')
-            entity_type = entity.get('type', '')
-            
-            if not text or not entity_type:
-                continue
-            
-            if entity_type in type_mapping:
-                # Créer URI
-                uri = AUTO[self._normalize(text)]
-                entity_uris[text] = uri
-                
-                # Ajouter triplets
-                self.graph.add((uri, RDF.type, type_mapping[entity_type]))
-                self.graph.add((uri, RDFS.label, Literal(text, lang='en')))
-                self.graph.add((uri, AUTO.extractedFrom, URIRef(source_url)))
-        
-        # Ajouter relations
-        for relation in extraction.get('relations', []):
-            subject = relation.get('subject', '')
-            predicate = relation.get('predicate', '')
-            obj = relation.get('object', '')
-            
-            if not subject or not predicate or not obj:
-                continue
-            
-            if subject in entity_uris and obj in entity_uris:
-                pred_uri = AUTO[predicate]
-                self.graph.add((
-                    entity_uris[subject],
-                    pred_uri,
-                    entity_uris[obj]
-                ))
-    
-    def _normalize(self, text: str) -> str:
-        # Nettoyer les caractères spéciaux
-        text = re.sub(r'[^\w\s-]', '', text)
-        text = re.sub(r'\s+', '_', text)
-        
-        # Les URIs RDF ne peuvent pas commencer par un chiffre
-        # Préfixer avec un underscore si nécessaire
-        if text and text[0].isdigit():
-            text = '_' + text
-        
-        return text
+        return vehicle_data
     
     def process_urls(self, urls: list):
-        total_entities = 0
-        total_relations = 0
+        """Traiter une liste d'URLs et extraire les données"""
+        vehicles_data = []
         
         for i, url in enumerate(urls):
             print(f"\n{'='*60}")
@@ -417,87 +366,68 @@ Return ONLY the JSON without markdown code blocks or explanations."""
             # Extraire avec Ollama
             extraction = self.extract_with_ollama(article['text'])
             
-            num_entities = len(extraction.get('entities', []))
-            num_relations = len(extraction.get('relations', []))
-            
-            print(f"  Entités: {num_entities}")
-            print(f"  Relations: {num_relations}")
-            
-            total_entities += num_entities
-            total_relations += num_relations
-            
-            # Ajouter au graphe
-            self.add_to_graph(extraction, url)
+            if extraction:
+                # Ajouter au dataset JSON
+                vehicle_data = self.add_to_json_data(extraction, url, i + 1)
+                if vehicle_data:
+                    vehicles_data.append(vehicle_data)
+                    print(f"  Véhicule: {vehicle_data.get('manufacturer')} {vehicle_data.get('modelName')}")
+                    print(f"  Specs: {vehicle_data.get('engineDisplacement')}L, {vehicle_data.get('numberOfCylinders')} cyl")
+            else:
+                print("  Échec extraction")
             
             # Petite pause entre requêtes
             if i < len(urls) - 1:
                 time.sleep(2)
         
-        print(f"Total entités extraites: {total_entities}")
-        print(f"Total relations extraites: {total_relations}")
+        print(f"\nTotal véhicules extraits: {len(vehicles_data)}")
+        return vehicles_data
     
-    def save(self, output_path="kg_ollama_output.ttl"):
-        self.graph.serialize(destination=output_path, format='turtle')
-        print(f"\nGraphe sauvegardé: {output_path}")
-        print(f"  Total triplets: {len(self.graph)}")
-        
+    def save_json(self, vehicles_data: list, output_path="vehicles_scraped.json"):
+        """Sauvegarder les données en JSON"""
+        with open(output_path, 'w', encoding='utf-8') as f:
+            json.dump(vehicles_data, f, indent=2, ensure_ascii=False)
+        print(f"\nDonnées JSON sauvegardées: {output_path}")
+        print(f"  Total véhicules: {len(vehicles_data)}")
 
 
-# Exemple d'utilisation
 if __name__ == "__main__":
-    
-    print("="*60)
-    print("CONSTRUCTION DE GRAPHE DE CONNAISSANCES AVEC OLLAMA")
-    print("Collecte automatique depuis UltimateSpecs.com")
-    print("="*60)
-    print("\nPré-requis:")
-    print("1. Ollama installé et en cours d'exécution")
-    print("2. Modèle téléchargé: ollama pull phi3")
-    print()
-    
-    # Configuration
-    MODE = "test"  # "test" ou "full"
+    import sys
     
     try:
-        # Construire le KG
-        builder = OllamaKGBuilder(model="phi3")
+        print("\n" + "="*60)
+        print("KNOWLEDGE GRAPH BUILDER - OLLAMA + ULTIMATESPECS")
+        print("="*60)
         
-        if MODE == "test":
-            print("\nMODE TEST: Collecte limitée")
-            # Test avec quelques marques seulement
-            urls = builder.collect_all_urls(
-                max_manufacturers=3,  # 3 marques
-                max_models_per_manufacturer=2  # 2 modèles par marque
-            )
+        builder = OllamaKGBuilder()
+        
+        # Mode de fonctionnement
+        mode = input("\nMode? (test/full): ").strip().lower()
+        
+        if mode == 'test':
+            print("\nMODE TEST: 3 marques, 2 modèles par marque")
+            urls = builder.collect_all_urls(max_manufacturers=3, max_models_per_manufacturer=2)
         else:
             print("\nMODE COMPLET: Collecte de toutes les données")
             print("   (Cela peut prendre plusieurs heures!)")
             urls = builder.collect_all_urls()
-        
-        # Demander confirmation si beaucoup d'URLs
-        if len(urls) > 20:
-            print(f"\n{len(urls)} URLs à traiter.")
+            
             confirm = input("Continuer? (o/n): ")
             if confirm.lower() != 'o':
                 print("Annulé.")
                 exit()
         
         # Traiter les URLs
-        builder.process_urls(urls)
+        vehicles_data = builder.process_urls(urls)
         
-        # Sauvegarder
-        builder.save("kg_from_web_ollama.ttl")
+        # Sauvegarder en JSON
+        builder.save_json(vehicles_data, "vehicles_scraped.json")
         
         print("\nTERMINE!")
+        print("Prochaine étape: python run_rml_mapping.py pour convertir en RDF")
         
     except KeyboardInterrupt:
         print("\n\nInterruption utilisateur")
-        print("Sauvegarde du graphe partiel...")
-        try:
-            builder.save("kg_from_web_ollama_partial.ttl")
-            print("Graphe partiel sauvegardé")
-        except:
-            pass
     except Exception as e:
         print(f"\nERREUR: {e}")
         import traceback

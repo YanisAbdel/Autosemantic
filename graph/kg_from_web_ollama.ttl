@@ -1,0 +1,526 @@
+@prefix auto: <http://www.univ-projet.fr/ontologies/autosemantic/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix rml: <http://w3id.org/rml/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+auto:AllWheelDrive a auto:DriveType;
+  rdfs:label "AllWheelDrive"@en .
+
+auto:Automatic_5speed a auto:TransmissionType;
+  rdfs:label "Automatic_5speed"@en .
+
+auto:Automatic_6speed a auto:TransmissionType;
+  rdfs:label "Automatic_6speed"@en .
+
+auto:Automatic_7speed a auto:TransmissionType;
+  rdfs:label "Automatic_7speed"@en .
+
+auto:Automatic_9speed a auto:TransmissionType;
+  rdfs:label "Automatic_9speed"@en .
+
+auto:Diesel a auto:FuelType;
+  rdfs:label "Diesel"@en .
+
+auto:FrontWheelDrive a auto:DriveType;
+  rdfs:label "FrontWheelDrive"@en .
+
+auto:Manual a auto:TransmissionType;
+  rdfs:label "Manual"@en .
+
+auto:Manual_6speed a auto:TransmissionType;
+  rdfs:label "Manual_6speed"@en .
+
+auto:Mercedes_Benz a auto:Manufacturer;
+  rdfs:label "Mercedes_Benz"@en .
+
+auto:RearWheelDrive a auto:DriveType;
+  rdfs:label "RearWheelDrive"@en .
+
+auto:Regular a auto:FuelType;
+  rdfs:label "Regular"@en .
+
+auto:Sedan a auto:VehicleClass;
+  rdfs:label "Sedan"@en .
+
+auto:Van a auto:VehicleClass;
+  rdfs:label "Van"@en .
+
+auto:speed a auto:TransmissionType;
+  rdfs:label "speed"@en .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/10> a auto:Car;
+  auto:engineDisplacement "2.14"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 163;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154161/Mercedes-Benz-Sprinter-2019-L2H2-RWD-316-CDI-35t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/11> a auto:Car;
+  auto:engineDisplacement "1.9"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 150;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgCity "26.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153830/Mercedes-Benz-Sprinter-2019-L2H2-RWD-315-CDI-35t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/12> a auto:Car;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153841/Mercedes-Benz-Sprinter-2019-L2H2-RWD-311-CDI-35t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/13> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149404/Mercedes-Benz-Sprinter-2019-L2H2-RWD-319-CDI-35t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/14> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 116;
+  auto:modelName "Vito 2004 Mixto L1 111 CDI DPF Auto Body and Production details";
+  auto:mpgCity "9.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149251/Mercedes-Benz-Vito-2004-Mixto-L1-111-CDI-DPF-Auto.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/15> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:AllWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_5speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Vito 2004 Mixto L1";
+  auto:mpgCity "9.8"^^xsd:float;
+  auto:mpgHighway "16.0"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149239/Mercedes-Benz-Vito-2004-Mixto-L1-115-CDI-4MATIC-Auto.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/16> a auto:Car;
+  auto:engineDisplacement "0.98"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Regular;
+  auto:hasTransmissionType auto:speed;
+  auto:hasVehicleClass auto:Sedan;
+  auto:modelName "Abarth 1000 TC Corsa";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Abarth/16095/Abarth-1000-TC-Corsa.html> .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/17> a auto:Car;
+  auto:engineDisplacement "4.1"^^xsd:float;
+  auto:hasDriveType auto:FrontWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Manual_6speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L1H1 FWD";
+  auto:mpgHighway "75.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154221/Mercedes-Benz-Sprinter-2019-L1H1-FWD-414-CDI-41t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/18> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153842/Mercedes-Benz-Sprinter-2019-L2H2-RWD-311-CDI-35t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/19> a auto:Car;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 170;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgHighway "9.1"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153811/Mercedes-Benz-Sprinter-2019-L2H2-RWD-317-CDI-35t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/2> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_7speed;
+  auto:hasVehicleClass auto:Van;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgCity "18.0"^^xsd:float;
+  auto:mpgHighway "24.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154160/Mercedes-Benz-Sprinter-2019-L2H2-RWD-316-CDI-35t-7G-TRONIC-PLUS.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/20> a auto:Car;
+  auto:engineDisplacement "2.99"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasTransmissionType auto:Automatic_5speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 204;
+  auto:modelName "Mercedes-Benz Vito 2004 Mixto L1 120 CDI Auto";
+  auto:mpgHighway "7.5"^^xsd:float;
+  auto:numberOfCylinders "6"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149303/Mercedes-Benz-Vito-2004-Mixto-L1-120-CDI-Auto.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/21> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_6speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgCity "18.0"^^xsd:float;
+  auto:mpgHighway "24.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154167/Mercedes-Benz-Sprinter-2019-L2H2-RWD-314-CDI-35t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/22> a auto:Car;
+  auto:engineDisplacement "2.99"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 190;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgHighway "34.0"^^xsd:float;
+  auto:numberOfCylinders "6"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154154/Mercedes-Benz-Sprinter-2019-L2H2-RWD-319-CDI-35t-7G-TRONIC-PLUS.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/24> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 190;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgHighway "10.7"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149403/Mercedes-Benz-Sprinter-2019-L2H2-RWD-319-CDI-35t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/25> a auto:Car;
+  auto:engineDisplacement "1.95"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 136;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153840/Mercedes-Benz-Sprinter-2019-L2H2-RWD-411-CDI-388t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/26> a auto:Car;
+  auto:engineDisplacement "2.99"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 190;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgCity "13.5"^^xsd:float;
+  auto:mpgHighway "22.5"^^xsd:float;
+  auto:numberOfCylinders "6"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154155/Mercedes-Benz-Sprinter-2019-L2H2-RWD-319-CDI-35t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/27> a auto:Car;
+  auto:engineDisplacement "2.15"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 150;
+  auto:modelName "Vito 2004 Mixto L1 115 CDI Auto Engine Technical Data";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149318/Mercedes-Benz-Vito-2004-Mixto-L1-115-CDI-Auto.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/28> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:modelName "Vito 2004 Mixto L1 111 CDI DPF";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149321/Mercedes-Benz-Vito-2004-Mixto-L1-111-CDI-DPF-.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/29> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_5speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 109;
+  auto:modelName "Vito 2004 Mixto L1 111 CDI DPF Auto Engine Technical Data";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149320/Mercedes-Benz-Vito-2004-Mixto-L1-111-CDI-DPF-Auto.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/30> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 150;
+  auto:modelName "Vito 2004 Mixto L1 115 CDI";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149319/Mercedes-Benz-Vito-2004-Mixto-L1-115-CDI-.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/31> a auto:Car;
+  auto:engineDisplacement "2.14"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154164/Mercedes-Benz-Sprinter-2019-L2H2-RWD-414-CDI-41t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/32> a auto:Car;
+  auto:engineDisplacement "2.15"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 116;
+  auto:modelName "Vito 2004 Mixto L1 111 CDI";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149254/Mercedes-Benz-Vito-2004-Mixto-L1-111-CDI-.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/33> a auto:Car;
+  auto:engineDisplacement "2.15"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 95;
+  auto:modelName "Vito 2004 Mixto L1 109 CDI";
+  auto:mpgHighway "38.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149221/Mercedes-Benz-Vito-2004-Mixto-L1-109-CDI-.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/34> a auto:Car;
+  auto:engineDisplacement "2.14"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154168/Mercedes-Benz-Sprinter-2019-L2H2-RWD-411-CDI-41t-7G-TRONIC-PLUS.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/35> a auto:Car;
+  auto:engineDisplacement "2.15"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_5speed;
+  auto:horsepower 116;
+  auto:modelName "Vito 2004 Mixto L1 111 CDI Auto Body, Model and Production details Mercedes Benz Vito 2004 Mixto L1 111 CDI Auto Engine Technical Data Mercedes Benz Vito 2004 Mixto L1 111 CDI Auto Fuel Consumption (Economy), Emissions and Range Mercedes Benz Vito 2004 Mixto L1 111 CDI Auto Performance Mercedes Benz Vito 2004 Mixto L1 111 CDI Auto Size, Dimensions, Aerodynamics and Weight Mercedes Benz Vito 2004 Mixto L1 111 CDI Auto Interior size, Dimensions Mercedes Benz Vito 2004 Mixto L1 111 CDI Auto Brakes, Tires, Steering and Suspension";
+  auto:mpgCity "9.7"^^xsd:float;
+  auto:mpgHighway "57.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149253/Mercedes-Benz-Vito-2004-Mixto-L1-111-CDI-Auto.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/36> a auto:Car;
+  auto:engineDisplacement "1.7"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Regular;
+  auto:hasTransmissionType auto:Manual;
+  auto:hasVehicleClass auto:Sedan;
+  auto:horsepower 75;
+  auto:modelName "Opel Olympia A 4-door 1.7-S";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Opel/151929/Opel-Olympia-A-4-door-17-S.html> .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/38> a auto:Car;
+  auto:engineDisplacement "2.14"^^xsd:float;
+  auto:hasDriveType auto:FrontWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L1H1 FWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154220/Mercedes-Benz-Sprinter-2019-L1H1-FWD-414-CDI-41t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/4> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 170;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153814/Mercedes-Benz-Sprinter-2019-L2H2-RWD-317-CDI-35t.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/40> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154163/Mercedes-Benz-Sprinter-2019-L2H2-RWD-414-CDI-41t-7G-TRONIC-PLUS.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/41> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgCity "18.0"^^xsd:float;
+  auto:mpgHighway "24.0"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153821/Mercedes-Benz-Sprinter-2019-L2H2-RWD-414-CDI-388t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/42> a auto:Car;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154222/Mercedes-Benz-Sprinter-2019-L1H1-FWD-411-CDI-41t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/43> a auto:Car;
+  auto:engineDisplacement "2.7"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "6"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149324/Mercedes-Benz-Vito-2004-Mixto-L1-123-Auto.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/45> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgCity "18.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154166/Mercedes-Benz-Sprinter-2019-L2H2-RWD-314-CDI-35t-7G-TRONIC-PLUS.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/46> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153839/Mercedes-Benz-Sprinter-2019-L2H2-RWD-411-CDI-388t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/5> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:AllWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_5speed;
+  auto:horsepower 109;
+  auto:mpgCity "18.0"^^xsd:float;
+  auto:mpgHighway "30.0"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/149250/Mercedes-Benz-Vito-2004-Mixto-L1-111-CDI-DPF-4MATIC-Auto.html>;
+  auto:year 2004 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/7> a auto:Car;
+  auto:engineDisplacement "2.1"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:mpgHighway "24.0"^^xsd:float;
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154170/Mercedes-Benz-Sprinter-2019-L2H2-RWD-311-CDI-35t-7G-TRONIC-PLUS.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/8> a auto:Car;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasTransmissionType auto:Automatic_9speed;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 150;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/153827/Mercedes-Benz-Sprinter-2019-L2H2-RWD-314-CDI-35t-9G-TRONIC.html>;
+  auto:year 2019 .
+
+<http://www.univ-projet.fr/ontologies/autosemantic/vehicle/9> a auto:Car;
+  auto:engineDisplacement "2.14"^^xsd:float;
+  auto:hasDriveType auto:RearWheelDrive;
+  auto:hasFuelType auto:Diesel;
+  auto:hasManufacturer auto:Mercedes_Benz;
+  auto:hasVehicleClass auto:Van;
+  auto:horsepower 143;
+  auto:modelName "Sprinter 2019 L2H2 RWD";
+  auto:numberOfCylinders "4"^^xsd:float;
+  auto:sourceUrl <https://www.ultimatespecs.com/car-specs/Mercedes-Benz/154169/Mercedes-Benz-Sprinter-2019-L2H2-RWD-411-CDI-41t.html>;
+  auto:year 2019 .
