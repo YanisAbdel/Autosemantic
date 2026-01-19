@@ -1,21 +1,16 @@
-@prefix : <http://www.univ-projet.fr/ontologies/autosemantic#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix : <http://www.univ-projet.fr/ontologies/autosemantic
+@prefix owl: <http://www.w3.org/2002/07/owl
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema
+@prefix skos: <http://www.w3.org/2004/02/skos/core
 @prefix dct: <http://purl.org/dc/terms/> .
 @base <http://www.univ-projet.fr/ontologies/autosemantic> .
 
 <http://www.univ-projet.fr/ontologies/autosemantic> rdf:type owl:Ontology ;
     rdfs:comment "Ontologie enrichie pour le projet AutoSemantic."@fr .
 
-#################################################################
-#    Propriétés d'Objets
-#################################################################
-
-# Relation Inverse : Un fabricant produit un véhicule <-> Un véhicule est produit par un fabricant
 :manufactures rdf:type owl:ObjectProperty ;
               owl:inverseOf :hasManufacturer ;
               rdfs:domain :Manufacturer ;
@@ -24,10 +19,9 @@
 
 :hasManufacturer rdf:type owl:ObjectProperty ;
                  rdfs:domain :Vehicle ;
-                 rdfs:range skos:Concept ;
+                 rdfs:range :Manufacturer ;
                  rdfs:label "a pour fabricant"@fr .
 
-# Relation Inverse : Une voiture a des avis <-> Un avis concerne une voiture
 :hasReview rdf:type owl:ObjectProperty ;
            owl:inverseOf :isReviewOf ;
            rdfs:domain :Vehicle ;
@@ -39,7 +33,6 @@
             rdfs:range :Vehicle ;
             rdfs:label "est un avis sur"@fr .
 
-# Liens vers les concepts SKOS
 :hasTransmissionType rdf:type owl:ObjectProperty ;
                      rdfs:range skos:Concept ;
                      rdfs:comment "Lié au Concept Scheme Transmission"@fr .
@@ -51,15 +44,14 @@
 :hasFuelType rdf:type owl:ObjectProperty ;
              rdfs:range skos:Concept .
 
-# Propriété Chaînée : Produit d'un Groupe
-# Si X hasManufacturer Y, et Y broader Z, alors X isProductOfGroup Z
 :isProductOfGroup rdf:type owl:ObjectProperty ;
                   owl:propertyChainAxiom ( :hasManufacturer skos:broader ) ;
                   rdfs:label "est un produit du groupe"@fr .
 
-#################################################################
-#    Propriétés de Données
-#################################################################
+
+:modelYear rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:integer .
 
 :numberOfCylinders rdf:type owl:DatatypeProperty ;
                    rdfs:domain :Vehicle ;
@@ -75,13 +67,31 @@
                     rdfs:range xsd:float ;
                     rdfs:comment "Cylindrée en litres"@fr .
 
-:mpgCity rdf:type owl:DatatypeProperty ;
-         rdfs:domain :Vehicle ;
-         rdfs:range xsd:float .
+:fuelConsumptionCity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Consommation ville normalisée en L/100km"@fr .
 
-:mpgHighway rdf:type owl:DatatypeProperty ;
-            rdfs:domain :Vehicle ;
-            rdfs:range xsd:float .
+:fuelConsumptionHighway rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Consommation autoroute normalisée en L/100km"@fr .
+
+:electricConsumptionCity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Consommation électrique ville en kWh/100km"@fr .
+
+:electricConsumptionHighway rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Consommation électrique autoroute en kWh/100km"@fr .
+
+:hydrogenConsumptionCity rdf:type owl:DatatypeProperty ;
+    rdfs:domain :Vehicle ;
+    rdfs:range xsd:float ;
+    rdfs:comment "Consommation hydrogène ville en kg/100km"@fr .
+
 
 :reviewRating rdf:type owl:DatatypeProperty ;
               rdfs:domain :CustomerReview ;
@@ -95,9 +105,6 @@
             rdfs:domain :CustomerReview ;
             rdfs:range xsd:date .
 
-#################################################################
-#    Classes OWL
-#################################################################
 
 :Vehicle rdf:type owl:Class .
 
@@ -110,10 +117,7 @@
                 rdfs:comment "Avis utilisateur extrait de reviews_sample.csv"@fr .
 
 
-# --- Classes Définies ---
 
-# Règle 3 : Véhicules haute performance (> 4.0L cylindrée OU >= 6 cylindres)
-# Règle 3 : Véhicules haute performance (> 4.0L cylindrée OU >= 6 cylindres) ET PAS UN VAN
 :HighPerformanceCar rdf:type owl:Class ;
                     owl:equivalentClass [ owl:intersectionOf ( :Car
                                           [ rdf:type owl:Class ;
@@ -133,12 +137,11 @@
                                           ]
                                           ) ] .
 
-# Règle 4 : Citadine (City Car) : Compacte/Subcompacte + MPG Ville >= 25
 :CityCar rdf:type owl:Class ;
          owl:equivalentClass [ owl:intersectionOf ( :Car
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty :mpgCity ;
-                                 owl:minInclusive "25.0"^^xsd:float ]
+                                 owl:onProperty :fuelConsumptionCity ;
+                                 owl:maxInclusive "9.4"^^xsd:float ]
                                [ rdf:type owl:Class ;
                                  owl:unionOf ( [ rdf:type owl:Restriction ;
                                                  owl:onProperty :hasVehicleClass ;
@@ -152,19 +155,17 @@
                                              ) ]
                              ) ] .
 
-# Règle 5 : Gas Guzzler (Gouffre à essence) : MPG Ville < 15
 :GasGuzzler rdf:type owl:Class ;
             owl:equivalentClass [ owl:intersectionOf ( :Car
                                   [ rdf:type owl:Restriction ;
-                                    owl:onProperty :mpgCity ;
-                                    owl:maxExclusive "15.0"^^xsd:float ]
+                                    owl:onProperty :fuelConsumptionCity ;
+                                    owl:minExclusive "15.7"^^xsd:float ]
                                 ) ] .
 
-# Règle 7 : Marque de Luxe (Classe définie par énumération)
 :LuxuryManufacturer rdf:type owl:Class ;
+                    rdfs:subClassOf :Manufacturer ;
                     owl:oneOf ( :Ferrari :Bentley :RollsRoyce :Lamborghini :Maserati :AstonMartin :Bugatti :McLarenAutomotive :Porsche ) .
 
-# Règle 8 : Véhicule de Luxe (Fabriqué par une marque de luxe)
 :LuxuryVehicle rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( :Vehicle
                                      [ rdf:type owl:Restriction ;
@@ -172,8 +173,6 @@
                                        owl:someValuesFrom :LuxuryManufacturer ]
                                    ) ] .
 
-# Règle 9 : Véhicule Tout-Terrain (OffRoadVehicle)
-# Truck/SUV + 4WD/AWD
 :OffRoadVehicle rdf:type owl:Class ;
                 owl:equivalentClass [ owl:intersectionOf ( :Vehicle
                                       [ rdf:type owl:Restriction ;
@@ -189,13 +188,11 @@
                                       ]
                                     ) ] .
 
-# Règle 11 : Prête pour le Road Trip (Confortable & Efficace sur autoroute)
-# Midsize/Large Car + MPG Highway > 30
 :RoadTripReady rdf:type owl:Class ;
                owl:equivalentClass [ owl:intersectionOf ( :Car
                                      [ rdf:type owl:Restriction ;
-                                       owl:onProperty :mpgHighway ;
-                                       owl:minExclusive "30.0"^^xsd:float ]
+                                       owl:onProperty :fuelConsumptionHighway ;
+                                       owl:maxExclusive "7.8"^^xsd:float ]
                                      [ rdf:type owl:Restriction ;
                                        owl:onProperty :hasVehicleClass ;
                                        owl:someValuesFrom [ rdf:type owl:Class ;
@@ -203,7 +200,6 @@
                                      ]
                                    ) ] .
 
-# Règle 12 : Avis Positif (>= 4.0)
 :PositiveReview rdf:type owl:Class ;
                 owl:equivalentClass [ owl:intersectionOf ( :CustomerReview
                                       [ rdf:type owl:Restriction ;
@@ -211,7 +207,6 @@
                                         owl:minInclusive "4.0"^^xsd:decimal ]
                                     ) ] .
 
-# Règle 13 : Avis Critique (<= 2.0)
 :CriticalReview rdf:type owl:Class ;
                 owl:equivalentClass [ owl:intersectionOf ( :CustomerReview
                                       [ rdf:type owl:Restriction ;
@@ -219,11 +214,7 @@
                                         owl:maxInclusive "2.0"^^xsd:decimal ]
                                     ) ] .
 
-#################################################################
-#    SKOS - Thesaurus et Concepts
-#################################################################
 
-# --- Scheme : Transmission ---
 :TransmissionScheme rdf:type skos:ConceptScheme ;
                     skos:prefLabel "Type de Transmission"@fr .
 
@@ -253,7 +244,6 @@
             skos:broader :AutomatedManual ;
             skos:prefLabel "Dual Clutch Transmission (DCT)"@en .
 
-# --- Scheme : Type de motricité (Drive) ---
 :DriveTypeScheme rdf:type skos:ConceptScheme .
 
 :TwoWheelDrive rdf:type skos:Concept ;
@@ -287,11 +277,9 @@
                           skos:inScheme :DriveTypeScheme ;
                           skos:prefLabel "4-Wheel or All-Wheel Drive"@en .
 
-# --- Scheme : Carburant ---
 :FuelTypeScheme rdf:type skos:ConceptScheme ;
                 skos:prefLabel "Type de Carburant"@fr .
 
-# --- Catégories parentes ---
 :FossilFuel rdf:type skos:Concept ;
             skos:inScheme :FuelTypeScheme ;
             skos:prefLabel "Fossil Fuel"@en ;
@@ -302,7 +290,6 @@
              skos:prefLabel "Clean Energy"@en ;
              skos:prefLabel "Energie Propre"@fr .
 
-# --- Types de base ---
 :Gasoline rdf:type skos:Concept ;
           skos:broader :FossilFuel ;
           skos:inScheme :FuelTypeScheme ;
@@ -337,7 +324,6 @@
           skos:inScheme :FuelTypeScheme ;
           skos:prefLabel "Hydrogen"@en .
 
-# --- Types d'Essence (Octane) ---
 :Regular rdf:type skos:Concept ;
          skos:broader :Gasoline ;
          skos:inScheme :FuelTypeScheme ;
@@ -353,7 +339,6 @@
          skos:inScheme :FuelTypeScheme ;
          skos:prefLabel "Premium Gasoline"@en .
 
-# --- Hybrides et alternatives mixtes ---
 :GasolineOrE85 rdf:type skos:Concept ;
                skos:broader :Gasoline ;
                skos:inScheme :FuelTypeScheme ;
@@ -394,7 +379,6 @@
                          skos:inScheme :FuelTypeScheme ;
                          skos:prefLabel "Regular Gas or Electricity"@en .
 
-# --- Scheme : Vehicle Class ---
 :VehicleClassScheme rdf:type skos:ConceptScheme ;
                     skos:prefLabel "Classe de véhicule"@fr .
 
@@ -402,7 +386,6 @@
                  rdfs:range skos:Concept ;
                  rdfs:comment "Lié au Concept Scheme VehicleClass"@fr .
 
-# --- Catégories Principales ---
 :CarClass rdf:type skos:Concept ;
           skos:inScheme :VehicleClassScheme ;
           skos:prefLabel "Car"@en ;
@@ -432,7 +415,6 @@
                    skos:prefLabel "Station Wagon"@en ;
                    skos:prefLabel "Break"@fr .
 
-# --- Sous-catégories (Cars) ---
 :CompactCar rdf:type skos:Concept ;
             skos:broader :CarClass ;
             skos:inScheme :VehicleClassScheme ;
@@ -463,7 +445,6 @@
            skos:inScheme :VehicleClassScheme ;
            skos:prefLabel "Two Seater"@en .
 
-# --- Sous-catégories (Station Wagons) ---
 :SmallStationWagon rdf:type skos:Concept ;
                    skos:broader :StationWagonClass ;
                    skos:inScheme :VehicleClassScheme ;
@@ -479,7 +460,6 @@
                           skos:inScheme :VehicleClassScheme ;
                           skos:prefLabel "Midsize-Large Station Wagon"@en .
 
-# --- Sous-catégories (Trucks) ---
 :PickupTruck rdf:type skos:Concept ;
              skos:broader :TruckClass ;
              skos:inScheme :VehicleClassScheme ;
@@ -495,7 +475,6 @@
                      skos:inScheme :VehicleClassScheme ;
                      skos:prefLabel "Standard Pickup Truck"@en .
 
-# --- Sous-catégories (Vans) ---
 :Minivan rdf:type skos:Concept ;
          skos:broader :VanClass ;
          skos:inScheme :VehicleClassScheme ;
@@ -511,7 +490,6 @@
           skos:inScheme :VehicleClassScheme ;
           skos:prefLabel "Cargo Van"@en .
 
-# --- Sous-catégories (SUVs) ---
 :SmallSUV rdf:type skos:Concept ;
           skos:broader :SUVClass ;
           skos:inScheme :VehicleClassScheme ;
@@ -519,668 +497,665 @@
 
 :StandardSUV rdf:type skos:Concept ;
              skos:broader :SUVClass ;
-             skos:inScheme :VehicleClassScheme .
-# --- Scheme : Constructeurs ---
+             skos:inScheme :VehicleClassScheme ;
 :ManufacturerScheme rdf:type skos:ConceptScheme ;
                     skos:prefLabel "Constructeurs Automobiles"@fr .
 
-# --- Groupes Automobiles ---
-:VolkswagenGroup rdf:type skos:Concept ;
+:VolkswagenGroup rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "VolkswagenGroup"@en .
 
-:GeneralMotors rdf:type skos:Concept ;
+:GeneralMotors rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "GeneralMotors"@en .
 
-:FordMotorCo rdf:type skos:Concept ;
+:FordMotorCo rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "FordMotorCo"@en .
 
-:ToyotaGroup rdf:type skos:Concept ;
+:ToyotaGroup rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "ToyotaGroup"@en .
 
-:HondaGroup rdf:type skos:Concept ;
+:HondaGroup rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "HondaGroup"@en .
 
-:BMWGroup rdf:type skos:Concept ;
+:BMWGroup rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "BMWGroup"@en .
 
-:Stellantis rdf:type skos:Concept ;
+:Stellantis rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Stellantis"@en .
 
-:NissanGroup rdf:type skos:Concept ;
+:NissanGroup rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "NissanGroup"@en .
 
-:TataMotors rdf:type skos:Concept ;
+:TataMotors rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "TataMotors"@en .
 
-# --- Marques ---
-:AMGeneral rdf:type skos:Concept ;
+:AMGeneral rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "AM General"@en .
 
-:ASCIncorporated rdf:type skos:Concept ;
+:ASCIncorporated rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "ASC Incorporated"@en .
 
-:Acura rdf:type skos:Concept ;
+:Acura rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Acura"@en ;
     skos:broader :HondaGroup .
 
-:AlfaRomeo rdf:type skos:Concept ;
+:AlfaRomeo rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Alfa Romeo"@en ;
     skos:broader :Stellantis .
 
-:AmericanMotorsCorporation rdf:type skos:Concept ;
+:AmericanMotorsCorporation rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "American Motors Corporation"@en .
 
-:AstonMartin rdf:type skos:Concept ;
+:AstonMartin rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Aston Martin"@en .
 
-:Audi rdf:type skos:Concept ;
+:Audi rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Audi"@en ;
     skos:broader :VolkswagenGroup .
 
-:AuroraCarsLtd rdf:type skos:Concept ;
+:AuroraCarsLtd rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Aurora Cars Ltd"@en .
 
-:AutokraftLimited rdf:type skos:Concept ;
+:AutokraftLimited rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Autokraft Limited"@en .
 
-:AvantiMotorCorporation rdf:type skos:Concept ;
+:AvantiMotorCorporation rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Avanti Motor Corporation"@en .
 
-:AzureDynamics rdf:type skos:Concept ;
+:AzureDynamics rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Azure Dynamics"@en .
 
-:BMW rdf:type skos:Concept ;
+:BMW rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "BMW"@en ;
     skos:broader :BMWGroup .
 
-:BMWAlpina rdf:type skos:Concept ;
+:BMWAlpina rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "BMW Alpina"@en .
 
-:BYD rdf:type skos:Concept ;
+:BYD rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "BYD"@en .
 
-:Bentley rdf:type skos:Concept ;
+:Bentley rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Bentley"@en ;
     skos:broader :VolkswagenGroup .
 
-:Bertone rdf:type skos:Concept ;
+:Bertone rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Bertone"@en .
 
-:BillDovellMotorCarCompany rdf:type skos:Concept ;
+:BillDovellMotorCarCompany rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Bill Dovell Motor Car Company"@en .
 
-:BitterGmbhandCoKg rdf:type skos:Concept ;
+:BitterGmbhandCoKg rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Bitter Gmbh and Co. Kg"@en .
 
-:Bugatti rdf:type skos:Concept ;
+:Bugatti rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Bugatti"@en ;
     skos:broader :VolkswagenGroup .
 
-:BugattiRimac rdf:type skos:Concept ;
+:BugattiRimac rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Bugatti Rimac"@en .
 
-:Buick rdf:type skos:Concept ;
+:Buick rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Buick"@en ;
     skos:broader :GeneralMotors .
 
-:CCCEngineering rdf:type skos:Concept ;
+:CCCEngineering rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "CCC Engineering"@en .
 
-:CODAAutomotive rdf:type skos:Concept ;
+:CODAAutomotive rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "CODA Automotive"@en .
 
-:CXAutomotive rdf:type skos:Concept ;
+:CXAutomotive rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "CX Automotive"@en .
 
-:Cadillac rdf:type skos:Concept ;
+:Cadillac rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Cadillac"@en ;
     skos:broader :GeneralMotors .
 
-:Chevrolet rdf:type skos:Concept ;
+:Chevrolet rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Chevrolet"@en ;
     skos:broader :GeneralMotors .
 
-:Chrysler rdf:type skos:Concept ;
+:Chrysler rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Chrysler"@en ;
     skos:broader :Stellantis .
 
-:ConsulierIndustriesInc rdf:type skos:Concept ;
+:ConsulierIndustriesInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Consulier Industries Inc"@en .
 
-:DabryanCoachBuildersInc rdf:type skos:Concept ;
+:DabryanCoachBuildersInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Dabryan Coach Builders Inc"@en .
 
-:Dacia rdf:type skos:Concept ;
+:Dacia rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Dacia"@en .
 
-:Daewoo rdf:type skos:Concept ;
+:Daewoo rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Daewoo"@en .
 
-:Daihatsu rdf:type skos:Concept ;
+:Daihatsu rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Daihatsu"@en .
 
-:Dodge rdf:type skos:Concept ;
+:Dodge rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Dodge"@en ;
     skos:broader :Stellantis .
 
-:EPDuttonInc rdf:type skos:Concept ;
+:EPDuttonInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "E. P. Dutton, Inc."@en .
 
-:Eagle rdf:type skos:Concept ;
+:Eagle rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Eagle"@en .
 
-:EnvironmentalRschandDevpCorp rdf:type skos:Concept ;
+:EnvironmentalRschandDevpCorp rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Environmental Rsch and Devp Corp"@en .
 
-:EvansAutomobiles rdf:type skos:Concept ;
+:EvansAutomobiles rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Evans Automobiles"@en .
 
-:ExcaliburAutos rdf:type skos:Concept ;
+:ExcaliburAutos rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Excalibur Autos"@en .
 
-:FederalCoach rdf:type skos:Concept ;
+:FederalCoach rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Federal Coach"@en .
 
-:Ferrari rdf:type skos:Concept ;
+:Ferrari rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Ferrari"@en ;
     skos:broader :Stellantis .
 
-:Fiat rdf:type skos:Concept ;
+:Fiat rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Fiat"@en ;
     skos:broader :Stellantis .
 
-:Fisker rdf:type skos:Concept ;
+:Fisker rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Fisker"@en .
 
-:Ford rdf:type skos:Concept ;
+:Ford rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Ford"@en ;
     skos:broader :FordMotorCo .
 
-:GMC rdf:type skos:Concept ;
+:GMC rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "GMC"@en ;
     skos:broader :GeneralMotors .
 
-:GeneralMotors rdf:type skos:Concept ;
+:GeneralMotors rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "General Motors"@en .
 
-:Genesis rdf:type skos:Concept ;
+:Genesis rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Genesis"@en .
 
-:Geo rdf:type skos:Concept ;
+:Geo rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Geo"@en .
 
-:Goldacre rdf:type skos:Concept ;
+:Goldacre rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Goldacre"@en .
 
-:GrummanAlliedIndustries rdf:type skos:Concept ;
+:GrummanAlliedIndustries rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Grumman Allied Industries"@en .
 
-:GrummanOlson rdf:type skos:Concept ;
+:GrummanOlson rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Grumman Olson"@en .
 
-:Honda rdf:type skos:Concept ;
+:Honda rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Honda"@en ;
     skos:broader :HondaGroup .
 
-:Hummer rdf:type skos:Concept ;
+:Hummer rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Hummer"@en ;
     skos:broader :GeneralMotors .
 
-:Hyundai rdf:type skos:Concept ;
+:Hyundai rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Hyundai"@en .
 
-:INEOSAutomotive rdf:type skos:Concept ;
+:INEOSAutomotive rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "INEOS Automotive"@en .
 
-:ImportForeignAutoSalesInc rdf:type skos:Concept ;
+:ImportForeignAutoSalesInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Import Foreign Auto Sales Inc"@en .
 
-:ImportTradeServices rdf:type skos:Concept ;
+:ImportTradeServices rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Import Trade Services"@en .
 
-:Infiniti rdf:type skos:Concept ;
+:Infiniti rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Infiniti"@en ;
     skos:broader :NissanGroup .
 
-:IsisImportsLtd rdf:type skos:Concept ;
+:IsisImportsLtd rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Isis Imports Ltd"@en .
 
-:Isuzu rdf:type skos:Concept ;
+:Isuzu rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Isuzu"@en .
 
-:JKMotors rdf:type skos:Concept ;
+:JKMotors rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "J.K. Motors"@en .
 
-:JBAMotorcarsInc rdf:type skos:Concept ;
+:JBAMotorcarsInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "JBA Motorcars, Inc."@en .
 
-:Jaguar rdf:type skos:Concept ;
+:Jaguar rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Jaguar"@en ;
     skos:broader :TataMotors .
 
-:Jeep rdf:type skos:Concept ;
+:Jeep rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Jeep"@en ;
     skos:broader :Stellantis .
 
-:Kandi rdf:type skos:Concept ;
+:Kandi rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Kandi"@en .
 
-:Karma rdf:type skos:Concept ;
+:Karma rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Karma"@en .
 
-:KenyonCorporationOfAmerica rdf:type skos:Concept ;
+:KenyonCorporationOfAmerica rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Kenyon Corporation Of America"@en .
 
-:Kia rdf:type skos:Concept ;
+:Kia rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Kia"@en .
 
-:Koenigsegg rdf:type skos:Concept ;
+:Koenigsegg rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Koenigsegg"@en .
 
-:LaforzaAutomobileInc rdf:type skos:Concept ;
+:LaforzaAutomobileInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Laforza Automobile Inc"@en .
 
-:LambdaControlSystems rdf:type skos:Concept ;
+:LambdaControlSystems rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lambda Control Systems"@en .
 
-:Lamborghini rdf:type skos:Concept ;
+:Lamborghini rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lamborghini"@en ;
     skos:broader :VolkswagenGroup .
 
-:LandRover rdf:type skos:Concept ;
+:LandRover rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Land Rover"@en ;
     skos:broader :TataMotors .
 
-:Lexus rdf:type skos:Concept ;
+:Lexus rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lexus"@en ;
     skos:broader :ToyotaGroup .
 
-:Lincoln rdf:type skos:Concept ;
+:Lincoln rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lincoln"@en ;
     skos:broader :FordMotorCo .
 
-:LondonCoachCoInc rdf:type skos:Concept ;
+:LondonCoachCoInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "London Coach Co Inc"@en .
 
-:LondonTaxi rdf:type skos:Concept ;
+:LondonTaxi rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "London Taxi"@en .
 
-:Lordstown rdf:type skos:Concept ;
+:Lordstown rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lordstown"@en .
 
-:Lotus rdf:type skos:Concept ;
+:Lotus rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lotus"@en .
 
-:Lucid rdf:type skos:Concept ;
+:Lucid rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lucid"@en .
 
-:MINI rdf:type skos:Concept ;
+:MINI rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "MINI"@en ;
     skos:broader :BMWGroup .
 
-:Mahindra rdf:type skos:Concept ;
+:Mahindra rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mahindra"@en .
 
-:Maserati rdf:type skos:Concept ;
+:Maserati rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Maserati"@en ;
     skos:broader :Stellantis .
 
-:Maybach rdf:type skos:Concept ;
+:Maybach rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Maybach"@en .
 
-:Mazda rdf:type skos:Concept ;
+:Mazda rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mazda"@en .
 
-:McLarenAutomotive rdf:type skos:Concept ;
+:McLarenAutomotive rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "McLaren Automotive"@en .
 
-:McevoyMotors rdf:type skos:Concept ;
+:McevoyMotors rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mcevoy Motors"@en .
 
-:MercedesBenz rdf:type skos:Concept ;
+:MercedesBenz rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mercedes-Benz"@en .
 
-:Mercury rdf:type skos:Concept ;
+:Mercury rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mercury"@en ;
     skos:broader :FordMotorCo .
 
-:Merkur rdf:type skos:Concept ;
+:Merkur rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Merkur"@en .
 
-:Mini rdf:type skos:Concept ;
+:Mini rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mini"@en ;
     skos:broader :BMWGroup .
 
-:Mitsubishi rdf:type skos:Concept ;
+:Mitsubishi rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mitsubishi"@en .
 
-:MobilityVenturesLLC rdf:type skos:Concept ;
+:MobilityVenturesLLC rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Mobility Ventures LLC"@en .
 
-:Morgan rdf:type skos:Concept ;
+:Morgan rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Morgan"@en .
 
-:Nissan rdf:type skos:Concept ;
+:Nissan rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Nissan"@en ;
     skos:broader :NissanGroup .
 
-:Oldsmobile rdf:type skos:Concept ;
+:Oldsmobile rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Oldsmobile"@en ;
     skos:broader :GeneralMotors .
 
-:PASIncGMC rdf:type skos:Concept ;
+:PASIncGMC rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "PAS Inc - GMC"@en .
 
-:PASInc rdf:type skos:Concept ;
+:PASInc rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "PAS, Inc"@en .
 
-:Pagani rdf:type skos:Concept ;
+:Pagani rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Pagani"@en .
 
-:Panos rdf:type skos:Concept ;
+:Panos rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Panos"@en .
 
-:PanozAutoDevelopment rdf:type skos:Concept ;
+:PanozAutoDevelopment rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Panoz Auto-Development"@en .
 
-:PantherCarCompanyLimited rdf:type skos:Concept ;
+:PantherCarCompanyLimited rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Panther Car Company Limited"@en .
 
-:Peugeot rdf:type skos:Concept ;
+:Peugeot rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Peugeot"@en .
 
-:Pininfarina rdf:type skos:Concept ;
+:Pininfarina rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Pininfarina"@en .
 
-:Plymouth rdf:type skos:Concept ;
+:Plymouth rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Plymouth"@en ;
     skos:broader :Stellantis .
 
-:Polestar rdf:type skos:Concept ;
+:Polestar rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Polestar"@en .
 
-:Pontiac rdf:type skos:Concept ;
+:Pontiac rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Pontiac"@en ;
     skos:broader :GeneralMotors .
 
-:Porsche rdf:type skos:Concept ;
+:Porsche rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Porsche"@en ;
     skos:broader :VolkswagenGroup .
 
-:QuantumTechnologies rdf:type skos:Concept ;
+:QuantumTechnologies rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Quantum Technologies"@en .
 
-:Qvale rdf:type skos:Concept ;
+:Qvale rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Qvale"@en .
 
-:RUFAutomobile rdf:type skos:Concept ;
+:RUFAutomobile rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "RUF Automobile"@en .
 
-:Ram rdf:type skos:Concept ;
+:Ram rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Ram"@en ;
     skos:broader :Stellantis .
 
-:RedShiftLtd rdf:type skos:Concept ;
+:RedShiftLtd rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Red Shift Ltd."@en .
 
-:Renault rdf:type skos:Concept ;
+:Renault rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Renault"@en .
 
-:Rivian rdf:type skos:Concept ;
+:Rivian rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Rivian"@en .
 
-:RollsRoyce rdf:type skos:Concept ;
+:RollsRoyce rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Rolls-Royce"@en ;
     skos:broader :BMWGroup .
 
-:RoushPerformance rdf:type skos:Concept ;
+:RoushPerformance rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Roush Performance"@en .
 
-:RufAutomobileGmbh rdf:type skos:Concept ;
+:RufAutomobileGmbh rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Ruf Automobile Gmbh"@en .
 
-:SandSCoachCompanyEpDutton rdf:type skos:Concept ;
+:SandSCoachCompanyEpDutton rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "S and S Coach Company  E.p. Dutton"@en .
 
-:SRT rdf:type skos:Concept ;
+:SRT rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "SRT"@en .
 
-:STI rdf:type skos:Concept ;
+:STI rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "STI"@en .
 
-:Saab rdf:type skos:Concept ;
+:Saab rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Saab"@en .
 
-:Saleen rdf:type skos:Concept ;
+:Saleen rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Saleen"@en .
 
-:SaleenPerformance rdf:type skos:Concept ;
+:SaleenPerformance rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Saleen Performance"@en .
 
-:Saturn rdf:type skos:Concept ;
+:Saturn rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Saturn"@en ;
     skos:broader :GeneralMotors .
 
-:Scion rdf:type skos:Concept ;
+:Scion rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Scion"@en ;
     skos:broader :ToyotaGroup .
 
-:Shelby rdf:type skos:Concept ;
+:Shelby rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Shelby"@en .
 
-:Spyker rdf:type skos:Concept ;
+:Spyker rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Spyker"@en .
 
-:Sterling rdf:type skos:Concept ;
+:Sterling rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Sterling"@en .
 
-:Subaru rdf:type skos:Concept ;
+:Subaru rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Subaru"@en .
 
-:SuperiorCoachesDivEpDutton rdf:type skos:Concept ;
+:SuperiorCoachesDivEpDutton rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Superior Coaches Div E.p. Dutton"@en .
 
-:Suzuki rdf:type skos:Concept ;
+:Suzuki rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Suzuki"@en .
 
-:TVREngineeringLtd rdf:type skos:Concept ;
+:TVREngineeringLtd rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "TVR Engineering Ltd"@en .
 
-:TecstarLP rdf:type skos:Concept ;
+:TecstarLP rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Tecstar, LP"@en .
 
-:Tesla rdf:type skos:Concept ;
+:Tesla rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Tesla"@en .
 
-:TexasCoachCompany rdf:type skos:Concept ;
+:TexasCoachCompany rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Texas Coach Company"@en .
 
-:Toyota rdf:type skos:Concept ;
+:Toyota rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Toyota"@en ;
     skos:broader :ToyotaGroup .
 
-:VPG rdf:type skos:Concept ;
+:VPG rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "VPG"@en .
 
-:Vector rdf:type skos:Concept ;
+:Vector rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Vector"@en .
 
-:Vinfast rdf:type skos:Concept ;
+:Vinfast rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Vinfast"@en .
 
-:VixenMotorCompany rdf:type skos:Concept ;
+:VixenMotorCompany rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Vixen Motor Company"@en .
 
-:VolgaAssociatedAutomobile rdf:type skos:Concept ;
+:VolgaAssociatedAutomobile rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Volga Associated Automobile"@en .
 
-:Volkswagen rdf:type skos:Concept ;
+:Volkswagen rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Volkswagen"@en ;
     skos:broader :VolkswagenGroup .
 
-:Volvo rdf:type skos:Concept ;
+:Volvo rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Volvo"@en .
 
-:WallaceEnvironmental rdf:type skos:Concept ;
+:WallaceEnvironmental rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Wallace Environmental"@en .
 
-:Yugo rdf:type skos:Concept ;
+:Yugo rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Yugo"@en .
 
-:smart rdf:type skos:Concept ;
+:smart rdf:type skos:Concept, :Manufacturer ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "smart"@en .
