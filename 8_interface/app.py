@@ -583,6 +583,7 @@ REGLES STRICTES:
 1. PAS DE COMMENTAIRES.
 2. QUE DU SPARQL.
 3. FILTRE MARQUE: ?m skos:prefLabel ?lbl . FILTER(contains(lcase(?lbl), "nom"))
+4. AGGREGATES: Toujours utiliser un alias. Exemple: SELECT (MAX(?val) as ?max) et non SELECT MAX(?val).
 
 EXEMPLE 1:
 Q: "Note moyenne des Ford ?"
@@ -593,6 +594,7 @@ Q: "Voitures avec 8 cylindres ?"
 R: SELECT ?name WHERE {{ ?c a :Car ; :modelName ?name ; :numberOfCylinders ?nb . FILTER(?nb = 8) }}
 """
     
+    sparql = ""
     try:
         # Generate SPARQL query
         full_prompt = f"SYSTEM INSTRUCTION:\n{system_prompt}\n\nDEMANDE UTILISATEUR\nCode SPARQL pour : {question}"
@@ -647,7 +649,7 @@ R: SELECT ?name WHERE {{ ?c a :Car ; :modelName ?name ; :numberOfCylinders ?nb .
             return {"sparql": sparql, "data": data, "summary": summary}, None
             
         except Exception as e:
-            return None, f"Erreur lors de l'exécution SPARQL : {str(e)}"
+            return {"sparql": sparql, "data": [], "summary": "Erreur d'exécution"}, f"Erreur lors de l'exécution SPARQL : {str(e)}"
     
     except Exception as e:
         return None, f"Erreur lors de la génération de la requête : {str(e)}"
@@ -670,15 +672,26 @@ def graphrag_vector_query(question, resources):
         # Encode question
         question_vector = embedder.encode([question], convert_to_numpy=True)
         
-        # Retrieve top-k similar chunks
-        k = 5
+        # Retrieve top-k similar chunks (fetch more to allow for valid deduplication)
+        k = 10
         distances, indices = index.search(question_vector, k)
         
         retrieved_context = []
+        seen_chunks = set()
+        
         for i in range(k):
             idx = indices[0][i]
+            # Handle potential out of bounds if index is smaller than k
+            if idx == -1: continue
+                
             txt = chunks[idx]
-            retrieved_context.append(txt)
+            if txt not in seen_chunks:
+                retrieved_context.append(txt)
+                seen_chunks.add(txt)
+            
+            # Keep only top 5 unique
+            if len(retrieved_context) >= 5:
+                break
         
         context_str = "\n\n".join(retrieved_context)
         
@@ -707,7 +720,7 @@ Fais une synthèse de ces avis pour répondre. Si les avis sont contradictoires,
         
         return {
             "response": response.text,
-            "context": retrieved_context[:3]  # Return top 3 for display
+            "context": retrieved_context  # Return all unique context chunks used
         }, None
         
     except Exception as e:
@@ -864,12 +877,13 @@ def tab_ai_demo(graph):
             with st.spinner("Génération de la requête SPARQL..."):
                 result, error = graphrag_sparql_query(graph, user_question, graphrag_resources)
             
+            if result and result.get("sparql"):
+                st.info("Requête SPARQL générée :")
+                st.code(result["sparql"], language="sparql")
+            
             if error:
                 st.error(error)
             elif result:
-                st.success("Requête SPARQL générée :")
-                st.code(result["sparql"], language="sparql")
-                
                 # Display results
                 if result["data"]:
                     st.subheader(f"Résultats ({len(result['data'])} lignes)")
@@ -877,7 +891,7 @@ def tab_ai_demo(graph):
                     st.dataframe(df, width="stretch")
                     
                     # Display natural language summary
-                    st.info(f"**Réponse** : {result['summary']}")
+                    st.success(f"**Réponse** : {result['summary']}")
                 else:
                     st.warning("Aucun résultat trouvé.")
     
@@ -897,7 +911,7 @@ def tab_ai_demo(graph):
                 key="q2"
             )
             
-            if st.button("Générer une réponse", key="embed"):
+            if st.button("Génération de la réponse", key="embed"):
                 with st.spinner("Recherche dans les avis clients..."):
                     result, error = graphrag_vector_query(user_question_2, graphrag_resources)
                 
@@ -905,7 +919,7 @@ def tab_ai_demo(graph):
                     st.error(error)
                 elif result:
                     # Display retrieved context
-                    with st.expander("Contexte récupéré (Top 3 avis)"):
+                    with st.expander(f"Contexte récupéré ({len(result['context'])} avis uniques)"):
                         for i, ctx in enumerate(result["context"], 1):
                             st.markdown(f"**{i}.** {ctx}")
                     
