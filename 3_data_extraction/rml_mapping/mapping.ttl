@@ -158,3 +158,26 @@
             ]
         ]
     ] .
+
+# =============================================
+# Mapping pour les Manufacturers (Fabricants)
+# =============================================
+<#ManufacturersMap>
+    rml:logicalSource [
+        rml:source "../../2_data_sources/structured/vehicles_clean.csv" ;
+        rml:referenceFormulation ql:CSV
+    ] ;
+
+    rr:subjectMap [
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{make}" ;
+        rr:class :Manufacturer
+    ] ;
+
+    # Label du fabricant
+    rr:predicateObjectMap [
+        rr:predicate rdfs:label ;
+        rr:objectMap [ 
+            rml:reference "make" ; 
+            rr:datatype xsd:string
+        ]
+    ] .

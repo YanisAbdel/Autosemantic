@@ -1,1 +1,23 @@
+@prefix auto: <http://www.univ-projet.fr/ontologies/autosemantic#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
+
+auto:AstonMartin owl:sameAs dbr:AstonMartin,
+        wd:Q191253 .
+
+auto:BMW owl:sameAs dbr:BMW,
+        wd:Q26678 .
+
+auto:Mitsubishi owl:sameAs dbr:Mitsubishi,
+        wd:Q36033 .
+
+auto:Nissan owl:sameAs dbr:Nissan,
+        wd:Q20165 .
+
+auto:Porsche owl:sameAs dbr:Porsche,
+        wd:Q40993 .
+
+auto:Toyota owl:sameAs dbr:Toyota,
+        wd:Q53268 .
 
