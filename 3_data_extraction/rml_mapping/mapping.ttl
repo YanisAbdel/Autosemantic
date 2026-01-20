@@ -102,6 +102,69 @@
             rr:template "http://www.univ-projet.fr/ontologies/autosemantic#{VClass}" ;
             rr:termType rr:IRI
         ]
+    ] ;
+
+    # CO2 Emissions (co2)
+    rr:predicateObjectMap [
+        rr:predicate :co2Emissions ;
+        rr:objectMap [ 
+            rml:reference "co2" ; 
+            rr:datatype xsd:float 
+        ]
+    ] ;
+
+    # City MPG (city08)
+    rr:predicateObjectMap [
+        rr:predicate :mpgCity ;
+        rr:objectMap [ 
+            rml:reference "city08" ; 
+            rr:datatype xsd:float 
+        ]
+    ] ;
+
+    # City Electricity Consumption (cityE)
+    rr:predicateObjectMap [
+        rr:predicate :cityElectricityConsumption ;
+        rr:objectMap [ 
+            rml:reference "cityE" ; 
+            rr:datatype xsd:float 
+        ]
+    ] ;
+
+    # Highway MPG (highway08)
+    rr:predicateObjectMap [
+        rr:predicate :mpgHighway ;
+        rr:objectMap [ 
+            rml:reference "highway08" ; 
+            rr:datatype xsd:float 
+        ]
+    ] ;
+
+    # Highway Electricity Consumption (highwayE)
+    rr:predicateObjectMap [
+        rr:predicate :highwayElectricityConsumption ;
+        rr:objectMap [ 
+            rml:reference "highwayE" ; 
+            rr:datatype xsd:float 
+        ]
+    ] ;
+
+    # Base Model (baseModel)
+    rr:predicateObjectMap [
+        rr:predicate :baseModel ;
+        rr:objectMap [ 
+            rml:reference "baseModel" ; 
+            rr:datatype xsd:string 
+        ]
+    ] ;
+
+    # Transmission Description (trans_dscr)
+    rr:predicateObjectMap [
+        rr:predicate :transmissionDescription ;
+        rr:objectMap [ 
+            rml:reference "trans_dscr" ; 
+            rr:datatype xsd:string 
+        ]
     ] .
 
 #################################################################

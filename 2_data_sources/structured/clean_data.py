@@ -241,6 +241,10 @@ if __name__ == "__main__":
     "cylinders",
     "fuelType",
     "co2",
+    "city08",
+    "cityE",
+    "highway08",
+    "highwayE",
     "trany",
     "displ",
     ]
