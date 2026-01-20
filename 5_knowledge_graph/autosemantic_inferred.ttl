@@ -5,82 +5,82 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b11 a rdfs:Class,
+_:n26f58b49b34e4ffabd665a4c7db692b1b11 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b11,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b11,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b11 ;
-    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b12 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b11 .
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b11 ;
+    owl:oneOf _:n26f58b49b34e4ffabd665a4c7db692b1b12 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b11 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b21 a rdfs:Class,
+_:n26f58b49b34e4ffabd665a4c7db692b1b21 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b21,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b21 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b21 ;
-    owl:unionOf _:na8d51c4aaa574a06afe99c3c185330f9b25 .
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b21 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b21 ;
+    owl:unionOf _:n26f58b49b34e4ffabd665a4c7db692b1b25 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b4 a rdfs:Class,
+_:n26f58b49b34e4ffabd665a4c7db692b1b4 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b4,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b4,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b4 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b4 ;
-    owl:unionOf _:na8d51c4aaa574a06afe99c3c185330f9b7 .
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b4 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b4 ;
+    owl:unionOf _:n26f58b49b34e4ffabd665a4c7db692b1b7 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b50 a rdfs:Class,
+_:n26f58b49b34e4ffabd665a4c7db692b1b50 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b50,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b50 ;
-    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b51 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b50 .
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b50 ;
+    owl:oneOf _:n26f58b49b34e4ffabd665a4c7db692b1b51 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b50 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b59 a rdfs:Class,
+_:n26f58b49b34e4ffabd665a4c7db692b1b59 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b59,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b59,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b59 ;
-    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b60 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b59 .
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b59 ;
+    owl:oneOf _:n26f58b49b34e4ffabd665a4c7db692b1b60 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b59 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b70 a rdfs:Class,
+_:n26f58b49b34e4ffabd665a4c7db692b1b70 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b70,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b70,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b70 ;
-    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b71 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b70 .
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b70 ;
+    owl:oneOf _:n26f58b49b34e4ffabd665a4c7db692b1b71 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b70 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
+_:n26f58b49b34e4ffabd665a4c7db692b1b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b9,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b9,
         rdfs:Resource,
         owl:Thing ;
-    owl:complementOf _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b9 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b9 .
+    owl:complementOf _:n26f58b49b34e4ffabd665a4c7db692b1b10 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b9 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b9 .
 
 :Car a rdfs:Class,
         rdfs:Resource,
@@ -97,15 +97,15 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b19,
-        _:na8d51c4aaa574a06afe99c3c185330f9b20,
-        _:na8d51c4aaa574a06afe99c3c185330f9b21,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b19,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b20,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b21,
         :Car,
         :CityCar,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b19,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b19,
         :CityCar ;
     owl:sameAs :CityCar .
 
@@ -113,13 +113,13 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b82,
-        _:na8d51c4aaa574a06afe99c3c185330f9b83,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b82,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b83,
         :CriticalReview,
         :CustomerReview,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b82,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b82,
         :CriticalReview ;
     owl:sameAs :CriticalReview .
 
@@ -138,14 +138,14 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b31,
-        _:na8d51c4aaa574a06afe99c3c185330f9b32,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b31,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b32,
         :Car,
         :GasGuzzler,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b31,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b31,
         :GasGuzzler ;
     owl:sameAs :GasGuzzler .
 
@@ -153,15 +153,15 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b3,
-        _:na8d51c4aaa574a06afe99c3c185330f9b4,
-        _:na8d51c4aaa574a06afe99c3c185330f9b9,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b3,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b4,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b9,
         :Car,
         :HighPerformanceCar,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b3,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b3,
         :HighPerformanceCar ;
     owl:sameAs :HighPerformanceCar .
 
@@ -173,20 +173,20 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Thing ;
     owl:equivalentClass :LuxuryManufacturer ;
-    owl:oneOf _:na8d51c4aaa574a06afe99c3c185330f9b35 ;
+    owl:oneOf _:n26f58b49b34e4ffabd665a4c7db692b1b35 ;
     owl:sameAs :LuxuryManufacturer .
 
 :LuxuryVehicle a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b44,
-        _:na8d51c4aaa574a06afe99c3c185330f9b45,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b44,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b45,
         :LuxuryVehicle,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b44,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b44,
         :LuxuryVehicle ;
     owl:sameAs :LuxuryVehicle .
 
@@ -204,14 +204,14 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b48,
-        _:na8d51c4aaa574a06afe99c3c185330f9b49,
-        _:na8d51c4aaa574a06afe99c3c185330f9b58,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b48,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b49,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b58,
         :OffRoadVehicle,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b48,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b48,
         :OffRoadVehicle ;
     owl:sameAs :OffRoadVehicle .
 
@@ -219,13 +219,13 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b78,
-        _:na8d51c4aaa574a06afe99c3c185330f9b79,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b78,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b79,
         :CustomerReview,
         :PositiveReview,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b78,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b78,
         :PositiveReview ;
     owl:sameAs :PositiveReview .
 
@@ -233,15 +233,15 @@ _:na8d51c4aaa574a06afe99c3c185330f9b9 a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b67,
-        _:na8d51c4aaa574a06afe99c3c185330f9b68,
-        _:na8d51c4aaa574a06afe99c3c185330f9b69,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b67,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b68,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b69,
         :Car,
         :RoadTripReady,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b67,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b67,
         :RoadTripReady ;
     owl:sameAs :RoadTripReady .
 
@@ -259,30 +259,30 @@ owl:Nothing a rdfs:Class,
         rdfs:Resource,
         owl:Class,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b11,
-        _:na8d51c4aaa574a06afe99c3c185330f9b19,
-        _:na8d51c4aaa574a06afe99c3c185330f9b20,
-        _:na8d51c4aaa574a06afe99c3c185330f9b21,
-        _:na8d51c4aaa574a06afe99c3c185330f9b3,
-        _:na8d51c4aaa574a06afe99c3c185330f9b31,
-        _:na8d51c4aaa574a06afe99c3c185330f9b32,
-        _:na8d51c4aaa574a06afe99c3c185330f9b4,
-        _:na8d51c4aaa574a06afe99c3c185330f9b44,
-        _:na8d51c4aaa574a06afe99c3c185330f9b45,
-        _:na8d51c4aaa574a06afe99c3c185330f9b48,
-        _:na8d51c4aaa574a06afe99c3c185330f9b49,
-        _:na8d51c4aaa574a06afe99c3c185330f9b50,
-        _:na8d51c4aaa574a06afe99c3c185330f9b58,
-        _:na8d51c4aaa574a06afe99c3c185330f9b59,
-        _:na8d51c4aaa574a06afe99c3c185330f9b67,
-        _:na8d51c4aaa574a06afe99c3c185330f9b68,
-        _:na8d51c4aaa574a06afe99c3c185330f9b69,
-        _:na8d51c4aaa574a06afe99c3c185330f9b70,
-        _:na8d51c4aaa574a06afe99c3c185330f9b78,
-        _:na8d51c4aaa574a06afe99c3c185330f9b79,
-        _:na8d51c4aaa574a06afe99c3c185330f9b82,
-        _:na8d51c4aaa574a06afe99c3c185330f9b83,
-        _:na8d51c4aaa574a06afe99c3c185330f9b9,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b11,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b19,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b20,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b21,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b3,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b31,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b32,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b4,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b44,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b45,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b48,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b49,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b50,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b58,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b59,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b67,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b68,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b69,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b70,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b78,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b79,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b82,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b83,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b9,
         :Car,
         :CityCar,
         :CriticalReview,
@@ -1705,7 +1705,7 @@ owl:versionInfo a rdfs:Resource,
         owl:Thing ;
     owl:sameAs owl:versionInfo .
 
-:AllWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+:AllWheelDrive a _:n26f58b49b34e4ffabd665a4c7db692b1b59,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1757,7 +1757,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :FuelTypeScheme ;
     skos:prefLabel "CNG"@en .
 
-:CargoVan a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+:CargoVan a _:n26f58b49b34e4ffabd665a4c7db692b1b11,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1783,7 +1783,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Ferrari"@en .
 
-:FourWheelOrAllWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+:FourWheelOrAllWheelDrive a _:n26f58b49b34e4ffabd665a4c7db692b1b59,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1800,7 +1800,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Lamborghini"@en .
 
-:LargeCar a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+:LargeCar a _:n26f58b49b34e4ffabd665a4c7db692b1b70,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1826,7 +1826,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "McLaren Automotive"@en .
 
-:MidsizeCar a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+:MidsizeCar a _:n26f58b49b34e4ffabd665a4c7db692b1b70,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1835,7 +1835,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :VehicleClassScheme ;
     skos:prefLabel "Midsize Car"@en .
 
-:MidsizeLargeStationWagon a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+:MidsizeLargeStationWagon a _:n26f58b49b34e4ffabd665a4c7db692b1b70,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1844,7 +1844,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :VehicleClassScheme ;
     skos:prefLabel "Midsize-Large Station Wagon"@en .
 
-:MidsizeStationWagon a _:na8d51c4aaa574a06afe99c3c185330f9b70,
+:MidsizeStationWagon a _:n26f58b49b34e4ffabd665a4c7db692b1b70,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1861,7 +1861,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :VehicleClassScheme ;
     skos:prefLabel "Minicompact Car"@en .
 
-:Minivan a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+:Minivan a _:n26f58b49b34e4ffabd665a4c7db692b1b11,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1870,7 +1870,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :VehicleClassScheme ;
     skos:prefLabel "Minivan"@en .
 
-:PartTimeFourWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+:PartTimeFourWheelDrive a _:n26f58b49b34e4ffabd665a4c7db692b1b59,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1879,7 +1879,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :DriveTypeScheme ;
     skos:prefLabel "Part-time 4-Wheel Drive"@en .
 
-:PassengerVan a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+:PassengerVan a _:n26f58b49b34e4ffabd665a4c7db692b1b11,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1914,7 +1914,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "Rolls-Royce"@en .
 
-:SmallPickupTruck a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+:SmallPickupTruck a _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1923,7 +1923,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :VehicleClassScheme ;
     skos:prefLabel "Small Pickup Truck"@en .
 
-:SmallSUV a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+:SmallSUV a _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1932,7 +1932,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :VehicleClassScheme ;
     skos:prefLabel "Small Sport Utility Vehicle"@en .
 
-:StandardPickupTruck a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+:StandardPickupTruck a _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1941,7 +1941,7 @@ owl:versionInfo a rdfs:Resource,
     skos:inScheme :VehicleClassScheme ;
     skos:prefLabel "Standard Pickup Truck"@en .
 
-:StandardSUV a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+:StandardSUV a _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -1981,17 +1981,17 @@ owl:Ontology a rdfs:Resource,
         owl:Thing ;
     owl:sameAs 2.0 .
 
-"4.0"^^xsd:float a rdfs:Literal,
-        rdfs:Resource,
-        xsd:float,
-        owl:Thing ;
-    owl:sameAs "4.0"^^xsd:float .
-
 4.0 a rdfs:Literal,
         rdfs:Resource,
         xsd:decimal,
         owl:Thing ;
     owl:sameAs 4.0 .
+
+"4.0"^^xsd:float a rdfs:Literal,
+        rdfs:Resource,
+        xsd:float,
+        owl:Thing ;
+    owl:sameAs "4.0"^^xsd:float .
 
 6 a rdfs:Literal,
         rdfs:Resource,
@@ -2986,7 +2986,7 @@ owl:Ontology a rdfs:Resource,
     skos:prefLabel "Clean Energy"@en,
         "Energie Propre"@fr .
 
-:FourWheelDrive a _:na8d51c4aaa574a06afe99c3c185330f9b59,
+:FourWheelDrive a _:n26f58b49b34e4ffabd665a4c7db692b1b59,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -3023,7 +3023,7 @@ owl:Ontology a rdfs:Resource,
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "TataMotors"@en .
 
-:TruckClass a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+:TruckClass a _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -3077,7 +3077,7 @@ owl:Ontology a rdfs:Resource,
     rdfs:label "est un produit du groupe"@fr ;
     rdfs:subPropertyOf :isProductOfGroup ;
     owl:equivalentProperty :isProductOfGroup ;
-    owl:propertyChainAxiom _:na8d51c4aaa574a06afe99c3c185330f9b1 ;
+    owl:propertyChainAxiom _:n26f58b49b34e4ffabd665a4c7db692b1b1 ;
     owl:sameAs :isProductOfGroup .
 
 :manufactures a rdfs:Resource,
@@ -3290,7 +3290,7 @@ skos:prefLabel a rdf:Property ;
     skos:inScheme :ManufacturerScheme ;
     skos:prefLabel "FordMotorCo"@en .
 
-:PickupTruck a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+:PickupTruck a _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -3307,7 +3307,7 @@ skos:prefLabel a rdf:Property ;
     skos:inScheme :FuelTypeScheme ;
     skos:prefLabel "Premium Gasoline"@en .
 
-:SUVClass a _:na8d51c4aaa574a06afe99c3c185330f9b50,
+:SUVClass a _:n26f58b49b34e4ffabd665a4c7db692b1b50,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -3429,7 +3429,7 @@ skos:broader a rdf:Property,
     skos:prefLabel "Fossil Fuel"@en,
         "Carburant Fossile"@fr .
 
-:VanClass a _:na8d51c4aaa574a06afe99c3c185330f9b11,
+:VanClass a _:n26f58b49b34e4ffabd665a4c7db692b1b11,
         rdfs:Resource,
         owl:Thing,
         skos:Concept ;
@@ -3644,581 +3644,581 @@ rdfs:Resource a rdfs:Resource,
         owl:Thing ;
     owl:sameAs rdfs:Resource .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b1 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b1 a rdfs:Resource,
         owl:Thing ;
     rdf:first :hasManufacturer ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b2 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b1 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b2 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b1 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b12 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b12 a rdfs:Resource,
         owl:Thing ;
     rdf:first :VanClass ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b13 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b12 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b13 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b12 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b13 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b13 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Minivan ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b14 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b13 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b14 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b13 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b14 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b14 a rdfs:Resource,
         owl:Thing ;
     rdf:first :PassengerVan ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b15 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b14 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b15 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b14 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b15 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b15 a rdfs:Resource,
         owl:Thing ;
     rdf:first :CargoVan ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b15 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b15 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b16 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b16 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Car ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b17 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b16 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b17 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b16 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b17 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b17 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b4 ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b18 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b17 .
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b4 ;
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b18 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b17 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b18 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b18 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b9 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b9 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b18 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b18 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b2 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b2 a rdfs:Resource,
         owl:Thing ;
     rdf:first skos:broader ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b2 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b2 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b25 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b25 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b22 ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b26 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b25 .
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b22 ;
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b26 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b25 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b26 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b26 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b23 ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b27 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b26 .
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b23 ;
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b27 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b26 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b27 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b27 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b24 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b24 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b27 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b27 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b28 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b28 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Car ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b29 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b28 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b29 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b28 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b29 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b29 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b20 ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b30 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b29 .
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b20 ;
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b30 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b29 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b30 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b30 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b21 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b21 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b30 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b30 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b33 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b33 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Car ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b34 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b33 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b34 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b33 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b34 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b34 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b32 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b32 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b34 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b34 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b35 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b35 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Ferrari ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b36 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b35 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b36 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b35 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b36 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b36 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Bentley ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b37 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b36 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b37 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b36 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b37 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b37 a rdfs:Resource,
         owl:Thing ;
     rdf:first :RollsRoyce ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b38 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b37 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b38 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b37 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b38 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b38 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Lamborghini ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b39 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b38 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b39 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b38 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b39 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b39 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Maserati ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b40 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b39 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b40 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b39 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b40 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b40 a rdfs:Resource,
         owl:Thing ;
     rdf:first :AstonMartin ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b41 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b40 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b41 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b40 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b41 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b41 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Bugatti ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b42 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b41 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b42 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b41 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b42 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b42 a rdfs:Resource,
         owl:Thing ;
     rdf:first :McLarenAutomotive ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b43 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b42 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b43 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b42 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b43 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b43 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Porsche ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b43 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b43 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b46 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b46 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Vehicle ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b47 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b46 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b47 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b46 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b47 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b47 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b45 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b47 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b47 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b5 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b5 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b4,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b4,
         rdfs:Resource,
         owl:Thing ;
     owl:minInclusive "4.0"^^xsd:float ;
     owl:onProperty :engineDisplacement ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b5 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b5 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b51 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b51 a rdfs:Resource,
         owl:Thing ;
     rdf:first :TruckClass ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b52 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b51 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b52 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b51 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b52 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b52 a rdfs:Resource,
         owl:Thing ;
     rdf:first :PickupTruck ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b53 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b52 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b53 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b52 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b53 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b53 a rdfs:Resource,
         owl:Thing ;
     rdf:first :SmallPickupTruck ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b54 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b53 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b54 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b53 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b54 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b54 a rdfs:Resource,
         owl:Thing ;
     rdf:first :StandardPickupTruck ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b55 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b54 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b55 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b54 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b55 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b55 a rdfs:Resource,
         owl:Thing ;
     rdf:first :SUVClass ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b56 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b55 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b56 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b55 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b56 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b56 a rdfs:Resource,
         owl:Thing ;
     rdf:first :SmallSUV ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b57 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b56 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b57 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b56 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b57 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b57 a rdfs:Resource,
         owl:Thing ;
     rdf:first :StandardSUV ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b57 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b57 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b6 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b6 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b4,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b4,
         rdfs:Resource,
         owl:Thing ;
     owl:minInclusive 6 ;
     owl:onProperty :numberOfCylinders ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b6 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b6 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b60 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b60 a rdfs:Resource,
         owl:Thing ;
     rdf:first :FourWheelDrive ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b61 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b60 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b61 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b60 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b61 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b61 a rdfs:Resource,
         owl:Thing ;
     rdf:first :PartTimeFourWheelDrive ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b62 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b61 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b62 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b61 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b62 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b62 a rdfs:Resource,
         owl:Thing ;
     rdf:first :AllWheelDrive ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b63 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b62 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b63 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b62 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b63 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b63 a rdfs:Resource,
         owl:Thing ;
     rdf:first :FourWheelOrAllWheelDrive ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b63 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b63 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b64 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b64 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Vehicle ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b65 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b64 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b65 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b64 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b65 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b65 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b66 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b65 .
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b49 ;
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b66 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b65 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b66 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b66 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b58 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b66 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b66 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b7 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b7 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b5 ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b8 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b7 .
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b5 ;
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b8 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b7 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b71 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b71 a rdfs:Resource,
         owl:Thing ;
     rdf:first :MidsizeCar ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b72 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b71 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b72 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b71 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b72 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b72 a rdfs:Resource,
         owl:Thing ;
     rdf:first :LargeCar ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b73 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b72 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b73 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b72 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b73 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b73 a rdfs:Resource,
         owl:Thing ;
     rdf:first :MidsizeStationWagon ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b74 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b73 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b74 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b73 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b74 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b74 a rdfs:Resource,
         owl:Thing ;
     rdf:first :MidsizeLargeStationWagon ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b74 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b74 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b75 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b75 a rdfs:Resource,
         owl:Thing ;
     rdf:first :Car ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b76 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b75 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b76 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b75 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b76 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b76 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b68 ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b77 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b76 .
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b68 ;
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b77 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b76 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b77 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b77 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b69 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b77 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b77 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b8 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b8 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b6 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b6 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b8 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b8 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b80 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b80 a rdfs:Resource,
         owl:Thing ;
     rdf:first :CustomerReview ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b81 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b80 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b81 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b80 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b81 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b81 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b79 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b79 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b81 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b81 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b84 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b84 a rdfs:Resource,
         owl:Thing ;
     rdf:first :CustomerReview ;
-    rdf:rest _:na8d51c4aaa574a06afe99c3c185330f9b85 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b84 .
+    rdf:rest _:n26f58b49b34e4ffabd665a4c7db692b1b85 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b84 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b85 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b85 a rdfs:Resource,
         owl:Thing ;
-    rdf:first _:na8d51c4aaa574a06afe99c3c185330f9b83 ;
+    rdf:first _:n26f58b49b34e4ffabd665a4c7db692b1b83 ;
     rdf:rest () ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b85 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b85 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b10 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b10 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b10 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b10 ;
     owl:onProperty :hasVehicleClass ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b10 ;
-    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b11 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b10 ;
+    owl:someValuesFrom _:n26f58b49b34e4ffabd665a4c7db692b1b11 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b22 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b22 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
-        _:na8d51c4aaa574a06afe99c3c185330f9b22,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b21,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b22,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b22 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b22 ;
     owl:hasValue :CompactCar ;
     owl:onProperty :hasVehicleClass ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b22 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b22 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b23 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b23 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
-        _:na8d51c4aaa574a06afe99c3c185330f9b23,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b21,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b23,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b23 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b23 ;
     owl:hasValue :SubcompactCar ;
     owl:onProperty :hasVehicleClass ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b23 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b23 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b24 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b24 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b21,
-        _:na8d51c4aaa574a06afe99c3c185330f9b24,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b21,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b24,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b24 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b24 ;
     owl:hasValue :MinicompactCar ;
     owl:onProperty :hasVehicleClass ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b24 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b24 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b20 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b20 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
     owl:minInclusive "25.0"^^xsd:float ;
     owl:onProperty :mpgCity ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b20 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b20 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b32 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b32 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
     owl:maxExclusive "15.0"^^xsd:float ;
     owl:onProperty :mpgCity ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b32 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b32 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b68 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b68 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
     owl:minExclusive "30.0"^^xsd:float ;
     owl:onProperty :mpgHighway ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b68 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b68 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b79 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b79 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
     owl:minInclusive 4.0 ;
     owl:onProperty :reviewRating ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b79 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b79 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b83 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b83 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
     owl:maxInclusive 2.0 ;
     owl:onProperty :reviewRating ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b83 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b83 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b19 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b19 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b19,
-        _:na8d51c4aaa574a06afe99c3c185330f9b20,
-        _:na8d51c4aaa574a06afe99c3c185330f9b21,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b19,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b20,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b21,
         :Car,
         :CityCar,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b19,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b19,
         :CityCar ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b28 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b19 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b28 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b19 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b3 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b3 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b3,
-        _:na8d51c4aaa574a06afe99c3c185330f9b4,
-        _:na8d51c4aaa574a06afe99c3c185330f9b9,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b3,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b4,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b9,
         :Car,
         :HighPerformanceCar,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b3,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b3,
         :HighPerformanceCar ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b16 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b3 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b16 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b3 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b31 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b31 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b31,
-        _:na8d51c4aaa574a06afe99c3c185330f9b32,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b31,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b32,
         :Car,
         :GasGuzzler,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b31,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b31,
         :GasGuzzler ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b33 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b31 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b33 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b31 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b44 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b44 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b44,
-        _:na8d51c4aaa574a06afe99c3c185330f9b45,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b44,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b45,
         :LuxuryVehicle,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b44,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b44,
         :LuxuryVehicle ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b46 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b44 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b46 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b44 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b48 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b48 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b48,
-        _:na8d51c4aaa574a06afe99c3c185330f9b49,
-        _:na8d51c4aaa574a06afe99c3c185330f9b58,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b48,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b49,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b58,
         :OffRoadVehicle,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b48,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b48,
         :OffRoadVehicle ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b64 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b48 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b64 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b48 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b67 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b67 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b67,
-        _:na8d51c4aaa574a06afe99c3c185330f9b68,
-        _:na8d51c4aaa574a06afe99c3c185330f9b69,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b67,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b68,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b69,
         :Car,
         :RoadTripReady,
         :Vehicle,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b67,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b67,
         :RoadTripReady ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b75 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b67 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b75 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b67 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b78 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b78 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b78,
-        _:na8d51c4aaa574a06afe99c3c185330f9b79,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b78,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b79,
         :CustomerReview,
         :PositiveReview,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b78,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b78,
         :PositiveReview ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b80 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b78 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b80 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b78 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b82 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b82 a rdfs:Resource,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b82,
-        _:na8d51c4aaa574a06afe99c3c185330f9b83,
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b82,
+        _:n26f58b49b34e4ffabd665a4c7db692b1b83,
         :CriticalReview,
         :CustomerReview,
         rdfs:Resource,
         owl:Thing ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b82,
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b82,
         :CriticalReview ;
-    owl:intersectionOf _:na8d51c4aaa574a06afe99c3c185330f9b84 ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b82 .
+    owl:intersectionOf _:n26f58b49b34e4ffabd665a4c7db692b1b84 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b82 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b45 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b45 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b45 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b45 ;
     owl:onProperty :hasManufacturer ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b45 ;
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b45 ;
     owl:someValuesFrom :LuxuryManufacturer .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b49 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b49 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b49 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b49 ;
     owl:onProperty :hasVehicleClass ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b49 ;
-    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b50 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b49 ;
+    owl:someValuesFrom _:n26f58b49b34e4ffabd665a4c7db692b1b50 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b58 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b58 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b58 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b58 ;
     owl:onProperty :hasDriveType ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b58 ;
-    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b59 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b58 ;
+    owl:someValuesFrom _:n26f58b49b34e4ffabd665a4c7db692b1b59 .
 
-_:na8d51c4aaa574a06afe99c3c185330f9b69 a rdfs:Resource,
+_:n26f58b49b34e4ffabd665a4c7db692b1b69 a rdfs:Resource,
         owl:Restriction,
         owl:Thing ;
-    rdfs:subClassOf _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
-    owl:equivalentClass _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
+    rdfs:subClassOf _:n26f58b49b34e4ffabd665a4c7db692b1b69 ;
+    owl:equivalentClass _:n26f58b49b34e4ffabd665a4c7db692b1b69 ;
     owl:onProperty :hasVehicleClass ;
-    owl:sameAs _:na8d51c4aaa574a06afe99c3c185330f9b69 ;
-    owl:someValuesFrom _:na8d51c4aaa574a06afe99c3c185330f9b70 .
+    owl:sameAs _:n26f58b49b34e4ffabd665a4c7db692b1b69 ;
+    owl:someValuesFrom _:n26f58b49b34e4ffabd665a4c7db692b1b70 .
 
