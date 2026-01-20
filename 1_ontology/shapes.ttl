@@ -95,12 +95,7 @@
         sh:minInclusive 0.0 ;
         sh:message "La consommation électrique autoroute (kWh/100km) doit être positive."@fr ;
     ] ;
-    sh:property [
-        sh:path :hydrogenConsumptionCity ;
-        sh:datatype xsd:float ;
-        sh:minInclusive 0.0 ;
-        sh:message "La consommation hydrogène (kg/100km) doit être positive."@fr ;
-    ] ;
+
 
     sh:property [
         sh:path :hasManufacturer ;

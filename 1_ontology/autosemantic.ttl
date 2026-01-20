@@ -70,28 +70,22 @@
 :fuelConsumptionCity rdf:type owl:DatatypeProperty ;
     rdfs:domain :Vehicle ;
     rdfs:range xsd:float ;
-    rdfs:comment "Consommation ville normalisée en L/100km"@fr .
+    rdfs:comment "Consommation ville en galons/100mi"@fr .
 
 :fuelConsumptionHighway rdf:type owl:DatatypeProperty ;
     rdfs:domain :Vehicle ;
     rdfs:range xsd:float ;
-    rdfs:comment "Consommation autoroute normalisée en L/100km"@fr .
+    rdfs:comment "Consommation autoroute en galons/100mi"@fr .
 
 :electricConsumptionCity rdf:type owl:DatatypeProperty ;
     rdfs:domain :Vehicle ;
     rdfs:range xsd:float ;
-    rdfs:comment "Consommation électrique ville en kWh/100km"@fr .
+    rdfs:comment "Consommation électrique ville en kWh/100mi"@fr .
 
 :electricConsumptionHighway rdf:type owl:DatatypeProperty ;
     rdfs:domain :Vehicle ;
     rdfs:range xsd:float ;
-    rdfs:comment "Consommation électrique autoroute en kWh/100km"@fr .
-
-:hydrogenConsumptionCity rdf:type owl:DatatypeProperty ;
-    rdfs:domain :Vehicle ;
-    rdfs:range xsd:float ;
-    rdfs:comment "Consommation hydrogène ville en kg/100km"@fr .
-
+    rdfs:comment "Consommation électrique autoroute en kWh/100mi"@fr .
 
 :reviewRating rdf:type owl:DatatypeProperty ;
               rdfs:domain :CustomerReview ;
