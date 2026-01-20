@@ -1070,12 +1070,11 @@ def main():
     render_sidebar(graph, load_status, files_to_load)
     
     # Créer les onglets
-    tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+    tab1, tab2, tab3, tab4, tab5 = st.tabs([
         "Exploration",
         "Statistiques",
         "SPARQL",
         "Intelligence IA",
-        "Validation SHACL",
         "Alignements LOD"
     ])
     
@@ -1092,9 +1091,6 @@ def main():
         tab_ai_demo(graph)
     
     with tab5:
-        tab_shacl_validation(graph)
-    
-    with tab6:
         tab_lod_alignments(graph)
     
     # Footer
