@@ -1,0 +1,164 @@
+import os
+import re
+import pickle
+import time
+import rdflib
+from dotenv import load_dotenv
+from google import genai
+from google.genai import types
+
+load_dotenv()
+
+MODEL = "gemma-3-27b-it"
+NS = "http://www.univ-projet.fr/ontologies/autosemantic#"
+CACHE_FILE = "graph_cache.pkl"
+
+if not os.getenv("GEMINI_API_KEY"):
+    print("ERREUR: GEMINI_API_KEY manquant dans .env")
+    exit()
+
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+
+def load_graph():
+    if os.path.exists(CACHE_FILE):
+        print("Chargement depuis le cache...")
+        with open(CACHE_FILE, "rb") as f:
+            return pickle.load(f)
+    
+    print("Premiere lecture des fichiers TTL...")
+    t0 = time.time()
+    g = rdflib.Graph()
+    try:
+        ttl_file = "structuredData/output.ttl" if os.path.exists("structuredData/output.ttl") else "output.ttl"
+        g.parse(ttl_file, format="turtle")
+        g.parse("autosemantic.ttl", format="turtle")
+        g.bind("skos", rdflib.Namespace("http://www.w3.org/2004/02/skos/core#"))
+        print(f"Graphe charge en {time.time()-t0:.1f}s : {len(g)} triplets.")
+        
+        with open(CACHE_FILE, "wb") as f:
+            pickle.dump(g, f)
+            
+    except Exception as e:
+        print(f"Erreur critique : {e}")
+        if os.path.exists(CACHE_FILE): os.remove(CACHE_FILE) 
+        exit()
+    return g
+
+g = load_graph()
+
+system_prompt = f"""
+Tu es un expert SPARQL. 
+SCHEMA :
+PREFIX : <{NS}>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+CLASSES: :Car, :CustomerReview, :Manufacturer
+PROPS: :Car->:hasManufacturer, :modelName, :numberOfCylinders(int), :engineDisplacement(float)
+      :Manufacturer->skos:prefLabel
+      :CustomerReview->:isReviewOf, :reviewRating(decimal), :reviewContent
+      
+REGLES STRICTES:
+1. PAS DE COMMENTAIRES.
+2. QUE DU SPARQL.
+3. FILTRE MARQUE: ?m skos:prefLabel ?lbl . FILTER(contains(lcase(?lbl), "nom"))
+
+EXEMPLE 1:
+Q: "Note moyenne des Ford ?"
+R: SELECT (AVG(?r) as ?avg) WHERE {{ ?c a :Car ; :hasManufacturer ?m . ?m skos:prefLabel ?lbl . FILTER(contains(lcase(?lbl), "ford")) . ?rev :isReviewOf ?c ; :reviewRating ?r . }}
+
+EXEMPLE 2:
+Q: "Voitures avec 8 cylindres ?"
+R: SELECT ?name WHERE {{ ?c a :Car ; :modelName ?name ; :numberOfCylinders ?nb . FILTER(?nb = 8) }}
+"""
+
+def ask_llm(messages):
+    try:
+        sys_prompt = next((m['content'] for m in messages if m['role'] == 'system'), None)
+        
+        conversation_text = ""
+        if sys_prompt:
+             conversation_text += f"SYSTEM INSTRUCTION:\n{sys_prompt}\n\n"
+
+        for m in messages:
+            if m['role'] != 'system':
+                role_label = "CODE PRECEDENT" if m['role'] == 'assistant' else "DEMANDE UTILISATEUR"
+                conversation_text += f"\n--- {role_label} ---\n{m['content']}\n"
+
+        response = client.models.generate_content(
+            model=MODEL,
+            contents=conversation_text.strip(),
+            config=types.GenerateContentConfig(
+                temperature=0
+            )
+        )
+        return response.text
+    except Exception as e:
+        return f"Erreur API: {e}"
+
+def clean_rdflib_result(res):
+    clean_rows = []
+    try:
+        for row in res:
+            values = []
+            for item in row:
+                if isinstance(item, rdflib.URIRef):
+                    values.append(item.split('#')[-1])
+                elif isinstance(item, rdflib.Literal):
+                    values.append(str(item.value))
+                else:
+                    values.append(str(item))
+            clean_rows.append(" -> ".join(values))
+    except:
+        return []
+    return clean_rows
+
+def solve(question):
+    print(f"\n" + "="*40)
+    print(f"QUESTION : {question}")
+    
+    messages = [
+        {'role': 'system', 'content': system_prompt},
+        {'role': 'user', 'content': f"Code SPARQL pour : {question}"}
+    ]
+    
+    raw_answer = ask_llm(messages)
+    sparql = re.sub(r"```sparql|```|xml|`", "", raw_answer).strip()
+
+    if "SELECT" in sparql:
+        sparql = sparql[sparql.index("SELECT"):] 
+    
+    print(f"Requete : {sparql}")
+
+    try:
+        res = g.query(sparql)
+    except Exception as e:
+        print(f"Erreur syntaxe ({e}), tentative de correction...")
+        messages.append({'role': 'assistant', 'content': raw_answer})
+        messages.append({'role': 'user', 'content': f"ERREUR: {str(e)}. Corrige le code SPARQL."})
+        
+        raw_answer = ask_llm(messages)
+        sparql = re.sub(r"```sparql|```|xml|`", "", raw_answer).strip()
+        if "SELECT" in sparql: sparql = sparql[sparql.index("SELECT"):]
+        
+        try:
+            res = g.query(sparql)
+        except Exception as e2:
+            print(f"Echec definitif : {e2}")
+            return
+
+    clean_data = clean_rdflib_result(res)
+    
+    if not clean_data:
+        print("Aucun resultat.")
+        return
+
+    print(f"Resultats ({len(clean_data)}) : {clean_data[:3]}...")
+
+    summary_prompt = f"Data: {clean_data[:10]}. Question: {question}. Reponds en 1 phrase simple."
+    print(f"REPONSE : {ask_llm([{'role': 'user', 'content': summary_prompt}])}")
+
+if __name__ == "__main__":
+    solve("Quelle est la note moyenne des voitures ?")
+    solve("Quelles voitures ont 8 cylindres ?") 
+    solve("Donne moi les avis sur les voitures Ford.")
