@@ -55,11 +55,11 @@ def load_graph():
         try:
             if filepath.exists():
                 g.parse(filepath, format="turtle")
-                load_status[name] = {"status": "✅ Chargé", "success": True}
+                load_status[name] = {"status": "Chargé", "success": True}
             else:
-                load_status[name] = {"status": "❌ Fichier non trouvé", "success": False}
+                load_status[name] = {"status": "Fichier non trouvé", "success": False}
         except Exception as e:
-            load_status[name] = {"status": f"❌ Erreur: {str(e)[:30]}...", "success": False}
+            load_status[name] = {"status": f"Erreur: {str(e)[:30]}...", "success": False}
     
     return g, load_status, files_to_load
 
@@ -130,11 +130,11 @@ def format_vehicle_name(graph, vehicle_uri):
 
 def render_sidebar(graph, load_status, files_to_load):
     """Affiche la sidebar avec le statut de chargement."""
-    st.sidebar.title("📊 AutoSemantica")
+    st.sidebar.title("AutoSemantica")
     st.sidebar.markdown("---")
     
     # Debug info
-    with st.sidebar.expander("🔧 Debug Info"):
+    with st.sidebar.expander("Debug Info"):
         st.code(f"BASE_DIR: {BASE_DIR}")
         st.write("**Fichiers à charger:**")
         for name, filepath in files_to_load.items():
@@ -142,9 +142,9 @@ def render_sidebar(graph, load_status, files_to_load):
             if isinstance(filepath, str):
                 filepath = Path(filepath)
             exists = filepath.exists() if hasattr(filepath, 'exists') else False
-            st.text(f"{'✅' if exists else '❌'} {filepath.name}")
+            st.text(f"{'+' if exists else '-'} {filepath.name}")
     
-    st.sidebar.subheader("📁 Fichiers chargés")
+    st.sidebar.subheader("Fichiers chargés")
     
     for name, status_info in load_status.items():
         st.sidebar.markdown(f"**{name}**")
@@ -158,7 +158,7 @@ def render_sidebar(graph, load_status, files_to_load):
     st.sidebar.metric("Nombre total de triplets", f"{total_triples:,}")
     
     st.sidebar.markdown("---")
-    st.sidebar.info("💡 **Astuce**: Utilisez les onglets ci-dessus pour explorer les différentes fonctionnalités.")
+    st.sidebar.info("**Astuce**: Utilisez les onglets ci-dessus pour explorer les différentes fonctionnalités.")
 
 
 # ============================================================================
@@ -167,7 +167,7 @@ def render_sidebar(graph, load_status, files_to_load):
 
 def tab_exploration(graph):
     """Onglet d'exploration avec recherche facettée."""
-    st.header("🔍 Exploration - Recherche Facettée")
+    st.header("Exploration - Recherche Facettée")
     
     # Récupérer la liste des constructeurs
     manufacturers_query = """
@@ -197,11 +197,11 @@ def tab_exploration(graph):
         
         # Afficher info de debug
         if result_count == 0:
-            st.warning(f"⚠️ Aucun constructeur trouvé dans le graphe. Total triplets: {len(graph)}")
+            st.warning(f"Aucun constructeur trouvé dans le graphe. Total triplets: {len(graph)}")
         
         # Menu déroulant
         selected_manufacturer = st.selectbox(
-            "🏭 Sélectionner un constructeur",
+            "Sélectionner un constructeur",
             options=manufacturers,
             format_func=lambda x: x[0]
         )
@@ -257,12 +257,12 @@ def tab_exploration(graph):
         if data:
             df = pd.DataFrame(data)
             st.dataframe(df, width="stretch", height=400)
-            st.success(f"✅ {len(data)} véhicules trouvés")
+            st.success(f"{len(data)} véhicules trouvés")
         else:
-            st.warning("⚠️ Aucun véhicule trouvé pour ce constructeur.")
+            st.warning("Aucun véhicule trouvé pour ce constructeur.")
     
     except Exception as e:
-        st.error(f"❌ Erreur lors de la requête : {str(e)}")
+        st.error(f"Erreur lors de la requête : {str(e)}")
 
 
 # ============================================================================
@@ -271,7 +271,7 @@ def tab_exploration(graph):
 
 def tab_statistics(graph):
     """Onglet de statistiques avec graphiques."""
-    st.header("📈 Statistiques")
+    st.header("Statistiques")
     
     col1, col2 = st.columns(2)
     
@@ -309,9 +309,9 @@ def tab_statistics(graph):
                             color_continuous_scale="viridis")
                 st.plotly_chart(fig, width='content')
             else:
-                st.info("📊 Aucune donnée disponible")
+                st.info("Aucune donnée disponible")
         except Exception as e:
-            st.error(f"❌ Erreur : {str(e)}")
+            st.error(f"Erreur : {str(e)}")
     
     with col2:
         st.subheader("Répartition par type de carburant")
@@ -345,9 +345,9 @@ def tab_statistics(graph):
                             hole=0.4)
                 st.plotly_chart(fig, width='content')
             else:
-                st.info("📊 Aucune donnée disponible")
+                st.info("Aucune donnée disponible")
         except Exception as e:
-            st.error(f"❌ Erreur : {str(e)}")
+            st.error(f"Erreur : {str(e)}")
 
 
 # ============================================================================
@@ -356,11 +356,11 @@ def tab_statistics(graph):
 
 def tab_sparql(graph):
     """Onglet SPARQL avec requêtes pré-enregistrées et fédérées."""
-    st.header("🔗 SPARQL & Compétences Web Sémantique")
+    st.header("SPARQL & Compétences Web Sémantique")
     
     # Requêtes pré-enregistrées
     predefined_queries = {
-        "🔍 Véhicules haute performance (>= 6 cylindres)": """
+        "Véhicules haute performance (>= 6 cylindres)": """
 PREFIX auto: <http://www.univ-projet.fr/ontologies/autosemantic#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -375,7 +375,7 @@ WHERE {
 LIMIT 20
 """,
         
-        "⭐ Avis positifs (note >= 4.0)": """
+        "Avis positifs (note >= 4.0)": """
 PREFIX auto: <http://www.univ-projet.fr/ontologies/autosemantic#>
 
 SELECT ?review ?rating ?content
@@ -388,7 +388,7 @@ WHERE {
 LIMIT 15
 """,
         
-        "🌐 [FÉDÉRÉE] Logos constructeurs depuis Wikidata": """
+        "[FÉDÉRÉE] Logos constructeurs depuis Wikidata": """
 PREFIX auto: <http://www.univ-projet.fr/ontologies/autosemantic#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
 PREFIX wdt: <http://www.wikidata.org/prop/direct/>
@@ -409,7 +409,7 @@ WHERE {
 LIMIT 10
 """,
         
-        "⛽ Consommation moyenne par type de carburant": """
+        "Consommation moyenne par type de carburant": """
 PREFIX auto: <http://www.univ-projet.fr/ontologies/autosemantic#>
 
 SELECT ?fuelType (AVG(?mpgCity) as ?avgCity) (AVG(?mpgHighway) as ?avgHighway) (COUNT(?vehicle) as ?count)
@@ -426,20 +426,20 @@ ORDER BY DESC(?count)
     
     # Sélecteur de requête
     selected_query_name = st.selectbox(
-        "📋 Sélectionner une requête pré-enregistrée",
+        "Sélectionner une requête pré-enregistrée",
         options=list(predefined_queries.keys())
     )
     
     # Zone de texte avec la requête (modifiable)
     query_text = st.text_area(
-        "✏️ Requête SPARQL (modifiable)",
+        "Requête SPARQL (modifiable)",
         value=predefined_queries[selected_query_name],
         height=250
     )
     
     # Bouton pour exécuter
-    if st.button("▶️ Exécuter la requête", type="primary"):
-        with st.spinner("🔄 Exécution de la requête..."):
+    if st.button("Exécuter la requête", type="primary"):
+        with st.spinner("Exécution de la requête..."):
             try:
                 results = graph.query(query_text)
                 
@@ -464,22 +464,22 @@ ORDER BY DESC(?count)
                 
                 if data:
                     df = pd.DataFrame(data)
-                    st.success(f"✅ {len(data)} résultats trouvés")
+                    st.success(f"{len(data)} résultats trouvés")
                     st.dataframe(df, width="stretch")
                     
                     # Option de téléchargement
                     csv = df.to_csv(index=False)
                     st.download_button(
-                        label="📥 Télécharger les résultats (CSV)",
+                        label="Télécharger les résultats (CSV)",
                         data=csv,
                         file_name="resultats_sparql.csv",
                         mime="text/csv"
                     )
                 else:
-                    st.warning("⚠️ Aucun résultat trouvé.")
+                    st.warning("Aucun résultat trouvé.")
             
             except Exception as e:
-                st.error(f"❌ Erreur lors de l'exécution de la requête :\n\n{str(e)}")
+                st.error(f"Erreur lors de l'exécution de la requête :\n\n{str(e)}")
 
 
 # ============================================================================
@@ -488,18 +488,18 @@ ORDER BY DESC(?count)
 
 def tab_ai_demo(graph):
     """Onglet IA avec Link Prediction et GraphRAG (simulation)."""
-    st.header("🤖 Intelligence Artificielle - Démonstration")
+    st.header("Intelligence Artificielle - Démonstration")
     
     # === Section 1: Link Prediction ===
-    st.subheader("🔗 Link Prediction - Système de Recommandation")
-    st.info("💡 Recommandations de véhicules similaires basées sur collaborative filtering (brand, year, fuel efficiency, displacement, rating).")
+    st.subheader("Link Prediction - Système de Recommandation")
+    st.info("Recommandations de véhicules similaires basées sur collaborative filtering (brand, year, fuel efficiency, displacement, rating).")
     
     try:
         # Charger le graphe de connaissances unifié
         kg_path = BASE_DIR / "5_knowledge_graph" / "knowledge_graph.ttl"
         
         if not kg_path.exists():
-            st.warning("⚠️ Fichier `knowledge_graph.ttl` non trouvé. Veuillez d'abord fusionner les graphes avec le script `merge_graphs.py`.")
+            st.warning("Fichier `knowledge_graph.ttl` non trouvé. Veuillez d'abord fusionner les graphes avec le script `merge_graphs.py`.")
         else:
             # Import dynamique pour éviter les dépendances au démarrage
             import sys
@@ -511,10 +511,10 @@ def tab_ai_demo(graph):
             def load_recommender():
                 return VehicleRecommender(str(kg_path))
             
-            with st.spinner("🔄 Chargement du système de recommandation..."):
+            with st.spinner("Chargement du système de recommandation..."):
                 recommender = load_recommender()
             
-            st.success(f"✅ Système chargé : {len(recommender.vehicle_features)} véhicules dans le graphe")
+            st.success(f"Système chargé : {len(recommender.vehicle_features)} véhicules dans le graphe")
             
             # Sélection d'un véhicule de référence
             st.markdown("### Sélectionnez un véhicule pour obtenir des recommandations")
@@ -533,7 +533,7 @@ def tab_ai_demo(graph):
                 
                 if vehicles_list:
                     selected_vehicle = st.selectbox(
-                        "🚗 Véhicule de référence",
+                        "Véhicule de référence",
                         options=vehicles_list,
                         format_func=lambda x: x[0]
                     )
@@ -545,7 +545,7 @@ def tab_ai_demo(graph):
                         top_n = st.slider("Nombre de recommandations", min_value=3, max_value=10, value=5)
                     
                     # Afficher les infos du véhicule sélectionné
-                    with st.expander("📊 Caractéristiques du véhicule sélectionné"):
+                    with st.expander("Caractéristiques du véhicule sélectionné"):
                         info_cols = st.columns(3)
                         with info_cols[0]:
                             st.metric("Marque", vehicle_features.get('brand') or "N/A")
@@ -562,12 +562,12 @@ def tab_ai_demo(graph):
                             st.metric("Note moyenne", f"{rating:.2f}/5" if rating else "N/A")
                     
                     # Bouton pour générer les recommandations
-                    if st.button("🎯 Générer des recommandations", type="primary"):
-                        with st.spinner("🔄 Calcul des similarités..."):
+                    if st.button("Générer des recommandations", type="primary"):
+                        with st.spinner("Calcul des similarités..."):
                             recommendations = recommender.recommend_similar(vehicle_uri, top_n=top_n)
                         
                         if recommendations:
-                            st.success(f"✅ Top {len(recommendations)} véhicules recommandés :")
+                            st.success(f"Top {len(recommendations)} véhicules recommandés :")
                             
                             # Créer un DataFrame pour l'affichage
                             rec_data = []
@@ -588,24 +588,24 @@ def tab_ai_demo(graph):
                             st.dataframe(df_recommendations, width="stretch", height=300)
                             
                             # Explication du score
-                            st.info("ℹ️ **Score de similarité** : calculé sur la base de la marque, l'année, la consommation, la cylindrée et les notes moyennes.")
+                            st.info("**Score de similarité** : calculé sur la base de la marque, l'année, la consommation, la cylindrée et les notes moyennes.")
                         else:
-                            st.warning("⚠️ Aucune recommandation trouvée pour ce véhicule.")
+                            st.warning("Aucune recommandation trouvée pour ce véhicule.")
                 else:
-                    st.error("❌ Aucun véhicule disponible dans le graphe.")
+                    st.error("Aucun véhicule disponible dans le graphe.")
     
     except ImportError as e:
-        st.error(f"❌ Erreur d'import : {str(e)}\nAssurez-vous que le module `recommend.py` est accessible.")
+        st.error(f"Erreur d'import : {str(e)}\nAssurez-vous que le module `recommend.py` est accessible.")
     except Exception as e:
-        st.error(f"❌ Erreur lors du chargement du système de recommandation : {str(e)}")
+        st.error(f"Erreur lors du chargement du système de recommandation : {str(e)}")
     
     st.markdown("---")
     
     # === Section 2: GraphRAG ===
-    st.subheader("💬 GraphRAG - Question-Réponse sur le Graphe")
+    st.subheader("GraphRAG - Question-Réponse sur le Graphe")
     
     # Approche 1 : Traduction en SPARQL
-    with st.expander("📝 Approche 1 : Traduction Question → SPARQL"):
+    with st.expander("Approche 1 : Traduction Question → SPARQL"):
         st.write("**Principe** : Convertir une question en langage naturel en requête SPARQL.")
         
         user_question = st.text_input(
@@ -613,7 +613,7 @@ def tab_ai_demo(graph):
             value="Quels sont les véhicules diesel avec plus de 6 cylindres ?"
         )
         
-        if st.button("🔍 Traduire en SPARQL", key="translate"):
+        if st.button("Traduire en SPARQL", key="translate"):
             # Simulation de la traduction
             generated_sparql = f"""
 PREFIX auto: <http://www.univ-projet.fr/ontologies/autosemantic#>
@@ -629,7 +629,7 @@ WHERE {{
 LIMIT 10
 """
             
-            st.success("✅ Requête SPARQL générée :")
+            st.success("Requête SPARQL générée :")
             st.code(generated_sparql, language="sparql")
             
             # Exécuter la requête
@@ -651,7 +651,7 @@ LIMIT 10
                 st.error(f"Erreur : {str(e)}")
     
     # Approche 2 : Embeddings
-    with st.expander("🧠 Approche 2 : Réponse basée sur Embeddings"):
+    with st.expander("Approche 2 : Réponse basée sur Embeddings"):
         st.write("**Principe** : Utiliser des embeddings pour générer une réponse en langage naturel.")
         
         user_question_2 = st.text_input(
@@ -660,7 +660,7 @@ LIMIT 10
             key="q2"
         )
         
-        if st.button("💡 Générer une réponse", key="embed"):
+        if st.button("Générer une réponse", key="embed"):
             # Réponse simulée
             simulated_response = f"""
 **Réponse générée par IA** :
@@ -675,7 +675,7 @@ D'après les données de notre graphe de connaissances AutoSemantica, voici la d
   Dans nos données, ils sont identifiés par des valeurs comme `RegularGasAndElectricity` ou 
   `PremiumGasOrElectricity` pour la propriété `hasFuelType`.
 
-📊 Statistiques du graphe : 
+Statistiques du graphe : 
 - Véhicules électriques purs : ~15 entités
 - Véhicules hybrides : ~42 entités
 - Véhicules à essence classique : ~1200+ entités
@@ -689,18 +689,18 @@ D'après les données de notre graphe de connaissances AutoSemantica, voici la d
 
 def tab_shacl_validation(graph):
     """Onglet de validation SHACL."""
-    st.header("✅ Validation SHACL")
+    st.header("Validation SHACL")
     
-    st.info("💡 Cet onglet permet de valider le graphe de données contre les contraintes SHACL définies dans `shapes.ttl`.")
+    st.info("Cet onglet permet de valider le graphe de données contre les contraintes SHACL définies dans `shapes.ttl`.")
     
-    if st.button("🔍 Lancer la validation SHACL", type="primary"):
-        with st.spinner("🔄 Validation en cours..."):
+    if st.button("Lancer la validation SHACL", type="primary"):
+        with st.spinner("Validation en cours..."):
             try:
                 # Charger le graphe de contraintes
                 shapes_file = BASE_DIR / "1_ontology" / "shapes.ttl"
                 
                 if not shapes_file.exists():
-                    st.error("❌ Fichier `shapes.ttl` non trouvé.")
+                    st.error("Fichier `shapes.ttl` non trouvé.")
                     return
                 
                 shapes_graph = Graph()
@@ -715,19 +715,19 @@ def tab_shacl_validation(graph):
                 )
                 
                 if conforms:
-                    st.success("✅ **Le graphe est CONFORME** aux contraintes SHACL ! 🎉")
+                    st.success("**Le graphe est CONFORME** aux contraintes SHACL !")
                 else:
-                    st.error("❌ **Le graphe n'est PAS conforme** aux contraintes SHACL.")
+                    st.error("**Le graphe n'est PAS conforme** aux contraintes SHACL.")
                     
-                    st.subheader("📋 Rapport de validation")
+                    st.subheader("Rapport de validation")
                     st.text(results_text)
                     
                     # Option pour afficher le graphe RDF des résultats
-                    with st.expander("🔍 Voir les détails du rapport (RDF)"):
+                    with st.expander("Voir les détails du rapport (RDF)"):
                         st.code(results_graph.serialize(format="turtle"), language="turtle")
             
             except Exception as e:
-                st.error(f"❌ Erreur lors de la validation :\n\n{str(e)}")
+                st.error(f"Erreur lors de la validation :\n\n{str(e)}")
 
 
 # ============================================================================
@@ -736,9 +736,9 @@ def tab_shacl_validation(graph):
 
 def tab_lod_alignments(graph):
     """Onglet des alignements Linked Open Data."""
-    st.header("🌐 Alignements LOD - Linked Open Data")
+    st.header("Alignements LOD - Linked Open Data")
     
-    st.info("💡 Cette section liste les entités locales liées à Wikidata ou DBpedia via `owl:sameAs`.")
+    st.info("Cette section liste les entités locales liées à Wikidata ou DBpedia via `owl:sameAs`.")
     
     query = """
         PREFIX auto: <http://www.univ-projet.fr/ontologies/autosemantic#>
@@ -769,11 +769,11 @@ def tab_lod_alignments(graph):
             
             # Déterminer la source
             if "wikidata" in external_uri:
-                source = "🌍 Wikidata"
+                source = "Wikidata"
             elif "dbpedia" in external_uri:
-                source = "📚 DBpedia"
+                source = "DBpedia"
             else:
-                source = "🔗 Autre"
+                source = "Autre"
             
             data.append({
                 "Entité locale": entity_label,
@@ -784,7 +784,7 @@ def tab_lod_alignments(graph):
         if data:
             df = pd.DataFrame(data)
             st.dataframe(df, width="stretch")
-            st.success(f"✅ {len(data)} alignements trouvés")
+            st.success(f"{len(data)} alignements trouvés")
             
             # Statistiques
             col1, col2 = st.columns(2)
@@ -795,10 +795,10 @@ def tab_lod_alignments(graph):
                 dbpedia_count = len([d for d in data if "DBpedia" in d["Source externe"]])
                 st.metric("Alignements DBpedia", dbpedia_count)
         else:
-            st.warning("⚠️ Aucun alignement trouvé dans le graphe.")
+            st.warning("Aucun alignement trouvé dans le graphe.")
     
     except Exception as e:
-        st.error(f"❌ Erreur lors de la requête : {str(e)}")
+        st.error(f"Erreur lors de la requête : {str(e)}")
 
 
 # ============================================================================
@@ -811,7 +811,7 @@ def main():
     # Configuration de la page
     st.set_page_config(
         page_title="AutoSemantica - Web Sémantique",
-        page_icon="🚗",
+        page_icon="�",
         layout="wide",
         initial_sidebar_state="expanded"
     )
@@ -835,12 +835,12 @@ def main():
     """, unsafe_allow_html=True)
     
     # Titre principal
-    st.title("🚗 AutoSemantica - Web Sémantique")
+    st.title("AutoSemantica - Web Sémantique")
     st.markdown("*Exploration intelligente de données automobiles avec RDF, SPARQL et SHACL*")
     st.markdown("---")
     
     # Charger le graphe
-    with st.spinner("🔄 Chargement des données..."):
+    with st.spinner("Chargement des données..."):
         graph, load_status, files_to_load = load_graph()
     
     # Afficher la sidebar
@@ -848,12 +848,12 @@ def main():
     
     # Créer les onglets
     tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
-        "🔍 Exploration",
-        "📈 Statistiques",
-        "🔗 SPARQL",
-        "🤖 Intelligence IA",
-        "✅ Validation SHACL",
-        "🌐 Alignements LOD"
+        "Exploration",
+        "Statistiques",
+        "SPARQL",
+        "Intelligence IA",
+        "Validation SHACL",
+        "Alignements LOD"
     ])
     
     with tab1:
