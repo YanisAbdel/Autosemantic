@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AUTOSEMANTIC - Présentation Finale</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+/* 1. GENERAL SETUP */
+* { box-sizing: border-box; }
+
+body {
+  background-color: #0f172a; /* Dark slate background */
+  display: grid;
+  gap: 20px;
+  grid-template-columns: 1fr;
+  margin: 0;
+  min-height: 100vh;
+  padding: 20px 0;
+  place-items: center;
+  font-family: 'Exo 2', sans-serif;
+}
+
+.slide-container {
+  align-items: flex-start;
+  background-color: #111827; /* Very dark grey/black */
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  height: 720px;
+  justify-content: center;
+  overflow: hidden;
+  padding: 50px 60px;
+  position: relative;
+  width: 1280px;
+  border: 1px solid #1f2937;
+}
+
+/* Background Shapes */
+.slide-container::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -20%;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+}
+.slide-container::after {
+  content: '';
+  position: absolute;
+  bottom: -30%;
+  left: -10%;
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(0, 0, 0, 0) 70%);
+  z-index: 0;
+}
+.slide-container > * { position: relative; z-index: 1; }
+
+/* 2. TYPOGRAPHY */
+.slide-container h1, .slide-container h2, .slide-container h3, .slide-container h4 {
+  color: #f8fafc;
+  font-family: 'Rajdhani', sans-serif;
+  text-transform: uppercase;
+  margin: 0;
+  letter-spacing: 1px;
+}
+.slide-container h1 span, .slide-container h2 span { color: #3b82f6; }
+.slide-container p, .slide-container li, .slide-container td, .slide-container th {
+  color: #94a3b8;
+  font-family: 'Exo 2', sans-serif;
+  font-size: 20px;
+  line-height: 1.6;
+}
+.slide-container h1 { font-size: 80px; font-weight: 700; line-height: 1; margin-bottom: 20px; }
+.slide-container .slide-title {
+  font-size: 42px; font-weight: 600; margin-bottom: 10px;
+  border-left: 5px solid #3b82f6; padding-left: 20px; width: 100%;
+}
+.slide-container .subtitle { font-size: 24px; font-weight: 300; color: #cbd5e1; }
+
+/* 3. LAYOUTS */
+.content-area { width: 100%; flex-grow: 1; display: flex; flex-direction: column; justify-content: center; }
+
+.two-column {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px; height: 100%; align-items: center;
+}
+.two-column ul { list-style: none; padding: 0; }
+.two-column li { margin-bottom: 18px; padding-left: 30px; position: relative; }
+.two-column li::before {
+  content: '\f058'; font-family: 'Font Awesome 6 Free'; font-weight: 900;
+  color: #3b82f6; position: absolute; left: 0; top: 4px; font-size: 18px;
+}
+
+/* Image Wrappers */
+.image-wrapper {
+  border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  border: 1px solid #374151; height: 100%; max-height: 450px;
+}
+.image-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Bleed Image (Title Slide) */
+.bleed-image-layout { padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0; align-items: start; }
+.bleed-image-layout .content-container { padding: 80px 60px; display: flex; flex-direction: column; justify-content: center; height: 100%; }
+.bleed-image-layout .image-container { height: 100%; width: 100%; position: relative; }
+.bleed-image-layout .image-container img { width: 100%; height: 720px; object-fit: cover; display: block; }
+.bleed-image-layout .image-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to right, #111827 0%, transparent 50%); }
+
+/* Tiles */
+.tiled-content { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; width: 100%; }
+.tile {
+  background: rgba(31, 41, 55, 0.6); border: 1px solid #374151; border-radius: 12px;
+  padding: 30px; transition: transform 0.3s ease;
+}
+.tile:hover { border-color: #3b82f6; transform: translateY(-5px); }
+.tile .icon { color: #3b82f6; font-size: 40px; margin-bottom: 20px; }
+.tile h3 { font-size: 22px; margin-bottom: 15px; color: #f1f5f9; }
+
+/* Stats & Tables */
+.stats-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; width: 100%; text-align: center; }
+.stat-item .number {
+    font-family: 'Rajdhani', sans-serif; font-size: 70px; font-weight: 700; color: #3b82f6;
+    line-height: 1; margin-bottom: 10px; text-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+}
+.table-container table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.table-container th { text-align: left; border-bottom: 2px solid #3b82f6; padding: 15px; color: #f1f5f9; font-family: 'Rajdhani', sans-serif; font-size: 22px; }
+.table-container td { padding: 15px; border-bottom: 1px solid #374151; }
+
+/* Code Blocks */
+.shacl-block {
+    font-family: 'Courier New', monospace; background: #0f172a; border-left: 4px solid #3b82f6;
+    padding: 15px; color: #cbd5e1; font-size: 15px; margin-top: 10px; line-height: 1.4;
+}
+.shacl-keyword { color: #c084fc; font-weight: bold; }
+.shacl-property { color: #60a5fa; }
+.shacl-value { color: #86efac; }
+.shacl-comment { color: #64748b; font-style: italic; }
+
+/* Merge Diagram (Slide 8) */
+.merge-diagram { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-bottom: 40px; }
+.merge-box { background: #1e293b; border: 1px solid #475569; border-radius: 12px; padding: 20px; text-align: center; }
+.merge-box h4 { color: #94a3b8; font-size: 18px; margin-bottom: 10px; }
+.merge-box .filename { color: #3b82f6; font-family: 'Courier New', monospace; font-weight: bold; font-size: 16px; display: block; margin-bottom: 5px; }
+.merge-arrow-container { grid-column: 1 / -1; display: flex; justify-content: space-around; padding: 0 50px; color: #f1f5f9; font-size: 30px; margin-bottom: -10px; }
+.final-node {
+    grid-column: 1 / -1; background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 100%);
+    border: 2px solid #3b82f6; border-radius: 16px; padding: 25px; text-align: center; width: 60%; margin: 0 auto;
+}
+    </style>
+</head>
+<body>
+
+<!-- Slide 1: Titre -->
+<div class="slide-container bleed-image-layout" id="slide1">
+    <div class="content-container">
+        <h1>Auto<span>Semantic</span></h1>
+        <p class="subtitle">Construction et Exploitation d'un Graphe de Connaissances Automobile</p>
+        <div style="margin-top: 40px; border-top: 1px solid #374151; padding-top: 20px;">
+            <p style="font-size: 18px; color: #64748b; font-weight: 600; text-transform: uppercase;">Modules</p>
+            <p style="font-size: 18px; color: #94a3b8; margin-bottom: 15px;">Web Sémantique & Ingénierie des Connaissances</p>
+            
+            <p style="font-size: 18px; color: #64748b; font-weight: 600; text-transform: uppercase;">Responsables</p>
+            <p style="font-size: 18px; color: #94a3b8;">Lamiri Yanis • Abdellaoui Yanis • GALLAY Mathys</p>
+        </div>
+    </div>
+    <div class="image-container">
+        <div class="image-overlay"></div>
+        <img src="http://googleusercontent.com/image_collection/image_retrieval/18001756509497491278" alt="Silhouette de voiture de luxe abstraite">
+    </div>
+</div>
+
+<!-- Slide 2: Vue d'Ensemble -->
+<div class="slide-container" id="slide2">
+    <h2 class="slide-title">Objectifs du Projet</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>De la Donnée Brute à l'Intelligence</h3>
+                <p>Conception d'un système complet intégrant des données hétérogènes pour offrir des services avancés sur les véhicules.</p>
+                <div style="background-color: #1e293b; padding: 20px; border-radius: 8px; border: 1px solid #334155; margin-top: 20px;">
+                    <h4 style="color: #3b82f6; margin-bottom: 10px;"><i class="fa-solid fa-code-branch"></i> Pipeline Technique</h4>
+                    <p style="font-size: 18px; margin:0;">Modélisation OWL &rarr; Extraction (Scraping/LLM) &rarr; Mapping RML &rarr; Validation SHACL &rarr; Exploitation GraphRAG</p>
+                </div>
+            </div>
+            <div class="image-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/7510852963474781949" alt="Réseau de graphe de connaissances tech">
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 3: Modélisation Ontologique -->
+<div class="slide-container" id="slide3">
+    <h2 class="slide-title">Modélisation Ontologique (OWL & SKOS)</h2>
+    <div class="content-area">
+        <div class="two-column">
+             <div class="image-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/7503805857132229968" alt="Schéma de structure hiérarchique">
+            </div>
+            <div>
+                <h3>Architecture "Core" Spécifique</h3>
+                <p>Création d'une ontologie dédiée (sans réutiliser un vocabulaire générique existant pour le cœur) pour garantir la précision du domaine.</p>
+                <h4 style="margin-top:20px; color:#3b82f6;">1. Structure OWL Riche</h4>
+                <p style="font-size: 18px;">Hiérarchie fine : <code>Vehicle</code> &rarr; <code>Car</code> &rarr; <code>SUV</code>, <code>HighPerformanceCar</code>.<br>
+                Définition formelle des propriétés : Relations transitives, symétriques et inverses.</p>
+                <h4 style="margin-top:15px; color:#3b82f6;">2. Vocabulaires Contrôlés (SKOS)</h4>
+                <p style="font-size: 18px;">Gestion des concepts via des Thésauri pour normaliser les données hétérogènes (Types de carburant, Transmissions, Classes).</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 4: Validation SHACL (Complexe) -->
+<div class="slide-container" id="slide4">
+    <h2 class="slide-title">Validation Structurelle Avancée</h2>
+    <div class="content-area">
+        <div class="two-column" style="gap: 40px;">
+            <div>
+                <h3>Validation de Graphe et Formes Imbriquées</h3>
+                <p>Au-delà des simples vérifications de types, nous utilisons SHACL pour valider la <strong>structure du graphe</strong> et l'intégrité des relations entre entités.</p>
+                <div style="margin-top: 30px;">
+                    <h4>Mécanismes complexes utilisés :</h4>
+                    <ul>
+                        <li><strong>sh:node (Nested Shapes) :</strong> Validation récursive (ex: Véhicule valide si Constructeur valide).</li>
+                        <li><strong>sh:class & sh:minCount :</strong> Garantie de l'intégrité référentielle vers l'Ontologie.</li>
+                        <li><strong>Pattern Matching :</strong> Validation des formats spécifiques (Codes moteurs).</li>
+                    </ul>
+                </div>
+            </div>
+            <div style="background: #1e293b; padding: 25px; border-radius: 12px; border: 1px solid #475569;">
+                <h4 style="border-bottom: 1px solid #475569; padding-bottom: 10px; margin-bottom: 10px;"><i class="fa-solid fa-code"></i> Exemple : Validation en Cascade</h4>
+                <div class="shacl-block">
+                    :VehicleIntegrityShape a <span class="shacl-keyword">sh:NodeShape</span> ;<br>
+                    &nbsp;&nbsp;<span class="shacl-keyword">sh:targetClass</span> auto:Vehicle ;<br>
+                    &nbsp;&nbsp;<span class="shacl-keyword">sh:property</span> [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-keyword">sh:path</span> auto:manufacturedBy ;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-property">sh:minCount</span> <span class="shacl-value">1</span> ;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-property">sh:class</span> auto:Manufacturer ;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-comment"># Validation imbriquée du noeud voisin</span><br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-keyword">sh:node</span> [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-keyword">sh:property</span> [<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-keyword">sh:path</span> rdfs:label ;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="shacl-property">sh:datatype</span> xsd:string ;<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;]<br>
+                    &nbsp;&nbsp;] .
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 5: Acquisition & Données Hétérogènes -->
+<div class="slide-container" id="slide5">
+    <h2 class="slide-title">Acquisition & Données Hétérogènes</h2>
+    <div class="content-area">
+        <div class="two-column" style="gap: 40px; align-items: stretch;">
+            <!-- Column 1: Structured -->
+            <div class="tile" style="height: 100%;">
+                <div class="icon"><i class="fa-solid fa-database"></i></div>
+                <h3>1. Sources Structurées (CSV)</h3>
+                <p>Intégration et nettoyage de bases de données officielles :</p>
+                <ul style="font-size: 18px; margin-top: 20px; list-style-type: none; padding-left: 0;">
+                    <li style="margin-bottom: 10px;"><i class="fa-solid fa-check" style="color:#3b82f6; margin-right: 10px;"></i><strong>EPA (US Gov) :</strong> Specs techniques, consommation, émissions (6 552 entrées).</li>
+                    <li><i class="fa-solid fa-check" style="color:#3b82f6; margin-right: 10px;"></i><strong>Kaggle :</strong> ~41 000 avis utilisateurs (Notes et textes).</li>
+                </ul>
+            </div>
+            
+            <!-- Column 2: Unstructured Pipeline -->
+            <div class="tile" style="height: 100%; border-color: #3b82f6; background: rgba(30, 58, 138, 0.2);">
+                <div class="icon"><i class="fa-solid fa-microchip"></i></div>
+                <h3>2. Pipeline Non-Structuré & IA</h3>
+                <p>Transformation de textes bruts en données exploitables :</p>
+                <div style="margin-top: 25px; padding-left: 15px; border-left: 2px solid #3b82f6;">
+                    <p style="margin-bottom: 15px;"><strong>Phase 1 : Web Scraping</strong><br>
+                    <span style="font-size: 16px; color: #94a3b8;">Récupération brute depuis <em>UltimateSpecs</em>.</span></p>
+                    <p style="margin-bottom: 15px;"><i class="fa-solid fa-arrow-down" style="color:#3b82f6;"></i></p>
+                    <p><strong>Phase 2 : Extraction & NER (LLM)</strong><br>
+                    <span style="font-size: 16px; color: #94a3b8;">Utilisation d'Ollama (Phi3) pour la <strong>Reconnaissance d'Entités Nommées</strong> : identification automatique des Marques, Modèles et Moteurs dans le texte.</span></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 6: RML -->
+<div class="slide-container" id="slide6">
+    <h2 class="slide-title">Lifting sémantique avec RML</h2>
+    <div class="content-area">
+        <div class="two-column">
+             <div class="image-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/17052447703170272191" alt="Flux de traitement de données IA">
+            </div>
+            <div>
+                <h3>Standardisation RDF</h3>
+                <p>Transformation industrielle des données via <strong>RMLMapper</strong> (Docker).</p>
+                <ul>
+                    <li><strong>Règles de Mapping :</strong> Définition déclarative liant les colonnes CSV/JSON aux propriétés de notre ontologie OWL.</li>
+                    <li><strong>URI Strategy :</strong> Génération d'identifiants uniques et stables (ex: <code>auto:Vehicle/Audi_Q7_2022</code>).</li>
+                    <li><strong>Typage Strict :</strong> Conversion automatique des valeurs numériques (integers, doubles) pour permettre les requêtes de filtre SPARQL.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 7: Inférence -->
+<div class="slide-container" id="slide7">
+    <h2 class="slide-title">Enrichissement Sémantique</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Inférence OWL-RL</h3>
+                <p>Le raisonneur déduit de nouvelles informations implicites :</p>
+                <ul>
+                    <li><strong>Classification Automatique :</strong> Un véhicule > 400cv devient instance de <code>HighPerformanceCar</code>.</li>
+                    <li><strong>Propriétés Inverses :</strong> Ajout automatique des liens inverses pour faciliter la navigation bidirectionnelle (~3.5k triplets générés).</li>
+                </ul>
+            </div>
+            <div>
+                <h3>Alignement LOD (Linked Open Data)</h3>
+                <p>Connexion de notre graphe au Web de Données :</p>
+                <ul>
+                    <li><strong>owl:sameAs :</strong> Liens vers les entités DBpedia et Wikidata pour les constructeurs majeurs.</li>
+                    <li><strong>skos:exactMatch :</strong> Alignement des vocabulaires de carburants et transmissions avec Schema.org.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 8: Fusion du Graphe (NOUVEAU) -->
+<div class="slide-container" id="slide8">
+    <h2 class="slide-title">Construction & Fusion du Graphe Final</h2>
+    <div class="content-area">
+        <p class="subtitle" style="text-align: center; margin-bottom: 40px;">
+            Le <strong>Graphe de Connaissances</strong> final est le résultat de la fusion de trois sources traitées indépendamment.
+        </p>
+        <div class="merge-diagram">
+            <div class="merge-box">
+                <h4><i class="fa-solid fa-table"></i> Données Structurées</h4>
+                <span class="filename">output.ttl</span>
+                <span class="desc">Mapping RML sur les CSV.</span>
+            </div>
+            <div class="merge-box">
+                <h4><i class="fa-solid fa-robot"></i> Données Web + IA</h4>
+                <span class="filename">kg_from_web_ollama.ttl</span>
+                <span class="desc">Scraping + NER (LLM).</span>
+            </div>
+            <div class="merge-box">
+                <h4><i class="fa-solid fa-link"></i> Alignements</h4>
+                <span class="filename">alignment.ttl</span>
+                <span class="desc">Liens LOD.</span>
+            </div>
+            <div class="merge-arrow-container">
+                <i class="fa-solid fa-arrow-down"></i>
+                <i class="fa-solid fa-arrow-down"></i>
+                <i class="fa-solid fa-arrow-down"></i>
+            </div>
+            <div class="final-node">
+                <h3><i class="fa-solid fa-circle-nodes"></i> knowledge_graph.ttl</h3>
+                <p style="color: #cbd5e1; margin: 0;">Graphe unifié, validé et inféré, prêt pour l'exploitation.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 9: Statistiques -->
+<div class="slide-container" id="slide9">
+    <h2 class="slide-title">Le Graphe en Chiffres</h2>
+    <div class="content-area">
+        <div class="stats-grid">
+            <div class="stat-item"><div class="number">43 799</div><div class="label">Triplets RDF</div></div>
+            <div class="stat-item"><div class="number">7 243</div><div class="label">Entités Totales</div></div>
+            <div class="stat-item"><div class="number">1 299</div><div class="label">Véhicules Scrapés</div></div>
+            <div class="stat-item"><div class="number">6</div><div class="label">Scénarios SPARQL</div></div>
+            <div class="stat-item"><div class="number">100%</div><div class="label">Validé SHACL</div></div>
+            <div class="stat-item"><div class="number">Auto</div><div class="label">Alignement DBpedia</div></div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 10: SPARQL -->
+<div class="slide-container" id="slide10">
+    <h2 class="slide-title">Questions de Compétence (SPARQL)</h2>
+    <div class="content-area">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr><th>Catégorie</th><th>Scénario Implémenté</th><th>Opérateurs Clés</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td><i class="fa-solid fa-gauge-high" style="color:#3b82f6"></i> Performance</td><td>Sélection véhicules haute performance (>2000, tri cylindrée)</td><td>FILTER, ORDER BY</td></tr>
+                    <tr><td><i class="fa-solid fa-star" style="color:#3b82f6"></i> Avis</td><td>Agrégation avis positifs (Note moy. >= 3, min. 3 avis)</td><td>AVG(), COUNT(), HAVING</td></tr>
+                    <tr><td><i class="fa-solid fa-leaf" style="color:#3b82f6"></i> Efficacité</td><td>Classement énergétique par constructeur</td><td>GROUP BY</td></tr>
+                    <tr><td><i class="fa-solid fa-globe" style="color:#3b82f6"></i> Fédérée</td><td>Enrichissement des données via DBpedia (Abstract)</td><td>SERVICE</td></tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 11: Recommandation (Pas d'image latérale) -->
+<div class="slide-container" id="slide11">
+    <h2 class="slide-title">Recommandation : Link Prediction</h2>
+    <div class="content-area">
+        <div style="width: 100%; max-width: 900px; margin: 0 auto;">
+            <h3>Approche "Item-to-Item"</h3>
+            <p>Nous avons développé un système de recommandation qui ne se base pas sur l'historique utilisateur, mais sur la <strong>similarité sémantique et structurelle</strong> entre les entités du graphe.</p>
+            
+            <div style="background: rgba(30, 58, 138, 0.2); border: 1px solid #3b82f6; padding: 30px; border-radius: 12px; margin-top: 30px;">
+                <h4 style="color: #60a5fa; margin-bottom: 20px;"><i class="fa-solid fa-calculator"></i> Algorithme de Similarité Pondérée</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                    <div>
+                        <p style="margin: 0 0 10px 0;"><strong>1. Marque (30%) :</strong> Forte influence.</p>
+                        <p style="margin: 0 0 10px 0;"><strong>2. Année (20%) :</strong> Proximité temporelle.</p>
+                        <p style="margin: 0;"><strong>3. Performance (20%) :</strong> Cylindrée similaire.</p>
+                    </div>
+                    <div>
+                        <p style="margin: 0 0 10px 0;"><strong>4. Usage (15%) :</strong> Conso Ville.</p>
+                        <p style="margin: 0;"><strong>5. Avis (15%) :</strong> Score utilisateur.</p>
+                    </div>
+                </div>
+            </div>
+            <p style="margin-top: 20px; color: #94a3b8; font-size: 18px; text-align: center;"><em>Cas d'usage : "Si vous aimez l'Audi Q7, vous aimerez..."</em></p>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 12: GraphRAG 1 - NL2SPARQL (Pas d'image latérale) -->
+<div class="slide-container" id="slide12">
+    <h2 class="slide-title">GraphRAG : Approche NL2SPARQL</h2>
+    <div class="content-area">
+        <div style="width: 100%; max-width: 900px; margin: 0 auto;">
+            <h3>Du Langage Naturel à la Requête Formelle</h3>
+            <p>Cette première approche utilise le LLM comme un traducteur sémantique strict vers le langage de requête du graphe.</p>
+            
+            <div style="margin-top: 30px; padding-left: 20px; border-left: 3px solid #3b82f6;">
+                <p style="font-size: 22px; color: #f1f5f9; margin-bottom: 10px;">Pipeline :</p>
+                <ol style="font-size: 20px; color: #cbd5e1; margin: 0; padding-left: 25px;">
+                    <li style="margin-bottom: 10px;">Réception de la question en langage naturel.</li>
+                    <li style="margin-bottom: 10px;">Injection du schéma de l'ontologie dans le contexte du LLM.</li>
+                    <li style="margin-bottom: 10px;">Génération de la requête SPARQL syntaxiquement valide.</li>
+                    <li>Exécution sur le graphe et retour des résultats bruts.</li>
+                </ol>
+            </div>
+            
+            <div style="margin-top: 30px; background: rgba(16, 185, 129, 0.1); padding: 15px; border-radius: 8px; border: 1px solid rgba(16, 185, 129, 0.3);">
+                <p style="margin: 0; color: #6ee7b7;"><i class="fa-solid fa-check-circle"></i> <strong>Avantage :</strong> Réponses factuelles, précises et sans hallucination.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 13: GraphRAG 2 - Embeddings (Pas d'image latérale) -->
+<div class="slide-container" id="slide13">
+    <h2 class="slide-title">GraphRAG : Approche Embeddings</h2>
+    <div class="content-area">
+        <div style="width: 100%; max-width: 900px; margin: 0 auto;">
+            <h3>Recherche Sémantique Vectorielle</h3>
+            <p>Cette approche transforme le graphe en un espace vectoriel, permettant une recherche par similarité plutôt que par correspondance exacte.</p>
+            
+            <div style="margin-top: 30px; padding-left: 20px; border-left: 3px solid #c084fc;">
+                <p style="font-size: 22px; color: #f1f5f9; margin-bottom: 10px;">Pipeline :</p>
+                <ol style="font-size: 20px; color: #cbd5e1; margin: 0; padding-left: 25px;">
+                    <li style="margin-bottom: 10px;">Calcul des embeddings pour chaque nœud (véhicule) à l'avance.</li>
+                    <li style="margin-bottom: 10px;">Vectorisation de la question utilisateur en temps réel.</li>
+                    <li style="margin-bottom: 10px;">Recherche des <strong>K plus proches voisins</strong> (Cosine Similarity).</li>
+                    <li>Utilisation des voisins comme contexte pour générer la réponse.</li>
+                </ol>
+            </div>
+            
+            <div style="margin-top: 30px; background: rgba(192, 132, 252, 0.1); padding: 15px; border-radius: 8px; border: 1px solid rgba(192, 132, 252, 0.3);">
+                <p style="margin: 0; color: #d8b4fe;"><i class="fa-solid fa-check-circle"></i> <strong>Avantage :</strong> Gère le flou sémantique, les synonymes et les questions ouvertes.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 14: Conclusion -->
+<div class="slide-container" id="slide14">
+    <h2 class="slide-title">Conclusion & Perspectives</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-check-circle"></i></div>
+                <h3>Accomplissements</h3>
+                <p>Pipeline "End-to-End" fonctionnel. Intégration réussie de données non-structurées. Modèle sémantique robuste et validé.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-box-open"></i></div>
+                <h3>Livrables</h3>
+                <p>Code source modulaire, Scripts Docker RML, Collection de requêtes SPARQL complexes, Rapport technique.</p>
+            </div>
+            <div class="tile">
+                <div class="icon"><i class="fa-solid fa-road"></i></div>
+                <h3>Roadmap</h3>
+                <p>Endpoint SPARQL public, alignement étendu aux modèles (instances), interface Web réactive (FastAPI).</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Slide 15: Q&A (Pied de page corrigé) -->
+<div class="slide-container" id="slide15">
+    <div class="content-area" style="text-align: center; justify-content: space-between; padding-top: 100px; padding-bottom: 0;">
+        <div style="flex-grow: 1; display: flex; flex-direction: column; justify-content: center;">
+            <h1 style="font-size: 100px; color: #3b82f6; margin-bottom: 20px;">?</h1>
+            <h2>Questions & Réponses</h2>
+        </div>
+        <p class="subtitle" style="margin-bottom: 0; padding-bottom: 20px;">Merci de votre attention.</p>
+    </div>
+</div>
+
+</body>
+</html>
