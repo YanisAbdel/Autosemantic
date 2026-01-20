@@ -6,7 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dct: <http://purl.org/dc/terms/> .
-@base <http://www.univ-projet.fr/ontologies/autosemantic> .
+@base <http://www.univ-projet.fr/ontologies/autosemantic#> .
 
 <http://www.univ-projet.fr/ontologies/autosemantic> rdf:type owl:Ontology ;
     rdfs:comment "Ontologie enrichie pour le projet AutoSemantic."@fr .
