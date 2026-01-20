@@ -1,6 +1,9 @@
 @prefix auto: <http://www.univ-projet.fr/ontologies/autosemantic#> .
+@prefix dbr: <http://dbpedia.org/resource/> .
 @prefix ns1: <http://www.univ-projet.fr/ontologies/autosemantic/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix wd: <http://www.wikidata.org/entity/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <http://www.univ-projet.fr/ontologies/autosemantic/review/Acura_2001_4.0> a auto:CustomerReview ;
@@ -49711,6 +49714,27 @@ oises so far (btw, every car need to have its seals, hinges, and bushings spraye
     auto:modelName "Legacy AWD" ;
     auto:numberOfCylinders "4.0"^^xsd:float .
 
+auto:Eagle a auto:Manufacturer ;
+    rdfs:label "Eagle" .
+
+auto:Lotus a auto:Manufacturer ;
+    rdfs:label "Lotus" .
+
+auto:MINI a auto:Manufacturer ;
+    rdfs:label "MINI" .
+
+auto:PASIncGMC a auto:Manufacturer ;
+    rdfs:label "PASIncGMC" .
+
+auto:Renault a auto:Manufacturer ;
+    rdfs:label "Renault" .
+
+auto:WallaceEnvironmental a auto:Manufacturer ;
+    rdfs:label "WallaceEnvironmental" .
+
+auto:smart a auto:Manufacturer ;
+    rdfs:label "smart" .
+
 ns1:Automatic_6speed a ns1:TransmissionType ;
     rdfs:label "Automatic_6speed"@en .
 
@@ -49845,6 +49869,21 @@ ns1:speed a ns1:TransmissionType ;
     auto:hasVehicleClass auto:LargeCar ;
     auto:modelName "Charger" ;
     auto:numberOfCylinders "8.0"^^xsd:float .
+
+auto:Daewoo a auto:Manufacturer ;
+    rdfs:label "Daewoo" .
+
+auto:ImportTradeServices a auto:Manufacturer ;
+    rdfs:label "ImportTradeServices" .
+
+auto:Maserati a auto:Manufacturer ;
+    rdfs:label "Maserati" .
+
+auto:RoushPerformance a auto:Manufacturer ;
+    rdfs:label "RoushPerformance" .
+
+auto:Scion a auto:Manufacturer ;
+    rdfs:label "Scion" .
 
 ns1:AllWheelDrive a ns1:DriveType ;
     rdfs:label "AllWheelDrive"@en .
@@ -50008,6 +50047,15 @@ ns1:Sedan a ns1:VehicleClass ;
     auto:modelName "Rabbit" ;
     auto:numberOfCylinders "5.0"^^xsd:float .
 
+auto:Geo a auto:Manufacturer ;
+    rdfs:label "Geo" .
+
+auto:JKMotors a auto:Manufacturer ;
+    rdfs:label "JKMotors" .
+
+auto:LandRover a auto:Manufacturer ;
+    rdfs:label "LandRover" .
+
 <http://www.univ-projet.fr/ontologies/autosemantic/vehicle/16869> a auto:Car ;
     auto:engineDisplacement "3.0"^^xsd:float ;
     auto:hasDriveType auto:FrontWheelDrive ;
@@ -50167,6 +50215,9 @@ ns1:Sedan a ns1:VehicleClass ;
     auto:hasVehicleClass auto:SmallStationWagon ;
     auto:modelName "SX4" ;
     auto:numberOfCylinders "4.0"^^xsd:float .
+
+auto:AstonMartin a auto:Manufacturer ;
+    rdfs:label "AstonMartin" .
 
 <http://www.univ-projet.fr/ontologies/autosemantic/vehicle/16851> a auto:Car ;
     auto:engineDisplacement "2.7"^^xsd:float ;
@@ -50541,6 +50592,9 @@ ns1:Automatic_5speed a ns1:TransmissionType ;
     auto:modelName "Sonata" ;
     auto:numberOfCylinders "6.0"^^xsd:float .
 
+auto:RollsRoyce a auto:Manufacturer ;
+    rdfs:label "RollsRoyce" .
+
 <http://www.univ-projet.fr/ontologies/autosemantic/vehicle/16566> a auto:Car ;
     auto:engineDisplacement "1.9"^^xsd:float ;
     auto:hasDriveType auto:FrontWheelDrive ;
@@ -50670,6 +50724,12 @@ ns1:Automatic_5speed a ns1:TransmissionType ;
     auto:hasVehicleClass auto:CompactCar ;
     auto:modelName "Jetta" ;
     auto:numberOfCylinders "5.0"^^xsd:float .
+
+auto:Bentley a auto:Manufacturer ;
+    rdfs:label "Bentley" .
+
+auto:Ferrari a auto:Manufacturer ;
+    rdfs:label "Ferrari" .
 
 <http://www.univ-projet.fr/ontologies/autosemantic/vehicle/16610> a auto:Car ;
     auto:engineDisplacement "3.0"^^xsd:float ;
@@ -50944,6 +51004,9 @@ ns1:Automatic_9speed a ns1:TransmissionType ;
     auto:modelName "Rondo" ;
     auto:numberOfCylinders "4.0"^^xsd:float .
 
+auto:Acura a auto:Manufacturer ;
+    rdfs:label "Acura" .
+
 <http://www.univ-projet.fr/ontologies/autosemantic/vehicle/18532> a auto:Car ;
     auto:engineDisplacement "2.0"^^xsd:float ;
     auto:hasDriveType auto:FrontWheelDrive ;
@@ -50963,6 +51026,12 @@ ns1:Automatic_9speed a ns1:TransmissionType ;
     auto:hasVehicleClass auto:SubcompactCar ;
     auto:modelName "Cobalt" ;
     auto:numberOfCylinders "4.0"^^xsd:float .
+
+auto:Infiniti a auto:Manufacturer ;
+    rdfs:label "Infiniti" .
+
+auto:Kia a auto:Manufacturer ;
+    rdfs:label "Kia" .
 
 <http://www.univ-projet.fr/ontologies/autosemantic/vehicle/16753> a auto:Car ;
     auto:engineDisplacement "3.1"^^xsd:float ;
@@ -51034,8 +51103,71 @@ ns1:Automatic_9speed a ns1:TransmissionType ;
     auto:modelName "Focus" ;
     auto:numberOfCylinders "4.0"^^xsd:float .
 
+auto:Isuzu a auto:Manufacturer ;
+    rdfs:label "Isuzu" .
+
+auto:Lincoln a auto:Manufacturer ;
+    rdfs:label "Lincoln" .
+
+auto:Suzuki a auto:Manufacturer ;
+    rdfs:label "Suzuki" .
+
+auto:Plymouth a auto:Manufacturer ;
+    rdfs:label "Plymouth" .
+
+auto:Hyundai a auto:Manufacturer ;
+    rdfs:label "Hyundai" .
+
+auto:Lexus a auto:Manufacturer ;
+    rdfs:label "Lexus" .
+
+auto:Porsche a auto:Manufacturer ;
+    rdfs:label "Porsche" .
+
+auto:Jaguar a auto:Manufacturer ;
+    rdfs:label "Jaguar" .
+
+auto:Saab a auto:Manufacturer ;
+    rdfs:label "Saab" .
+
+auto:Mazda a auto:Manufacturer ;
+    rdfs:label "Mazda" .
+
+auto:Jeep a auto:Manufacturer ;
+    rdfs:label "Jeep" .
+
+auto:Cadillac a auto:Manufacturer ;
+    rdfs:label "Cadillac" .
+
+auto:Saturn a auto:Manufacturer ;
+    rdfs:label "Saturn" .
+
+auto:Oldsmobile a auto:Manufacturer ;
+    rdfs:label "Oldsmobile" .
+
 ns1:RearWheelDrive a ns1:DriveType ;
     rdfs:label "RearWheelDrive"@en .
+
+auto:Honda a auto:Manufacturer ;
+    rdfs:label "Honda" .
+
+auto:Mercury a auto:Manufacturer ;
+    rdfs:label "Mercury" .
+
+auto:Audi a auto:Manufacturer ;
+    rdfs:label "Audi" .
+
+auto:BMW a auto:Manufacturer ;
+    rdfs:label "BMW" .
+
+auto:Nissan a auto:Manufacturer ;
+    rdfs:label "Nissan" .
+
+auto:Volkswagen a auto:Manufacturer ;
+    rdfs:label "Volkswagen" .
+
+auto:Subaru a auto:Manufacturer ;
+    rdfs:label "Subaru" .
 
 ns1:Van a ns1:VehicleClass ;
     rdfs:label "Van"@en .
@@ -51044,5 +51176,40 @@ ns1:Diesel a ns1:FuelType ;
     rdfs:label "Diesel"@en .
 
 ns1:Mercedes_Benz a ns1:Manufacturer ;
-    rdfs:label "Mercedes_Benz"@en .
+    rdfs:label "Mercedes_Benz"@en ;
+    owl:sameAs dbr:Mercedes-Benz,
+        wd:Q36008 .
+
+auto:Buick a auto:Manufacturer ;
+    rdfs:label "Buick" .
+
+auto:Chrysler a auto:Manufacturer ;
+    rdfs:label "Chrysler" .
+
+auto:Mitsubishi a auto:Manufacturer ;
+    rdfs:label "Mitsubishi" .
+
+auto:Pontiac a auto:Manufacturer ;
+    rdfs:label "Pontiac" .
+
+auto:Toyota a auto:Manufacturer ;
+    rdfs:label "Toyota" .
+
+auto:Volvo a auto:Manufacturer ;
+    rdfs:label "Volvo" .
+
+auto:MercedesBenz a auto:Manufacturer ;
+    rdfs:label "MercedesBenz" .
+
+auto:Ford a auto:Manufacturer ;
+    rdfs:label "Ford" .
+
+auto:Dodge a auto:Manufacturer ;
+    rdfs:label "Dodge" .
+
+auto:GMC a auto:Manufacturer ;
+    rdfs:label "GMC" .
+
+auto:Chevrolet a auto:Manufacturer ;
+    rdfs:label "Chevrolet" .
 

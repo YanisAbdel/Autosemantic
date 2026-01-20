@@ -11,6 +11,7 @@ from pathlib import Path
 
 # Namespaces
 AUTO = Namespace("http://www.univ-projet.fr/ontologies/autosemantic#")
+AUTO_INST = Namespace("http://www.univ-projet.fr/ontologies/autosemantic/")  # Pour les instances
 DBO = Namespace("http://dbpedia.org/ontology/")
 DBR = Namespace("http://dbpedia.org/resource/")
 WD = Namespace("http://www.wikidata.org/entity/")
@@ -33,15 +34,22 @@ MANUFACTURER_MAPPINGS = {
 class OntologyAligner:
     """Classe pour aligner l'ontologie avec les vocabulaires LOD"""
     
-    def __init__(self, ontology_path):
+    def __init__(self, ontology_path, kg_path=None):
         """
         Args:
             ontology_path: Chemin vers autosemantic.ttl
+            kg_path: Chemin vers knowledge_graph.ttl (pour les instances)
         """
         self.ontology = Graph()
         print(f"Chargement de l'ontologie depuis {ontology_path}...")
         self.ontology.parse(ontology_path, format='turtle')
         print(f"✅ Ontologie chargée: {len(self.ontology)} triplets")
+        
+        # Charger aussi le graphe de connaissances si fourni (pour les instances)
+        if kg_path and Path(kg_path).exists():
+            print(f"Chargement du graphe de connaissances depuis {kg_path}...")
+            self.ontology.parse(kg_path, format='turtle')
+            print(f"✅ Graphe fusionné chargé: {len(self.ontology)} triplets total")
         
         # Graphes pour les alignements
         self.alignments_conceptual = Graph()
@@ -50,6 +58,7 @@ class OntologyAligner:
         # Bind namespaces
         for g in [self.alignments_conceptual, self.alignments_instances]:
             g.bind("auto", AUTO)
+            g.bind("auto_inst", AUTO_INST)
             g.bind("dbo", DBO)
             g.bind("dbr", DBR)
             g.bind("wd", WD)
@@ -172,9 +181,10 @@ class OntologyAligner:
         
         count = 0
         for manufacturer_name, wikidata_qid in MANUFACTURER_MAPPINGS.items():
+            # Les instances utilisent le namespace avec # (AUTO)
             local_uri = AUTO[manufacturer_name]
             
-            # Vérifier que l'entité existe dans l'ontologie
+            # Vérifier que l'entité existe dans le graphe
             if (local_uri, RDF.type, AUTO.Manufacturer) in self.ontology:
                 # Lien Wikidata
                 wikidata_uri = WD[wikidata_qid]
@@ -189,6 +199,8 @@ class OntologyAligner:
                 count += 1
                 
                 print(f"  ✅ {manufacturer_name} → {wikidata_qid} + DBpedia")
+            else:
+                print(f"  ⚠️  {manufacturer_name} non trouvé dans le graphe")
         
         print(f"✅ {count} alignements d'instances créés")
     
@@ -237,16 +249,24 @@ def main():
     
     # Chemins des fichiers
     ontology_path = project_root / "1_ontology" / "autosemantic.ttl"
+    kg_path = project_root / "5_knowledge_graph" / "knowledge_graph.ttl"
     output_dir = script_dir  # Sauvegarder dans 4_alignment/
     
     # Vérifier que l'ontologie existe
     if not ontology_path.exists():
-        print(f"❌ Erreur: Fichier non trouvé: {ontology_path}")
+        print(f"Erreur: Fichier non trouvé: {ontology_path}")
         print("Veuillez vous assurer que l'ontologie existe dans 1_ontology/")
         return
     
+    # Vérifier que le graphe existe (pour les instances)
+    if not kg_path.exists():
+        print(f"⚠️  Attention: Graphe de connaissances non trouvé: {kg_path}")
+        print("Les alignements d'instances ne seront pas générés.")
+        print("Exécutez d'abord: python 5_knowledge_graph/merge_graphs.py")
+        kg_path = None
+    
     # Créer l'aligner et générer les alignements
-    aligner = OntologyAligner(str(ontology_path))
+    aligner = OntologyAligner(str(ontology_path), str(kg_path) if kg_path else None)
     aligner.generate_all_alignments(str(output_dir))
 
 
