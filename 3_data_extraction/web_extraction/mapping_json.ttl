@@ -19,7 +19,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/vehicle/{id}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/vehicle/{id}" ;
         rr:class auto:Car
     ] ;
 
@@ -168,7 +168,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{manufacturer}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/{manufacturer}" ;
         rr:class auto:Manufacturer ;
         rr:termType rr:IRI
     ] ;
@@ -194,7 +194,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{fuelType}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/{fuelType}" ;
         rr:class auto:FuelType ;
         rr:termType rr:IRI
     ] ;
@@ -220,7 +220,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{transmission}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/{transmission}" ;
         rr:class auto:TransmissionType ;
         rr:termType rr:IRI
     ] ;
@@ -246,7 +246,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{driveType}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/{driveType}" ;
         rr:class auto:DriveType ;
         rr:termType rr:IRI
     ] ;
@@ -272,7 +272,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/{vehicleClass}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/{vehicleClass}" ;
         rr:class auto:VehicleClass ;
         rr:termType rr:IRI
     ] ;

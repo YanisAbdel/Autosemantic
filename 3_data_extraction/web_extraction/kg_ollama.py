@@ -431,7 +431,6 @@ if __name__ == "__main__":
         builder.save_json(vehicles_data, "vehicles_scraped.json")
         
         print("\nTERMINE!")
-        print("Prochaine étape: python run_rml_mapping.py pour convertir en RDF")
         
     except KeyboardInterrupt:
         print("\n\nInterruption utilisateur")

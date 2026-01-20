@@ -147,40 +147,13 @@ def format_vehicle_name(graph, vehicle_uri):
 
 
 # ============================================================================
-# SIDEBAR - STATUT DE CHARGEMENT
+# SIDEBAR - STATUT DE CHARGEMENT (DÉSACTIVÉ)
 # ============================================================================
 
 def render_sidebar(graph, load_status, files_to_load):
     """Affiche la sidebar avec le statut de chargement."""
-    st.sidebar.title("AutoSemantica")
-    st.sidebar.markdown("---")
-    
-    # Debug info
-    with st.sidebar.expander("Debug Info"):
-        st.code(f"BASE_DIR: {BASE_DIR}")
-        st.write("**Fichiers à charger:**")
-        for name, filepath in files_to_load.items():
-            # Convertir en Path si c'est une string (pour compatibilité cache)
-            if isinstance(filepath, str):
-                filepath = Path(filepath)
-            exists = filepath.exists() if hasattr(filepath, 'exists') else False
-            st.text(f"{'+' if exists else '-'} {filepath.name}")
-    
-    st.sidebar.subheader("Fichiers chargés")
-    
-    for name, status_info in load_status.items():
-        st.sidebar.markdown(f"**{name}**")
-        st.sidebar.markdown(status_info["status"])
-        st.sidebar.markdown("")
-    
-    st.sidebar.markdown("---")
-    
-    # Compter les triplets
-    total_triples = len(graph)
-    st.sidebar.metric("Nombre total de triplets", f"{total_triples:,}")
-    
-    st.sidebar.markdown("---")
-    st.sidebar.info("**Astuce**: Utilisez les onglets ci-dessus pour explorer les différentes fonctionnalités.")
+    # Sidebar désactivée - ne rien afficher
+    pass
 
 
 # ============================================================================

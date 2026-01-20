@@ -408,7 +408,6 @@ def clean_json_data(input_file='vehicles_scraped.json', output_file='vehicles_sc
     print("NETTOYAGE TERMINÉ!")
     print("="*60)
     print(f"Fichier nettoyé: {output_file}")
-    print(f"Prochaine étape: docker run --rm -v .:/data rmlio/rmlmapper-java:latest --mappingfile mapping_json.ttl --outputfile kg_from_web_ollama.ttl --serialization turtle")
     
     return cleaned_vehicles
 

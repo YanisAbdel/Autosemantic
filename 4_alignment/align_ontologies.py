@@ -43,13 +43,13 @@ class OntologyAligner:
         self.ontology = Graph()
         print(f"Chargement de l'ontologie depuis {ontology_path}...")
         self.ontology.parse(ontology_path, format='turtle')
-        print(f"✅ Ontologie chargée: {len(self.ontology)} triplets")
+        print(f"Ontologie chargée: {len(self.ontology)} triplets")
         
         # Charger aussi le graphe de connaissances si fourni (pour les instances)
         if kg_path and Path(kg_path).exists():
             print(f"Chargement du graphe de connaissances depuis {kg_path}...")
             self.ontology.parse(kg_path, format='turtle')
-            print(f"✅ Graphe fusionné chargé: {len(self.ontology)} triplets total")
+            print(f"Graphe fusionné chargé: {len(self.ontology)} triplets total")
         
         # Graphes pour les alignements
         self.alignments_conceptual = Graph()
@@ -68,7 +68,7 @@ class OntologyAligner:
     
     def align_classes(self):
         """Aligner les classes OWL avec vocabulaires externes"""
-        print("\n📋 Alignement des classes...")
+        print("\n📋Alignement des classes...")
         
         class_alignments = {
             AUTO.Vehicle: [
@@ -96,11 +96,11 @@ class OntologyAligner:
                 self.alignments_conceptual.add((local_class, relation, external_class))
                 count += 1
         
-        print(f"✅ {count} alignements de classes créés")
+        print(f"{count} alignements de classes créés")
     
     def align_properties(self):
         """Aligner les propriétés avec vocabulaires externes"""
-        print("\n📋 Alignement des propriétés...")
+        print("\nAlignement des propriétés...")
         
         property_alignments = {
             # Object Properties
@@ -143,7 +143,7 @@ class OntologyAligner:
                 self.alignments_conceptual.add((local_prop, relation, external_prop))
                 count += 1
         
-        print(f"✅ {count} alignements de propriétés créés")
+        print(f"{count} alignements de propriétés créés")
     
     def validate_wikidata_entity(self, qid):
         """Valider qu'une entité Wikidata existe"""
@@ -177,7 +177,7 @@ class OntologyAligner:
     
     def align_manufacturers(self):
         """Aligner les instances de manufacturers avec Wikidata et DBpedia"""
-        print("\n📋 Alignement des manufacturers...")
+        print("\nAlignement des manufacturers...")
         
         count = 0
         for manufacturer_name, wikidata_qid in MANUFACTURER_MAPPINGS.items():
@@ -198,11 +198,11 @@ class OntologyAligner:
                 self.alignments_instances.add((local_uri, OWL.sameAs, dbpedia_uri))
                 count += 1
                 
-                print(f"  ✅ {manufacturer_name} → {wikidata_qid} + DBpedia")
+                print(f"  {manufacturer_name} → {wikidata_qid} + DBpedia")
             else:
-                print(f"  ⚠️  {manufacturer_name} non trouvé dans le graphe")
+                print(f"  {manufacturer_name} non trouvé dans le graphe")
         
-        print(f"✅ {count} alignements d'instances créés")
+        print(f"{count} alignements d'instances créés")
     
     def save_alignments(self, output_dir):
         """Sauvegarder les alignements"""
@@ -212,7 +212,7 @@ class OntologyAligner:
         # Sauvegarder alignements conceptuels (classes + propriétés)
         conceptual_file = output_dir / "alignments.ttl"
         self.alignments_conceptual.serialize(destination=str(conceptual_file), format='turtle')
-        print(f"\n💾 Alignements conceptuels sauvegardés: {conceptual_file}")
+        print(f"\nAlignements conceptuels sauvegardés: {conceptual_file}")
         print(f"   {len(self.alignments_conceptual)} triplets")
         
         # Sauvegarder alignements d'instances
@@ -234,7 +234,7 @@ class OntologyAligner:
         self.save_alignments(output_dir)
         
         print("\n" + "="*70)
-        print("✅ ALIGNEMENTS GÉNÉRÉS AVEC SUCCÈS")
+        print("ALIGNEMENTS GÉNÉRÉS AVEC SUCCÈS")
         print("="*70)
         print(f"\nTotal:")
         print(f"  - Alignements conceptuels: {len(self.alignments_conceptual)} triplets")
@@ -260,7 +260,7 @@ def main():
     
     # Vérifier que le graphe existe (pour les instances)
     if not kg_path.exists():
-        print(f"⚠️  Attention: Graphe de connaissances non trouvé: {kg_path}")
+        print(f"Attention: Graphe de connaissances non trouvé: {kg_path}")
         print("Les alignements d'instances ne seront pas générés.")
         print("Exécutez d'abord: python 5_knowledge_graph/merge_graphs.py")
         kg_path = None

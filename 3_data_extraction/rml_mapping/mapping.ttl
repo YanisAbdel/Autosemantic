@@ -20,7 +20,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/vehicle/{id}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/vehicle/{id}" ;
         rr:class :Car
     ] ;
 
@@ -117,7 +117,7 @@
     ] ;
 
     rr:subjectMap [
-        rr:template "http://www.univ-projet.fr/ontologies/autosemantic/review/{Brand}_{Review_Year}_{Rating}" ;
+        rr:template "http://www.univ-projet.fr/ontologies/autosemantic#/review/{Brand}_{Review_Year}_{Rating}" ;
         rr:class :CustomerReview
     ] ;
 
