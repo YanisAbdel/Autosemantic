@@ -13,6 +13,27 @@ import os
 from pathlib import Path
 import plotly.express as px
 import plotly.graph_objects as go
+import re
+import pickle
+import numpy as np
+from dotenv import load_dotenv
+
+# Load environment variables early
+load_dotenv()
+
+# GraphRAG dependencies (import only when needed to avoid errors if not installed)
+GRAPHRAG_AVAILABLE = False
+GRAPHRAG_ERROR = None
+
+try:
+    import faiss
+    from sentence_transformers import SentenceTransformer
+    from google import genai
+    from google.genai import types
+    GRAPHRAG_AVAILABLE = True
+except ImportError as e:
+    GRAPHRAG_AVAILABLE = False
+    GRAPHRAG_ERROR = str(e)
 
 # ============================================================================
 # CONFIGURATION
@@ -482,6 +503,208 @@ ORDER BY DESC(?count)
                 st.error(f"Erreur lors de l'exécution de la requête :\n\n{str(e)}")
 
 
+
+# ============================================================================
+# GRAPHRAG HELPER FUNCTIONS (Adapted from 7_exploitation/GraphRAG/)
+# ============================================================================
+
+@st.cache_resource
+def init_graphrag_resources():
+    """Initialize GraphRAG resources (LLM client, embedder, vector index)."""
+    if not GRAPHRAG_AVAILABLE:
+        return None
+    
+    # Load environment variables
+    load_dotenv()
+    
+    if not os.getenv("GEMINI_API_KEY"):
+        return None
+    
+    try:
+        client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
+        
+        # Initialize vector store resources
+        graphrag_dir = BASE_DIR / "7_exploitation" / "GraphRAG"
+        vector_index_file = graphrag_dir / "vector_index.faiss"
+        chunks_file = graphrag_dir / "chunks_cache.pkl"
+        
+        index = None
+        chunks = None
+        embedder = None
+        
+        if vector_index_file.exists() and chunks_file.exists():
+            index = faiss.read_index(str(vector_index_file))
+            with open(chunks_file, "rb") as f:
+                chunks = pickle.load(f)
+            embedder = SentenceTransformer("sentence-transformers/all-MiniLM-L6-v2")
+        
+        return {
+            "client": client,
+            "index": index,
+            "chunks": chunks,
+            "embedder": embedder
+        }
+    except Exception as e:
+        st.error(f"Erreur lors de l'initialisation GraphRAG : {str(e)}")
+        return None
+
+
+def graphrag_sparql_query(graph, question, resources):
+    """
+    Approach 1: Translate natural language question to SPARQL using LLM.
+    Adapted from graph_rag_demo.py
+    """
+    if not resources or not resources.get("client"):
+        return None, "GraphRAG non disponible. Vérifiez GEMINI_API_KEY dans .env"
+    
+    client = resources["client"]
+    NS = "http://www.univ-projet.fr/ontologies/autosemantic#"
+    MODEL = "gemini-2.0-flash-exp"
+    
+    system_prompt = f"""
+Tu es un expert SPARQL. 
+SCHEMA :
+PREFIX : <{NS}>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+
+CLASSES: :Car, :CustomerReview, :Manufacturer
+PROPS: :Car->:hasManufacturer, :modelName, :numberOfCylinders(int), :engineDisplacement(float)
+      :Manufacturer->skos:prefLabel
+      :CustomerReview->:isReviewOf, :reviewRating(decimal), :reviewContent
+      
+REGLES STRICTES:
+1. PAS DE COMMENTAIRES.
+2. QUE DU SPARQL.
+3. FILTRE MARQUE: ?m skos:prefLabel ?lbl . FILTER(contains(lcase(?lbl), "nom"))
+
+EXEMPLE 1:
+Q: "Note moyenne des Ford ?"
+R: SELECT (AVG(?r) as ?avg) WHERE {{ ?c a :Car ; :hasManufacturer ?m . ?m skos:prefLabel ?lbl . FILTER(contains(lcase(?lbl), "ford")) . ?rev :isReviewOf ?c ; :reviewRating ?r . }}
+
+EXEMPLE 2:
+Q: "Voitures avec 8 cylindres ?"
+R: SELECT ?name WHERE {{ ?c a :Car ; :modelName ?name ; :numberOfCylinders ?nb . FILTER(?nb = 8) }}
+"""
+    
+    try:
+        # Generate SPARQL query
+        full_prompt = f"SYSTEM INSTRUCTION:\n{system_prompt}\n\nDEMANDE UTILISATEUR\nCode SPARQL pour : {question}"
+        
+        response = client.models.generate_content(
+            model=MODEL,
+            contents=full_prompt.strip(),
+            config=types.GenerateContentConfig(temperature=0)
+        )
+        
+        raw_answer = response.text
+        sparql = re.sub(r"```sparql|```|xml|`", "", raw_answer).strip()
+        
+        if "SELECT" in sparql:
+            sparql = sparql[sparql.index("SELECT"):]
+        
+        # Execute the query
+        try:
+            results = graph.query(sparql)
+            
+            # Format results
+            data = []
+            for row in results:
+                row_dict = {}
+                for var in results.vars:
+                    value = row[var]
+                    if value:
+                        value_str = str(value)
+                        if value_str.startswith("http"):
+                            # Extract last part of URI
+                            row_dict[str(var)] = value_str.split('#')[-1].split('/')[-1]
+                        else:
+                            row_dict[str(var)] = value_str
+                    else:
+                        row_dict[str(var)] = "N/A"
+                data.append(row_dict)
+            
+            # Generate natural language summary
+            if data:
+                summary_prompt = f"Data: {data[:10]}. Question: {question}. Réponds en 1-2 phrases simples en français."
+                summary_response = client.models.generate_content(
+                    model=MODEL,
+                    contents=summary_prompt,
+                    config=types.GenerateContentConfig(temperature=0.3)
+                )
+                summary = summary_response.text
+            else:
+                summary = "Aucun résultat trouvé pour cette question."
+            
+            return {"sparql": sparql, "data": data, "summary": summary}, None
+            
+        except Exception as e:
+            return None, f"Erreur lors de l'exécution SPARQL : {str(e)}"
+    
+    except Exception as e:
+        return None, f"Erreur lors de la génération de la requête : {str(e)}"
+
+
+def graphrag_vector_query(question, resources):
+    """
+    Approach 2: Answer using vector embeddings and RAG.
+    Adapted from vector_rag_demo.py
+    """
+    if not resources or not all([resources.get("index"), resources.get("chunks"), resources.get("embedder")]):
+        return None, "Index vectoriel non disponible. Lancez d'abord vector_rag_demo.py pour le créer."
+    
+    try:
+        index = resources["index"]
+        chunks = resources["chunks"]
+        embedder = resources["embedder"]
+        client = resources["client"]
+        
+        # Encode question
+        question_vector = embedder.encode([question], convert_to_numpy=True)
+        
+        # Retrieve top-k similar chunks
+        k = 5
+        distances, indices = index.search(question_vector, k)
+        
+        retrieved_context = []
+        for i in range(k):
+            idx = indices[0][i]
+            txt = chunks[idx]
+            retrieved_context.append(txt)
+        
+        context_str = "\n\n".join(retrieved_context)
+        
+        # Generate response using LLM
+        system_prompt = "Tu es un assistant expert automobile. Réponds à la question en te basant UNIQUEMENT sur les avis clients fournis ci-dessous."
+        
+        user_prompt = f"""
+CONTEXTE :
+{context_str}
+
+QUESTION UTILISATEUR : 
+{question}
+
+CONSIGNE : 
+Fais une synthèse de ces avis pour répondre. Si les avis sont contradictoires, mentionne-le.
+"""
+        
+        full_prompt = f"SYSTEM INSTRUCTION: {system_prompt}\n\n" + user_prompt
+        
+        response = client.models.generate_content(
+            model="gemini-2.0-flash-exp",
+            contents=full_prompt,
+            config=types.GenerateContentConfig(temperature=0.3)
+        )
+        
+        return {
+            "response": response.text,
+            "context": retrieved_context[:3]  # Return top 3 for display
+        }, None
+        
+    except Exception as e:
+        return None, f"Erreur lors de la génération de la réponse : {str(e)}"
+
+
 # ============================================================================
 # ONGLET 4 : INTELLIGENCE ARTIFICIELLE (Demo)
 # ============================================================================
@@ -599,88 +822,88 @@ def tab_ai_demo(graph):
     except Exception as e:
         st.error(f"Erreur lors du chargement du système de recommandation : {str(e)}")
     
-    st.markdown("---")
     
     # === Section 2: GraphRAG ===
     st.subheader("GraphRAG - Question-Réponse sur le Graphe")
     
+    # Initialize GraphRAG resources
+    if not GRAPHRAG_AVAILABLE:
+        error_msg = "GraphRAG non disponible. Installez les dépendances : `pip install faiss-cpu sentence-transformers google-generativeai python-dotenv`"
+        if GRAPHRAG_ERROR:
+            error_msg += f"\n\nErreur d'import détectée : {GRAPHRAG_ERROR}"
+        st.warning(error_msg)
+        return
+    
+    with st.spinner("Initialisation de GraphRAG..."):
+        graphrag_resources = init_graphrag_resources()
+    
+    if not graphrag_resources:
+        st.error("Impossible d'initialiser GraphRAG. Vérifiez que GEMINI_API_KEY est défini dans votre fichier .env")
+        return
+    
     # Approche 1 : Traduction en SPARQL
-    with st.expander("Approche 1 : Traduction Question → SPARQL"):
-        st.write("**Principe** : Convertir une question en langage naturel en requête SPARQL.")
+    with st.expander("Approche 1 : Traduction Question → SPARQL", expanded=True):
+        st.write("**Principe** : Convertir une question en langage naturel en requête SPARQL via LLM (Gemini).")
         
         user_question = st.text_input(
             "Posez votre question :",
-            value="Quels sont les véhicules diesel avec plus de 6 cylindres ?"
+            value="Quelle est la note moyenne des voitures Ford ?",
+            key="q1"
         )
         
         if st.button("Traduire en SPARQL", key="translate"):
-            # Simulation de la traduction
-            generated_sparql = f"""
-PREFIX auto: <http://www.univ-projet.fr/ontologies/autosemantic#>
-
-SELECT ?vehicle ?manufacturer ?cylinders
-WHERE {{
-    ?vehicle a auto:Car .
-    ?vehicle auto:hasFuelType auto:Diesel .
-    ?vehicle auto:numberOfCylinders ?cylinders .
-    ?vehicle auto:hasManufacturer ?manufacturer .
-    FILTER(?cylinders > 6)
-}}
-LIMIT 10
-"""
+            with st.spinner("Génération de la requête SPARQL..."):
+                result, error = graphrag_sparql_query(graph, user_question, graphrag_resources)
             
-            st.success("Requête SPARQL générée :")
-            st.code(generated_sparql, language="sparql")
-            
-            # Exécuter la requête
-            try:
-                results = graph.query(generated_sparql)
-                data = []
-                for row in results:
-                    data.append({
-                        "Véhicule": format_vehicle_name(graph, row.vehicle),
-                        "Constructeur": get_label(graph, row.manufacturer),
-                        "Cylindres": str(row.cylinders)
-                    })
+            if error:
+                st.error(error)
+            elif result:
+                st.success("Requête SPARQL générée :")
+                st.code(result["sparql"], language="sparql")
                 
-                if data:
-                    st.dataframe(pd.DataFrame(data), width="stretch")
+                # Display results
+                if result["data"]:
+                    st.subheader(f"Résultats ({len(result['data'])} lignes)")
+                    df = pd.DataFrame(result["data"])
+                    st.dataframe(df, width="stretch")
+                    
+                    # Display natural language summary
+                    st.info(f"**Réponse** : {result['summary']}")
                 else:
-                    st.info("Aucun résultat trouvé.")
-            except Exception as e:
-                st.error(f"Erreur : {str(e)}")
+                    st.warning("Aucun résultat trouvé.")
     
     # Approche 2 : Embeddings
-    with st.expander("Approche 2 : Réponse basée sur Embeddings"):
-        st.write("**Principe** : Utiliser des embeddings pour générer une réponse en langage naturel.")
+    with st.expander("Approche 2 : Réponse basée sur Embeddings (Vector RAG)"):
+        st.write("**Principe** : Utiliser des embeddings pour rechercher les avis pertinents et générer une réponse en langage naturel.")
         
-        user_question_2 = st.text_input(
-            "Posez votre question :",
-            value="Quelle est la différence entre un véhicule hybride et électrique ?",
-            key="q2"
-        )
-        
-        if st.button("Générer une réponse", key="embed"):
-            # Réponse simulée
-            simulated_response = f"""
-**Réponse générée par IA** :
+        # Check if vector index is available
+        if not all([graphrag_resources.get("index"), graphrag_resources.get("chunks"), graphrag_resources.get("embedder")]):
+            st.warning("Index vectoriel non disponible. Veuillez d'abord exécuter `7_exploitation/GraphRAG/vector_rag_demo.py` pour créer l'index.")
+        else:
+            st.info(f"Index vectoriel chargé : {graphrag_resources['index'].ntotal} avis clients encodés.")
+            
+            user_question_2 = st.text_input(
+                "Posez votre question :",
+                value="Est-ce que les gens trouvent que les voitures Ford sont fiables ?",
+                key="q2"
+            )
+            
+            if st.button("Générer une réponse", key="embed"):
+                with st.spinner("Recherche dans les avis clients..."):
+                    result, error = graphrag_vector_query(user_question_2, graphrag_resources)
+                
+                if error:
+                    st.error(error)
+                elif result:
+                    # Display retrieved context
+                    with st.expander("Contexte récupéré (Top 3 avis)"):
+                        for i, ctx in enumerate(result["context"], 1):
+                            st.markdown(f"**{i}.** {ctx}")
+                    
+                    # Display response
+                    st.success("**Réponse générée par IA** :")
+                    st.markdown(result["response"])
 
-D'après les données de notre graphe de connaissances AutoSemantica, voici la différence principale :
-
-- **Véhicule Électrique** : Utilise uniquement l'électricité comme source d'énergie. 
-  Dans notre ontologie, ces véhicules ont la propriété `hasFuelType` avec la valeur `Electricity`.
-  Ils ne possèdent généralement pas de cylindres (numberOfCylinders = 0).
-
-- **Véhicule Hybride** : Combine deux sources d'énergie, typiquement essence et électricité.
-  Dans nos données, ils sont identifiés par des valeurs comme `RegularGasAndElectricity` ou 
-  `PremiumGasOrElectricity` pour la propriété `hasFuelType`.
-
-Statistiques du graphe : 
-- Véhicules électriques purs : ~15 entités
-- Véhicules hybrides : ~42 entités
-- Véhicules à essence classique : ~1200+ entités
-"""
-            st.success(simulated_response)
 
 
 # ============================================================================
