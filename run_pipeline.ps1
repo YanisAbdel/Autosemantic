@@ -39,9 +39,9 @@ if (Test-Path "2_data_sources/unstructured/vehicles_scraped_clean.json") {
     python 3_data_extraction/web_extraction/kg_ollama.py
 
     if (Test-Path "2_data_sources/unstructured/vehicles_scraped.json") {
-        Write-Host "    [OK] vehicles_scraped.json cree"
+        Write-Host "vehicles_scraped.json cree"
     } else {
-        Write-Host "    [ERREUR] Scraping echoue!"
+        Write-Host "Scraping echoue!"
         exit 1
     }
 
@@ -50,9 +50,9 @@ if (Test-Path "2_data_sources/unstructured/vehicles_scraped_clean.json") {
     python 3_data_extraction/web_extraction/clean_vehicles_json.py
 
     if (Test-Path "2_data_sources/unstructured/vehicles_scraped_clean.json") {
-        Write-Host "    [OK] vehicles_scraped_clean.json cree"
+        Write-Host "vehicles_scraped_clean.json cree"
     } else {
-        Write-Host "    [ERREUR] Nettoyage JSON echoue!"
+        Write-Host "Nettoyage JSON echoue!"
         exit 1
     }
 }
@@ -69,9 +69,9 @@ docker run --rm -v ${PWD}:/data rmlio/rmlmapper-java:latest --mappingfile /data/
 if (Test-Path "3_data_extraction/rml_mapping/output.ttl") {
     $size = (Get-Item "3_data_extraction/rml_mapping/output.ttl").Length / 1MB
     $sizeStr = [math]::Round($size, 2)
-    Write-Host "    [OK] output.ttl cree ($sizeStr MB)"
+    Write-Host "output.ttl cree ($sizeStr MB)"
 } else {
-    Write-Host "    [ERREUR] Mapping CSV echoue!"
+    Write-Host "Mapping CSV echoue!"
     exit 1
 }
 
@@ -82,9 +82,9 @@ docker run --rm -v ${PWD}:/data rmlio/rmlmapper-java:latest --mappingfile /data/
 if (Test-Path "3_data_extraction/web_extraction/kg_from_web_ollama.ttl") {
     $size = (Get-Item "3_data_extraction/web_extraction/kg_from_web_ollama.ttl").Length / 1KB
     $sizeStr = [math]::Round($size, 2)
-    Write-Host "    [OK] kg_from_web_ollama.ttl cree ($sizeStr KB)"
+    Write-Host "kg_from_web_ollama.ttl cree ($sizeStr KB)"
 } else {
-    Write-Host "    [ERREUR] Mapping JSON echoue!"
+    Write-Host "Mapping JSON echoue!"
     exit 1
 }
 
@@ -98,9 +98,9 @@ python 5_knowledge_graph/merge_graphs.py
 if (Test-Path "5_knowledge_graph/knowledge_graph.ttl") {
     $size = (Get-Item "5_knowledge_graph/knowledge_graph.ttl").Length / 1MB
     $sizeStr = [math]::Round($size, 2)
-    Write-Host "    [OK] knowledge_graph.ttl cree ($sizeStr MB)"
+    Write-Host "knowledge_graph.ttl cree ($sizeStr MB)"
 } else {
-    Write-Host "    [ERREUR] Fusion echouee!"
+    Write-Host "Fusion echouee!"
     exit 1
 }
 
@@ -112,9 +112,9 @@ Write-Host "`nValidation SHACL + Raisonnement OWL-RL..."
 python 6_validation/validate_ontology.py
 
 if (Test-Path "1_ontology/autosemantic_inferred.ttl") {
-    Write-Host "    [OK] Validation complete + inferences generees"
+    Write-Host "Validation complete + inferences generees"
 } else {
-    Write-Host "    [WARN] Validation executee (verifier les logs)"
+    Write-Host "Validation executee (verifier les logs)"
 }
 
 # ============================================================================
@@ -130,12 +130,12 @@ if ($response -eq "" -or $response -eq "O" -or $response -eq "o") {
     python 4_alignment/align_ontologies.py
     
     if (Test-Path "4_alignment/alignments.ttl") {
-        Write-Host "    [OK] Alignements generes"
+        Write-Host "Alignements generes"
     } else {
-        Write-Host "    [WARN] Alignement termine (verifier les logs)"
+        Write-Host "Alignement termine (verifier les logs)"
     }
 } else {
-    Write-Host "    [SKIP] Alignement saute"
+    Write-Host "Alignement saute"
 }
 
 # ============================================================================

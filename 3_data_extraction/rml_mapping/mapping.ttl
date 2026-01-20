@@ -143,7 +143,7 @@
     # Highway Electricity Consumption (highwayE)
     rr:predicateObjectMap [
         rr:predicate :highwayElectricityConsumption ;
-        rr:objectMap [ 
+        rr:objectMap [
             rml:reference "highwayE" ; 
             rr:datatype xsd:float 
         ]
