@@ -65,7 +65,8 @@ def load_graph():
     files_to_load = {
         "Ontologie (autosemantic.ttl)": BASE_DIR / "1_ontology" / "autosemantic.ttl",
         "Données CSV (output.ttl)": BASE_DIR / "3_data_extraction" / "rml_mapping" / "output.ttl",
-        "Alignements Wikidata (alignments.ttl)": BASE_DIR / "4_alignment" / "alignments.ttl",
+        "Alignements classes/propriétés (alignments.ttl)": BASE_DIR / "4_alignment" / "alignments.ttl",
+        "Alignements instances (alignments_instances.ttl)": BASE_DIR / "4_alignment" / "alignments_instances.ttl",
         "Contraintes SHACL (shapes.ttl)": BASE_DIR / "1_ontology" / "shapes.ttl",
         "Données Web scraping (kg_from_web_ollama.ttl)": BASE_DIR / "3_data_extraction" / "web_extraction" / "kg_from_web_ollama.ttl"
     }
@@ -526,7 +527,7 @@ def init_graphrag_resources():
         # Initialize vector store resources
         graphrag_dir = BASE_DIR / "7_exploitation" / "GraphRAG"
         vector_index_file = graphrag_dir / "vector_index.faiss"
-        chunks_file = graphrag_dir / "chunks_cache.pkl"
+        chunks_file = graphrag_dir / "chunks_cache.pkl"  # Contient les chunks de texte pour Vector RAG
         
         index = None
         chunks = None
@@ -559,7 +560,7 @@ def graphrag_sparql_query(graph, question, resources):
     
     client = resources["client"]
     NS = "http://www.univ-projet.fr/ontologies/autosemantic#"
-    MODEL = "gemini-2.0-flash-exp"
+    MODEL = "gemma-3-27b-it"
     
     system_prompt = f"""
 Tu es un expert SPARQL. 
@@ -691,7 +692,7 @@ Fais une synthèse de ces avis pour répondre. Si les avis sont contradictoires,
         full_prompt = f"SYSTEM INSTRUCTION: {system_prompt}\n\n" + user_prompt
         
         response = client.models.generate_content(
-            model="gemini-2.0-flash-exp",
+            model="gemma-3-27b-it",
             contents=full_prompt,
             config=types.GenerateContentConfig(temperature=0.3)
         )
@@ -971,15 +972,14 @@ def tab_lod_alignments(graph):
         
         SELECT DISTINCT ?entity ?label ?externalEntity
         WHERE {
-            ?entity a skos:Concept .
-            ?entity skos:inScheme auto:ManufacturerScheme .
             ?entity owl:sameAs ?externalEntity .
+            FILTER(STRSTARTS(STR(?entity), "http://www.univ-projet.fr/ontologies/autosemantic#"))
+            FILTER(CONTAINS(STR(?externalEntity), "wikidata") || CONTAINS(STR(?externalEntity), "dbpedia"))
+            
             OPTIONAL { ?entity rdfs:label ?label }
             OPTIONAL { ?entity skos:prefLabel ?label }
-            
-            FILTER(CONTAINS(STR(?externalEntity), "wikidata") || CONTAINS(STR(?externalEntity), "dbpedia"))
         }
-        ORDER BY ?label
+        ORDER BY ?entity
     """
     
     try:
