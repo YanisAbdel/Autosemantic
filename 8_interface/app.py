@@ -16,6 +16,8 @@ import plotly.graph_objects as go
 import re
 import pickle
 import numpy as np
+import time
+import random
 from dotenv import load_dotenv
 
 # Load environment variables early
@@ -523,6 +525,36 @@ def init_graphrag_resources():
         return None
 
 
+
+def generate_content_with_retry(client, model, contents, config, max_retries=3):
+    """
+    Wrapper pour client.models.generate_content avec logique de retry (backoff exponentiel)
+    pour gérer les erreurs 503 (Overloaded) et 429 (Too Many Requests).
+    """
+    delay = 2
+    
+    for attempt in range(max_retries):
+        try:
+            return client.models.generate_content(
+                model=model,
+                contents=contents,
+                config=config
+            )
+        except Exception as e:
+            error_str = str(e)
+            if "503" in error_str or "429" in error_str:
+                if attempt < max_retries - 1:
+                    sleep_time = delay + random.uniform(0, 1)
+                    st.warning(f"Modèle surchargé, nouvelle tentative dans {sleep_time:.1f}s... (Essai {attempt + 1}/{max_retries})")
+                    time.sleep(sleep_time)
+                    delay *= 2
+                else:
+                    raise e
+            else:
+                raise e
+
+    return None
+
 def graphrag_sparql_query(graph, question, resources):
     """
     Approach 1: Translate natural language question to SPARQL using LLM.
@@ -565,7 +597,8 @@ R: SELECT ?name WHERE {{ ?c a :Car ; :modelName ?name ; :numberOfCylinders ?nb .
         # Generate SPARQL query
         full_prompt = f"SYSTEM INSTRUCTION:\n{system_prompt}\n\nDEMANDE UTILISATEUR\nCode SPARQL pour : {question}"
         
-        response = client.models.generate_content(
+        response = generate_content_with_retry(
+            client=client,
             model=MODEL,
             contents=full_prompt.strip(),
             config=types.GenerateContentConfig(temperature=0)
@@ -601,7 +634,8 @@ R: SELECT ?name WHERE {{ ?c a :Car ; :modelName ?name ; :numberOfCylinders ?nb .
             # Generate natural language summary
             if data:
                 summary_prompt = f"Data: {data[:10]}. Question: {question}. Réponds en 1-2 phrases simples en français."
-                summary_response = client.models.generate_content(
+                summary_response = generate_content_with_retry(
+                    client=client,
                     model=MODEL,
                     contents=summary_prompt,
                     config=types.GenerateContentConfig(temperature=0.3)
@@ -664,7 +698,8 @@ Fais une synthèse de ces avis pour répondre. Si les avis sont contradictoires,
         
         full_prompt = f"SYSTEM INSTRUCTION: {system_prompt}\n\n" + user_prompt
         
-        response = client.models.generate_content(
+        response = generate_content_with_retry(
+            client=client,
             model="gemma-3-27b-it",
             contents=full_prompt,
             config=types.GenerateContentConfig(temperature=0.3)
